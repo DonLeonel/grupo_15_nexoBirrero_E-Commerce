@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/80d7b2a33b.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/carrito.css">
+
+    <title>Carrito</title>
+</head>
+<body>
+    <header class="encabezado">
+        <a class="enc-logo" href="/">
+            <img class="logo" src="" alt="Logo-nexoBirrero">
+        </a>
+        <form action="#" class="enc-busqueda">
+            <input class="search" title="search" type="text" id="search" name="search"
+                placeholder="Busque su producto aquí">
+            <button id="search" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <nav class="enc-navbar">
+            <a class="enc-carrito" href="#">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button">
+                        Cuenta
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/login">Iniciar Sesión</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="/register">Registrarse</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="#">Configuración</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="#">Ayuda</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-productos">
+
+            <article class="producto">
+                <section class="section-imagen">
+                    <img class="img-categ" src="img/Categoria.jpg" alt="imagen producto">
+                </section>
+                <section class="section-informacion">
+                    <section class="section-precios">
+                        <h3 class="nombre-producto">Cerveza Negra</h3>
+                        <p class="descripcion-producto">Descripción</p>
+                        <p class="precio-producto">$999</p>
+                    </section>
+                    <section class="section-delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </section>
+                </section>    
+            </article>
+            
+            <article class="producto">
+                <section class="section-imagen">
+                    <img class="img-categ" src="img/Categoria.jpg" alt="imagen producto">
+                </section>
+                <section class="section-informacion">
+                    <section class="section-precios">
+                        <h3 class="nombre-producto">Cerveza Rubia</h3>
+                        <p class="descripcion-producto">Descripción</p>
+                        <p class="precio-producto">$999</p>
+                    </section>
+                    <section class="section-delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </section>
+                </section>  
+            </article>
+
+            <article class="producto">
+                <section class="section-imagen">
+                    <img class="img-categ" src="img/Categoria.jpg" alt="imagen producto">
+                </section>
+                <section class="section-informacion">
+                    <section class="section-precios">
+                        <h3 class="nombre-producto">Cerveza IPA</h3>
+                        <p class="descripcion-producto">Descripción</p>
+                        <p class="precio-producto">$499</p>
+                    </section>
+                    <section class="section-delete">
+                        <i class="fa-solid fa-trash"></i>
+                    </section>
+                </section>  
+            </article>
+
+        </section>
+
+        <section class="section-comprar">
+
+            <div id="resumen-de-compra">Resumen de Compra</div>
+
+            <div id="lista-carrito">
+
+                <div class="resumen-producto">
+                    <span>Cerveza Negra</span>
+                    <span>$999</span>
+                </div>
+
+                <div class="resumen-producto">
+                    <span>Cerveza Rubia</span>
+                    <span>$999</span>
+                </div>
+
+                <div class="resumen-producto">
+                    <span>Cerveza IPA</span>
+                    <span>$499</span>
+                </div>
+                
+            </div>
+
+            <div id="total-comprar">
+                <div id="total">Total: $2497</div>
+                <div id="comprar">Comprar</div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="pie-item">
+            <a href="#">Contactos</a>
+        </div>
+        <div class="pie-item">
+            <a href="#">Términos y condiciones</a>
+        </div>
+        <div class="pie-item">
+            <h5>Copyrigth</h5>
+        </div>
+    </footer>
+</body>
+</html>
