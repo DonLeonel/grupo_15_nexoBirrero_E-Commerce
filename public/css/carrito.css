@@ -1,0 +1,125 @@
+main {
+
+}
+
+.section-producto {
+    
+}
+
+.producto {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px black;
+    box-sizing: border-box;
+}
+
+.section-comprar {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+    box-sizing: border-box;
+}
+
+.section-imagen {
+    text-align: center;
+}
+
+.img-categ {
+    width: 80%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.section-informacion {
+    border-top: solid 2px #E2E0E0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section-precios {
+    width: 80%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.section-delete {
+    border-left: solid 2px #E2E0E0;
+}
+
+#resumen-de-compra {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.resumen-producto {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: solid 2px #E2E0E0;
+    box-sizing: border-box;
+}
+
+#total-comprar {
+    border-top: solid 2px #E2E0E0;
+}
+
+#total {
+    text-align: center;   
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#comprar {
+    background-color:blue;
+    color: white;
+    text-align: center;
+    border-top: solid 2px #E2E0E0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+@media (min-width: 480px){
+    .producto {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .section-informacion {
+        border-top: none;
+        border-left: solid 2px #E2E0E0;
+        width: 50%;
+    }
+
+    .section-imagen {
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px){
+
+    .section-productos {
+        width: 50%;
+    }
+    
+    .producto {
+        width: 80%;
+    }
+
+    .section-comprar{
+        width: 40%;
+    }
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

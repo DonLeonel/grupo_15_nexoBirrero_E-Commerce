@@ -1,0 +1,107 @@
+/* Para abajo se encuentran los estilos del Banner*/
+
+.cont-banner {
+    margin-bottom: -4px;
+}
+
+.banner {
+    width: 100%;
+    height: 296px;
+    padding: 10px;
+    background-color: #170B04;
+}
+
+/* Para abajo se encuentran los estilos de la sección categorías y destacados*/
+
+.principal {
+    width: 100%;
+    background-color:#d9d9d9;
+}
+
+.categorias,
+.destacados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;    
+}
+
+.titulo-seccion {
+    font-size: 18px;
+    text-align: center;
+    text-decoration: underline;
+    padding: 15px;
+}
+
+.categ-producto {
+    margin: 20px 10px;
+    width: 25%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+.dest-producto {
+    margin: 20px 10px;
+    width: 90%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px black;
+}
+
+.categ-producto img,
+.dest-producto img {
+    width: 100%;    
+}
+
+.categ-producto a,
+.dest-producto a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+/* Para abajo se encuentra la primer Media Query*/
+
+@media (min-width: 600px){
+    .dest-producto {
+        width: 40%;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .categorias {
+        width: 60%;
+    }
+
+    .categ-producto {        
+        width: 25%;
+    }
+
+    .dest-producto {
+        width: 30%;
+    }
+}
+
+@media(min-width: 992px) {
+    .principal {
+        margin: auto;
+    }
+}
+
+@media(min-width: 1200px) {
+    .categorias {
+        width: 100%;
+    }
+
+    .categ-producto {
+        width: 15%;
+    }
+
+    .dest-producto {
+        padding: 5px;
+        width: 23%;
+    }
+}
