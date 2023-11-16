@@ -1,0 +1,64 @@
+main {    
+    margin: 4rem 0;
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+.form-login button {
+    display: block;
+    margin: 1rem auto;
+    width: 90%;
+    height: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #0096d2;
+    color: white;
+    cursor: pointer;
+}
+
+.form-login button:hover {
+    background-color: #34bbe9;
+}
+
+.form-login {
+    width: 70%;
+    margin: 3rem auto 0 auto;
+}
+
+div label {
+    margin-top: 1.5rem;
+    padding: 5px;
+}
+
+div input {
+    padding: 5px 0 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightgray;
+    height: 1.5rem;
+    width: 90%;
+}
+
+main a {
+    display: block;
+    width: max-content;
+    margin: 10px auto 0 auto;
+    color: black;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+@media (min-width: 600px) {
+    .form-login {
+        width: 45%;
+    }
+}
+
+@media (min-width: 992px) {
+    .form-login {
+        width: 30%;
+    }
+}

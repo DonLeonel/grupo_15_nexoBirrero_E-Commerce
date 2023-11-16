@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
 
     <title>Carrito</title>
 </head>
+
 <body>
     <header class="encabezado">
         <a class="enc-logo" href="/">
@@ -65,12 +67,15 @@
                         <p class="descripcion-producto">Descripción</p>
                         <p class="precio-producto">$999</p>
                     </section>
-                    <section class="section-delete">
-                        <i class="fa-solid fa-trash"></i>
-                    </section>
-                </section>    
+                    <div class="opc-add-remov">
+                        <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        <span class="count-cant">2</span>
+                        <button class="btn-remove"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                </section>
             </article>
-            
+
             <article class="producto">
                 <section class="section-imagen">
                     <img class="img-categ" src="img/Categoria.jpg" alt="imagen producto">
@@ -81,10 +86,13 @@
                         <p class="descripcion-producto">Descripción</p>
                         <p class="precio-producto">$999</p>
                     </section>
-                    <section class="section-delete">
-                        <i class="fa-solid fa-trash"></i>
-                    </section>
-                </section>  
+                    <div class="opc-add-remov">
+                        <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        <span class="count-cant">2</span>
+                        <button class="btn-remove"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                </section>
             </article>
 
             <article class="producto">
@@ -97,10 +105,13 @@
                         <p class="descripcion-producto">Descripción</p>
                         <p class="precio-producto">$499</p>
                     </section>
-                    <section class="section-delete">
-                        <i class="fa-solid fa-trash"></i>
-                    </section>
-                </section>  
+                    <div class="opc-add-remov">
+                        <button class="btn-add"><i class="fa-solid fa-plus"></i></button>
+                        <span class="count-cant">2</span>
+                        <button class="btn-remove"><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                    <button class="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                </section>
             </article>
 
         </section>
@@ -125,27 +136,39 @@
                     <span>Cerveza IPA</span>
                     <span>$499</span>
                 </div>
-                
+
             </div>
 
             <div id="total-comprar">
                 <div id="total">Total: $2497</div>
-                <div id="comprar">Comprar</div>
+                <button type="submit" id="comprar">Comprar</button>
             </div>
 
         </section>
     </main>
 
     <footer class="pie">
-        <div class="pie-item">
-            <a href="#">Contactos</a>
-        </div>
-        <div class="pie-item">
-            <a href="#">Términos y condiciones</a>
-        </div>
-        <div class="pie-item">
+        <section>
+            <div class="pie-item">
+                <a href="#">Contactos</a>
+            </div>
+            <div class="pie-item">
+                <a href="#">Términos y condiciones</a>
+            </div>
+        </section>
+        <section>
+            <div class="pie-item">
+                <a href="#">Sobre nosotros</a>
+            </div>
+            <div class="pie-item">
+                <a href="#">Suscribirme para recibir noticias</a>
+            </div>
+        </section>
+        <div class="copyright">
+            <i class="fa-solid fa-copyright"></i>
             <h5>Copyrigth</h5>
-        </div>
+        </div>        
     </footer>
 </body>
+
 </html>

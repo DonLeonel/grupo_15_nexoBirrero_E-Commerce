@@ -1,19 +1,18 @@
-main {
-
+main {    
+    padding: 20px;
 }
 
-.section-producto {
-    
-}
+.section-producto {}
 
 .producto {
     background-color: white;
-    width: 80%;
+    width: 95%;
     margin: auto;
     margin-top: 15px;
     border-radius: 10px;
     box-shadow: 0px 0px 4px black;
-    box-sizing: border-box;
+
+    min-width: 250px;
 }
 
 .section-comprar {
@@ -21,7 +20,6 @@ main {
     width: 80%;
     margin: auto;
     margin-top: 15px;
-    box-sizing: border-box;
 }
 
 .section-imagen {
@@ -29,31 +27,64 @@ main {
 }
 
 .img-categ {
-    width: 80%;
-    padding: 5px;
-    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .section-informacion {
-    border-top: solid 2px #E2E0E0;
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 .section-precios {
     width: 80%;
     padding: 20px;
-    box-sizing: border-box;
 }
 
-.section-delete {
-    border-left: solid 2px #E2E0E0;
+
+/* css botones agregar +1 y quitar -1 cantidad */
+.opc-add-remov {
+    position: absolute;
+    right: 13px;
+    bottom: 40px;
+    padding: 5px;
+    border: 2px #E2E0E0 solid;
+    border-radius: 10px;
+    width: 80px;
+    text-align: center;
 }
+
+.btn-add,
+.btn-remove{
+    border: none;
+    padding: 7px;
+    cursor: pointer;
+    font-size: 8px;
+}
+
+/* css boton delete */
+.btn-delete {
+    position: absolute;
+    right: 38px;
+    bottom: 15px;
+
+    cursor: pointer;
+    border: none;
+}
+
+.btn-delete i {
+    font-size: 1.1rem;
+}
+
+.btn-delete:hover{
+    color: red;
+}
+
+/* ----------------------------------  */
 
 #resumen-de-compra {
     text-align: center;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 .resumen-producto {
@@ -61,7 +92,6 @@ main {
     justify-content: space-between;
     padding: 10px;
     border-top: solid 2px #E2E0E0;
-    box-sizing: border-box;
 }
 
 #total-comprar {
@@ -69,28 +99,24 @@ main {
 }
 
 #total {
-    text-align: center;   
+    text-align: center;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 #comprar {
-    background-color:blue;
+    background-color: blue;
     color: white;
     text-align: center;
-    border-top: solid 2px #E2E0E0;
     padding: 10px;
-    box-sizing: border-box;
-}
-
-footer {
+    width: 100%;
     margin-top: 20px;
 }
 
-@media (min-width: 480px){
+
+@media (min-width: 480px) {
     .producto {
-        display: flex;
-        flex-wrap: wrap;
+        display: flex;        
+        align-items: center;
     }
 
     .section-informacion {
@@ -100,22 +126,42 @@ footer {
     }
 
     .section-imagen {
-        width: 50%;
+        width: 40%;
+    }
+
+    /* css botones agregar +1 y quitar -1 cantidad */
+    .opc-add-remov {        
+        right: -33px;
+        bottom: 40px;        
+        width: 70px;
+    }
+    
+    .btn-add,
+    .btn-remove{
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 8px;
+    }
+    
+    .btn-delete {        
+        right: -5px;
+        bottom: 7px;   
     }
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
 
     .section-productos {
-        width: 50%;
+        width: 60%;
     }
-    
+
     .producto {
         width: 80%;
     }
 
-    .section-comprar{
-        width: 40%;
+    .section-comprar {
+        width: 30%;
     }
 
     main {
