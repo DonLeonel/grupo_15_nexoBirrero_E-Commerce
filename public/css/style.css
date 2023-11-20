@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-* {
+* {    
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -8,16 +8,16 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    min-width: 240px;
+    min-width: 250px;    
     display: flex;
-    flex-direction: column;
+    flex-direction: column;  /*Con estas 3 lineas hacemos que el footer se quede abajo siempre*/
     min-height: 100vh;
 }
 
 /*Para abajo se encuentran los estilos del encabezado*/
 
-header.encabezado {   
-    padding: 15px; 
+header.encabezado {
+    padding: 15px;
     text-align: center;
     background-color: #353535;
 }
@@ -30,10 +30,10 @@ header.encabezado {
 
 /* Para abajo se encuentran los estilos del buscador*/
 
-.enc-busqueda {    
-    margin: auto; 
-    position: relative; 
-    width: 70%; 
+.enc-busqueda {
+    margin: auto;
+    position: relative;
+    width: 70%;
 }
 
 .enc-busqueda .search {
@@ -41,14 +41,14 @@ header.encabezado {
     height: 1.5rem;
     border: none;
     border-radius: 15px;
-    padding: 0px 15px;    
+    padding: 0px 15px;
 }
 
 .search::placeholder {
     color: #000;
 }
 
-.enc-busqueda button {    
+.enc-busqueda button {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -63,7 +63,7 @@ header.encabezado {
 /* Para abajo se encuentran los estilos del carrito*/
 
 .enc-carrito {
-    padding: 8px;    
+    padding: 8px;
     color: grey;
 }
 
@@ -79,7 +79,7 @@ header.encabezado {
 
 .enc-navbar {
     display: flex;
-    justify-content: space-around;  
+    justify-content: space-around;
     text-align: center;
     margin-top: 1rem;
     align-items: center;
@@ -87,13 +87,13 @@ header.encabezado {
 
 .dropdown {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     position: relative;
 }
 
 .dropdown-menu {
     border: 2px solid white;
-    padding: 10px;    
+    padding: 10px;
     background-color: black;
 
     position: absolute;
@@ -108,17 +108,17 @@ header.encabezado {
 }
 
 .dropdown-toggle {
-    font-size: 0.9rem;    
+    font-size: 0.9rem;
     border: 1px gray solid;
     padding: 2px 10px;
 }
 
 .dropdown-toggle:hover {
-    box-shadow: 0px 0px 30px 3px black;    
+    box-shadow: 0px 0px 30px 3px black;
     border: 2px white solid;
 }
 
-.dropdown:hover>.dropdown-menu {  
+.dropdown:hover>.dropdown-menu {
     display: block;
 }
 
@@ -143,7 +143,7 @@ header.encabezado {
     color: gray;
 }
 
-.dropdown a:hover{    
+.dropdown a:hover {
     color: white;
 }
 
@@ -155,10 +155,10 @@ header.encabezado {
     padding: 15px;
     text-align: center;
     color: white;
-    position: relative;
-    bottom:  auto;
     width: 100%;
-}
+    
+    margin-top: auto; /*Con esta linea hacemos que el footer se quede abajo siempre*/
+
 
 .pie .pie-item {
     margin: 20px 0px;
@@ -167,35 +167,23 @@ header.encabezado {
 .pie-item a {
     color: white;
     text-decoration: none;
-} */
-footer {
-    background-color: #640d14;
-    
-    padding: 15px;
-    text-align: center;
-    color: white;
-    
-   
-    width: 100%;
-    margin-top: auto;
-   
 }
 
-footer a {
-    text-decoration: none;
-    color: white;
+.copyright{
+    width: 100%;    
+}
+.copyright h5,
+.copyright i{
+    color: black;  
 }
 
+@media(min-width: 768px) {
 
-
-@media(min-width: 768px) {  
-   
-
-    header.encabezado {        
+    header.encabezado {
         display: flex;
         justify-content: space-around;
-        align-items: center;   
-        padding: 20px;     
+        align-items: center;
+        padding: 20px;
     }
 
     .enc-navbar {
@@ -205,7 +193,17 @@ footer a {
     }
 
     /* Para abajo se encuentran los estilos del buscador*/
-    .enc-busqueda {        
-        width: 35%; 
-    }       
+    .enc-busqueda {
+        width: 35%;
+    }
+
+    .pie {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-around;
+    }
+
+    .pie .pie-item {
+        margin: 20px 0px;
+    }
 }

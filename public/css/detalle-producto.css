@@ -1,15 +1,10 @@
-main {
-    margin-bottom: 20px;
-}
-
-footer {
-    margin-top: auto;
+.principal-detalle {    
+    padding: 40px 0;
 }
 
 .section-padre-imagenes {
-    width: 80%;
+    width: 70%;
     margin: auto;
-    margin-top: 15px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -31,7 +26,7 @@ footer {
     display: flex;
     width: 100%;
     padding: 5px;
-    box-sizing: border-box;
+    /*box-sizing: border-box;          esta linea esta aplicada en el Css global*/
 }
 
 .img-main {
@@ -41,10 +36,9 @@ footer {
 
 .section-padre-detalles {
     background-color: #E2E0E0;
-    width: 80%;
+    width: 70%;
     margin: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
 }
 
 .section-detalles {
@@ -52,6 +46,7 @@ footer {
 }
 
 .section-comprar {
+    position: relative;
     padding: 10px;
 }
 
@@ -65,38 +60,58 @@ footer {
 }
 
 #comprar {
+    display: block;
+    cursor: pointer;
+    width: 100%;
     background-color: cornflowerblue;
-    padding: 5px;
-    margin: auto;
-    text-align: center;
     color: white;
+    padding: 5px;
+    margin: 10px auto;
+    text-align: center;
 }
 
 #agregar-carrito {
+    display: block;
+    cursor: pointer;
+    width: 100%;
     background-color: grey;
     padding: 5px;
     margin: auto;
-    margin-top: 5px;
     text-align: center;
     color: white;
 }
 
-@media (min-width: 768px){
+@media (min-width: 768px) {
 
-    .section-padre {
+    .principal-detalle {
         display: flex;
         width: 80%;
         margin: auto;
     }
 
     .section-padre-imagenes {
-        width: 50%;
+        min-width: 400px;
+        margin-right: 0;
+        max-width: 460px;
+        width: 700px;
     }
 
     .section-padre-detalles {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        width: 40%;
+        height: 288px;
+        margin-left: 0;
+    }
+
+    #comprar {
+        width: 91%;
+        position: absolute;
+        top: 47px;
+    }
+
+    #agregar-carrito {
+        display: block;
+        width: 91%;
+        position: absolute;
+        top: 93px;
     }
 }

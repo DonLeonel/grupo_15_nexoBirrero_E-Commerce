@@ -1,0 +1,12 @@
+main div {    
+    margin-top: 9rem;
+    text-align: center;    
+}
+
+body{
+    background-color: grey;
+}
+
+.numero{
+    font-size: 5rem;
+}
