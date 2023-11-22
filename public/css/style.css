@@ -149,7 +149,7 @@ header.encabezado {
 
 /* Para abajo se encuentran los estilos del Footer*/
 
-/* .pie {
+.pie {
     background-color: #640d14;
     height: auto;
     padding: 15px;
@@ -158,6 +158,7 @@ header.encabezado {
     width: 100%;
     
     margin-top: auto; /*Con esta linea hacemos que el footer se quede abajo siempre*/
+}
 
 
 .pie .pie-item {
@@ -174,7 +175,7 @@ header.encabezado {
 }
 .copyright h5,
 .copyright i{
-    color: black;  
+    color: white;  
 }
 
 @media(min-width: 768px) {
