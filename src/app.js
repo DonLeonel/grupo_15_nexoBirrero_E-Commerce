@@ -34,6 +34,13 @@ app.get('/recuperar-password', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/recuperar-password.html'));
 });
 
+
+app.get('/configuracion', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/configuracion.html'));
+});
+
+
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'views/not-found.html'));
 });

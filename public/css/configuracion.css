@@ -1,0 +1,99 @@
+.principal-config {
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+
+}
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;      
+}
+
+.user-avatar {
+    padding: 20px 0 30px 10px;
+    position: relative;
+    display: flex;    
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 65px;
+    cursor: pointer;
+}
+
+.avatar:hover > .editar-avatar{
+    visibility: visible;
+}
+
+.name-user {
+    font-size: 16px;
+    padding: 10px;
+}
+.editar-avatar a{
+    font-size: 12px;
+}
+
+.editar-avatar {
+    width: 65px;
+    position: absolute;
+    left: 57px;
+    top: 20px;
+    border-radius: 50%;
+    padding: 23px 0px 23px 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: visible;
+}
+
+.opciones{
+    text-align: center;
+}
+
+.opciones ul{
+    list-style: none;
+}
+
+ul .item {
+    padding: 8px;
+}
+
+ul .item:hover{
+    background-color: #bebebe;
+}
+
+.item a{
+    text-decoration: none;
+    color: black;
+}
+
+#borrar-cuenta a {
+    color: red;
+}
+
+@media (min-width: 768px) {
+    .principal-config {        
+        width: 25%; 
+        margin-left: 0; 
+        border-right: 2px lightgrey solid;      
+    }
+
+    .user-avatar {            
+        justify-content: left;
+        align-items: center;
+    }    
+    
+    .menu-lateral {        
+        justify-content: left;      
+    } 
+    
+    .editar-avatar {
+        left: 10px;        
+        padding: 23px 0px 23px 10px;
+    }
+
+    .opciones{
+        text-align: left;
+    }
+}
