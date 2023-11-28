@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%- include('partials/head', {title: 'Configuración' , fileCss: 'setting' }) %>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%- include('partials/header') %>
+
+            <!-- <header class="encabezado">
+                <a class="enc-logo" href="/">
+                    <img class="logo" src="" alt="Logo-nexoBirrero">
+                </a>
+                <form action="#" class="enc-busqueda">
+                    <input class="search" title="search" type="text" id="search" name="search"
+                        placeholder="Busque su producto aquí">
+                    <button id="search" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <nav class="enc-navbar">
+                    <a class="enc-carrito" href="/carrito">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <ul>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" role="button">
+                                Cuenta
+                                <i class="fa-solid fa-arrow-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/login">Iniciar Sesión</a>
+                                </li>
+                                <hr>
+                                <li>
+                                    <a href="/register">Registrarse</a>
+                                </li>
+                                <hr>
+                                <li>
+                                    <a href="#">Ayuda</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </header> -->
+
+            <main class="principal-config">
+                <section class="menu-lateral">
+                    <div class="user-avatar">
+                        <img class="avatar" src="/img/user.png" alt="avatar usuario">
+                        <span class="name-user">Usuario15</span>
+                        <span class="editar-avatar"><a href="#">Cambiar</a></d>
+                    </div>
+                    <nav class="opciones">
+                        <ul>
+                            <li class="item"><a href="#">Cambiar nombre de usuario</a></li>
+                            <li class="item"><a href="#">Cambiar contraseña</a></li>
+                            <li class="item"><a href="#">Cambiar email</a></li>
+                            <li class="item"><a href="#">Cambiar ubicación</a></li>
+                            <hr>
+                            <li id="borrar-cuenta" class="item "><a href="">Borrar Cuenta</a></li>
+                        </ul>
+
+                    </nav>
+                </section>
+            </main>
+
+            <!-- Incluimos el footer a nuestro body -->
+            <%- include('partials/footer')%>
+    </body>
+
+</html>

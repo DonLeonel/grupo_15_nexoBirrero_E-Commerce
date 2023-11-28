@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%- include('./partials/head', {title: 'Home' , fileCss: 'home' })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('./partials/header')%>
+
+            <section class="cont-banner">
+                <img class="banner" src="/img/banner1.png" alt="banner">
+            </section>
+
+            <main class="principal">
+
+                <h2 class="titulo-seccion">Categorías</h2>
+
+                <section class="categorias">                    
+                     <article class="categ-producto">
+                        <a href="#">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <div class="descripcion">Trigo</div>
+                        </a>
+                    </article>                    
+                    <article class="categ-producto">
+                        <a href="#">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <div class="descripcion">Ale</div>
+                        </a>
+                    </article>
+                    <article class="categ-producto">
+                        <a href="#">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <div class="descripcion">Porter</div>
+                        </a>
+                    </article>
+                    <article class="categ-producto">
+                        <a href="#">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <div class="descripcion">Lager</div>
+                        </a>
+                    </article>
+                    <article class="categ-producto">
+                        <a href="#">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <div class="descripcion">Stout</div>
+                        </a>
+                    </article>
+                    <article class="categ-producto">
+                        <a href="#">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <div class="descripcion">Especialidades..</div>
+                        </a>
+                    </article>
+                </section>
+
+                <h2 class="titulo-seccion">Productos destacados</h2>
+
+                <section class="destacados"> 
+                    <% for(let i = 0; i < productos.length ; i++) {%>
+                        <article class="dest-producto">
+                            <a href="/detalle-producto/<%= productos[i].id %>">
+                                <img class="img-categ" src="/img/productos/<%= productos[i].img %>" alt="imagen categoria">
+                                <div class="descripcion"><%= productos[i].nombre %></div>
+                                <div class="descripcion"><%= productos[i].variedad %></div>
+                            </a>
+                        </article>
+                    <% } %>
+                </section>
+            </main>
+
+            <!-- Incluimos el footer a nuestro body -->
+            <%-include('./partials/footer')%>
+    </body>
+
+</html>

@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    index: (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../views/login.html'));
+    index: (req, res) => {        
+        res.render('login');
     }
 };
