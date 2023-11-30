@@ -1,107 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/80d7b2a33b.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/register.css" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/80d7b2a33b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/register.css">
+
     <title>Registrarse</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="encabezado">
-      <a class="enc-logo" href="/">
-        <img class="logo" src="" alt="Logo-nexoBirrero" />
-      </a>
-      <form action="#" class="enc-busqueda">
-        <input
-          class="search"
-          title="search"
-          type="text"
-          id="search"
-          name="search"
-          placeholder="Busque su producto aquí"
-        />
-        <button id="search" name="search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </form>
-      <nav class="enc-navbar">
-        <a class="enc-carrito" href="/carrito">
-          <i class="fa-solid fa-cart-shopping"></i>
+        <a class="enc-logo" href="/">
+            <img class="logo" src="" alt="Logo-nexoBirrero">
         </a>
-        <ul>
-          <li class="dropdown">
-            <a class="dropdown-toggle" role="button">
-              Cuenta
-              <i class="fa-solid fa-arrow-down"></i>
+
+        <form action="#" class="enc-busqueda">
+            <input class="search" title="search" type="text" id="search" name="search"
+                placeholder="Busque su producto aquí">
+            <button id="search" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <nav class="enc-navbar">
+            <a class="enc-carrito" href="/carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
             </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="/login">Iniciar Sesión</a>
-              </li>
-              <hr />
-              <li>
-                <a href="/register">Registrarse</a>
-              </li>
-              <hr />
-              <li>
-                <a href="#">Configuración</a>
-              </li>
-              <hr />
-              <li>
-                <a href="#">Ayuda</a>
-              </li>
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button">
+                        Cuenta
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/setting">Configuración</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="#">Ayúda</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-          </li>
-        </ul>
-      </nav>
+        </nav>
     </header>
 
-    <div class="titulo">
-      <h2><b>Registrarse</b></h2>
-      <h3>Completa el Formulario</h3>
-    </div>
-    <form action="" class="form-register">
-      <div class="campos">
-       <label>Nombre</label>
-       <input type="text" name="nombre"  placeholder="Nombre">
-       <label>Apellido</label>
-       <input type="text" name="apellido"  placeholder="Apellido">
-       <label>Nombre de usuario</label>
-       <input type="text" name="usuario"  placeholder="Nombre de Usuario">
-       <label>Facha de nacimiento</label>
-       <input type="date" name="nacimiento"  placeholder="Fecha de Nacimiento">
-        <label>Correo Electronico</label>
-       <input type="email" name="correo"  placeholder="Correo Electronico">
-       <label>Contraseña</label>
-       <input type="password" name="contraseña" placeholder="Contraseña">
-       <label>Confirmar contraseña</label>
-       <input type="password" name="contraseña" placeholder="Confirmar contraseña">
-    </div>
-    <div class="bnt-register">
+    <main>
 
-        <button>Registrarse</button>
-    </div>
-    <div class="btn-final-form">
+        <h3 class="titulo-page">Registrarse.</h3>
+        <h3 class="titulo-page">¡Completá el formulario!</h3>
 
-        <a href="/login">¿Ya tenés cuenta? Inicia sesión</a>
-    </div>
-    </form>
+        <form class="form-register" action="/login" >
+
+            <div class="nombre-apellido">
+                <label for="nombre-apellido">Nombre y Apellido</label>
+                <input type="text" name="nombre-apellido" id="nombre-apellido" required>
+            </div>
+
+            <div class="usuario">
+                <label for="usuario">Nombre de usuario</label>
+                <input type="text" name="usuario" id="usuario" required>
+            </div>
+
+            <div class="correo">
+                <label for="correo">Correo Electrónico</label>
+                <input type="email" name="correo" id="correo" required>
+            </div>
+
+            <div class="contraseña">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" name="contraseña" id="contraseña" required>
+            </div>
+
+            <div class="confirmar-contraseña">
+                <label for="confirmar-contraseña">Confirmar Contraseña</label>
+                <input type="password" name="confirmar-contraseña" id="confrirmar-contraseña" required>
+            </div>
+
+            <br>
+            <button type="submit">Confirmar</button>
+        </form>
+
+        <h3><a href="/login">¿Ya tienes cuenta? Inicia sesión.</a></h3>
+    </main>
 
     <footer class="pie">
-      <div class="pie-item">
-        <a href="#">Contactos</a>
-      </div>
-      <div class="pie-item">
-        <a href="#">Términos y condiciones</a>
-      </div>
-      <div class="pie-item">
-        <h5>Copyrigth</h5>
-      </div>
+        <section>
+            <div class="pie-item">
+                <a href="#">Contactos</a>
+            </div>
+            <div class="pie-item">
+                <a href="#">Términos y condiciones</a>
+            </div>
+        </section>
+        <section>
+            <div class="pie-item">
+                <a href="#">Sobre nosotros</a>
+            </div>
+            <div class="pie-item">
+                <a href="#">Suscribirme para recibir noticias</a>
+            </div>
+        </section>
+        <div class="copyright">
+            <i class="fa-solid fa-copyright"></i>
+            <h5>Copyrigth</h5>
+        </div>        
     </footer>
-  </body>
+</body>
+
 </html>

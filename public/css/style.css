@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-* {    
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -8,9 +8,10 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    min-width: 250px;    
+    min-width: 250px;
+    
     display: flex;
-    flex-direction: column;  /*Con estas 3 lineas hacemos que el footer se quede abajo siempre*/
+    flex-direction: column;    /*Con estas 3 lineas hacemos que el footer se quede abajo siempre*/   
     min-height: 100vh;
 }
 
@@ -95,11 +96,11 @@ header.encabezado {
     border: 2px solid white;
     padding: 10px;
     background-color: black;
-
+    z-index: 20;
     position: absolute;
     top: 23px;
     right: 0px;
-
+    width: max-content;
     display: none;
 }
 
@@ -149,16 +150,16 @@ header.encabezado {
 
 /* Para abajo se encuentran los estilos del Footer*/
 
-/* .pie {
-    background-color: #640d14;
-    height: auto;
+.pie {
+    font-size: 0.8rem;
+    background-color: #640d14;    
     padding: 15px;
     text-align: center;
     color: white;
     width: 100%;
-    
-    margin-top: auto; /*Con esta linea hacemos que el footer se quede abajo siempre*/
 
+    margin-top: auto;  /*Con esta linea hacemos que el footer se quede abajo siempre */                       
+}
 
 .pie .pie-item {
     margin: 20px 0px;
@@ -169,12 +170,13 @@ header.encabezado {
     text-decoration: none;
 }
 
-.copyright{
-    width: 100%;    
+.copyright {
+    width: 100%;
 }
+
 .copyright h5,
-.copyright i{
-    color: black;  
+.copyright i {
+    color: black;
 }
 
 @media(min-width: 768px) {
@@ -199,7 +201,7 @@ header.encabezado {
 
     .pie {
         display: flex;
-        flex-wrap: wrap; 
+        flex-wrap: wrap;
         justify-content: space-around;
     }
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%-include('partials/head', {title: 'Login' , fileCss: 'login' })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('partials/header')%>
+
+            <!-- <header class="encabezado">
+        <a class="enc-logo" href="/">
+            <img class="logo" src="" alt="Logo-nexoBirrero">
+        </a>
+
+        <form action="#" class="enc-busqueda">
+            <input class="search" title="search" type="text" id="search" name="search"
+                placeholder="Busque su producto aquí">
+            <button id="search" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <nav class="enc-navbar">
+            <a class="enc-carrito" href="/carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+            <ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" role="button">
+                        Cuenta
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/setting">Configuración</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="#">Ayúda</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header> -->
+
+            <main>
+
+                <h3 class="titulo-page">Iniciar Sesión</h3>
+
+                <form class="form-login" action="/login">
+
+                    <div class="usuario">
+                        <label for="usuario">Nombre de Usuario</label>
+                        <input type="text" name="usuario" id="usuario" required>
+                    </div>
+
+                    <div class="password">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+
+                    <br>
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <h3><a href="/register">¿No tenes cuenta? Regístrate.</a></h3>
+
+                <h3><a href="/recuperar-password">¿Olvídate tu contraseña?</a></h3>
+            </main>
+
+            <!-- Incluimos el footer a nuestro body -->
+            <%- include('partials/footer')%>
+    </body>
+
+</html>
