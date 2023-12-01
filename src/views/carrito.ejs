@@ -1,58 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/80d7b2a33b.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/carrito.css">
-
-    <title>Carrito</title>
-</head>
+<%- include('./partials/head', {title: 'Carrito' , fileCss: 'carrito' })%>
 
 <body>
-    <header class="encabezado">
-        <a class="enc-logo" href="/">
-            <img class="logo" src="" alt="Logo-nexoBirrero">
-        </a>
-        <form action="#" class="enc-busqueda">
-            <input class="search" title="search" type="text" id="search" name="search"
-                placeholder="Busque su producto aquí">
-            <button id="search" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </form>
-        <nav class="enc-navbar">
-            <a class="enc-carrito" href="#">
-                <i class="fa-solid fa-cart-shopping"></i>
-            </a>
-            <ul>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" role="button">
-                        Cuenta
-                        <i class="fa-solid fa-arrow-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/login">Iniciar Sesión</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="/register">Registrarse</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="/setting">Configuración</a>
-                        </li>
-                        <hr>
-                        <li>
-                            <a href="#">Ayuda</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <%-include('./partials/header')%>
+
 
     <main>
         <section class="section-productos">
@@ -147,28 +100,7 @@
         </section>
     </main>
 
-    <footer class="pie">
-        <section>
-            <div class="pie-item">
-                <a href="#">Contactos</a>
-            </div>
-            <div class="pie-item">
-                <a href="#">Términos y condiciones</a>
-            </div>
-        </section>
-        <section>
-            <div class="pie-item">
-                <a href="#">Sobre nosotros</a>
-            </div>
-            <div class="pie-item">
-                <a href="#">Suscribirme para recibir noticias</a>
-            </div>
-        </section>
-        <div class="copyright">
-            <i class="fa-solid fa-copyright"></i>
-            <h5>Copyrigth</h5>
-        </div>        
-    </footer>
+    <%-include('./partials/footer')%>
 </body>
 
 </html>

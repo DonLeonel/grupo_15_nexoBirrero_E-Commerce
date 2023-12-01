@@ -7,14 +7,14 @@ const homeRouter = require('./routes/homeRouter');
 const loginRouter = require('./routes/loginRouter');
 const usuarioRouter = require('./routes/usuarioRouter')
 const productosRouter = require('./routes/productosRouter')
-
+const carritoRouter =  require('./routes/carritoRouter')
 
 //Usamos las rutas
 app.use('/', homeRouter);
 app.use('/login', loginRouter);
 app.use('/usuario', usuarioRouter);
 app.use('/producto', productosRouter);
-
+app.use('/carrito', carritoRouter);
 //Seteamos que motor de plantilla usaremos y donde encontrar las Views
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
@@ -34,10 +34,3 @@ app.get('*', (req, res) => {
 });
 
 //Estas lineas de abajo tienen que ir saliendo de aca, refactorizarlas dentro de Routes y Controllers.
-app.get('/carrito', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/carrito.html'));
-});
-
-app.get('/recuperar-password', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views/recuperar-password.html'));
-});
