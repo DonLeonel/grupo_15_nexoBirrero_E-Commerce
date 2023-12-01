@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head', {title: 'register' , fileCss: 'register' })%>
+<%- include('./partials/head', {title: 'register' , fileCss: 'register' })%>
 
+    <body>
+        <%-include('./partials/header')%>
 
+            <main>
 
-<body>
-    <%-include('./partials/header')%>
+                <h3 class="titulo-page">Registrarse.</h3>
+                <h3 class="titulo-page">¡Completá el formulario!</h3>
 
-    <main>
+                <form class="form-register" action="/login">
 
-        <h3 class="titulo-page">Registrarse.</h3>
-        <h3 class="titulo-page">¡Completá el formulario!</h3>
+                    <div class="nombre-apellido">
+                        <label for="nombre-apellido">Nombre y Apellido</label>
+                        <input type="text" name="nombre-apellido" id="nombre-apellido" required>
+                    </div>
 
-        <form class="form-register" action="/login" >
+                    <div class="usuario">
+                        <label for="usuario">Nombre de usuario</label>
+                        <input type="text" name="usuario" id="usuario" required>
+                    </div>
 
-            <div class="nombre-apellido">
-                <label for="nombre-apellido">Nombre y Apellido</label>
-                <input type="text" name="nombre-apellido" id="nombre-apellido" required>
-            </div>
+                    <div class="correo">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" name="correo" id="correo" required>
+                    </div>
 
-            <div class="usuario">
-                <label for="usuario">Nombre de usuario</label>
-                <input type="text" name="usuario" id="usuario" required>
-            </div>
+                    <div class="contraseña">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="password" name="contraseña" id="contraseña" required>
+                    </div>
 
-            <div class="correo">
-                <label for="correo">Correo Electrónico</label>
-                <input type="email" name="correo" id="correo" required>
-            </div>
+                    <div class="confirmar-contraseña">
+                        <label for="confirmar-contraseña">Confirmar Contraseña</label>
+                        <input type="password" name="confirmar-contraseña" id="confrirmar-contraseña" required>
+                    </div>
 
-            <div class="contraseña">
-                <label for="contraseña">Contraseña</label>
-                <input type="password" name="contraseña" id="contraseña" required>
-            </div>
+                    <br>
+                    <button type="submit">Confirmar</button>
+                </form>
 
-            <div class="confirmar-contraseña">
-                <label for="confirmar-contraseña">Confirmar Contraseña</label>
-                <input type="password" name="confirmar-contraseña" id="confrirmar-contraseña" required>
-            </div>
+                <h3><a href="/login">¿Ya tienes cuenta? Inicia sesión.</a></h3>
+            </main>
 
-            <br>
-            <button type="submit">Confirmar</button>
-        </form>
-
-        <h3><a href="/login">¿Ya tienes cuenta? Inicia sesión.</a></h3>
-    </main>
-
-    <%-include('./partials/footer')%>
-</body>
+            <%-include('./partials/footer')%>
+    </body>
 
 </html>

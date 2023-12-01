@@ -7,7 +7,7 @@ module.exports = {
          
         res.render('productos', { afrutados, trigo , ale });
     },
-    detalle : (req, res) => {
-        
+    detalle : (req, res) => {                        
+        res.render('detalle-producto');
     }
 }

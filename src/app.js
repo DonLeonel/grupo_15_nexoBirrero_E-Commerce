@@ -10,11 +10,12 @@ const productosRouter = require('./routes/productosRouter')
 const carritoRouter =  require('./routes/carritoRouter')
 
 //Usamos las rutas
-app.use('/', homeRouter);
-app.use('/login', loginRouter);
-app.use('/usuario', usuarioRouter);
-app.use('/producto', productosRouter);
-app.use('/carrito', carritoRouter);
+app.use(homeRouter);
+app.use(loginRouter);
+app.use(usuarioRouter);
+app.use(productosRouter);
+app.use(carritoRouter);
+
 //Seteamos que motor de plantilla usaremos y donde encontrar las Views
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
@@ -32,5 +33,3 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.get('*', (req, res) => {
     res.status(404).render('not-found');
 });
-
-//Estas lineas de abajo tienen que ir saliendo de aca, refactorizarlas dentro de Routes y Controllers.

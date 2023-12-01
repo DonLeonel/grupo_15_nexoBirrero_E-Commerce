@@ -1,16 +1,16 @@
 module.exports = {
-    index : (req, res) => {
-        res.send('Hola Usuario');
+    setting : (req, res) => {
+        res.render('setting');
+    },     
+    saveUsuario: (req,res) => {
+        //req.body
     }, 
-    registrarUsuario: (req,res) => {
-        res.render('Hola Usuario');
-    }, 
-    register: (req, res) => {
+    registerView: (req, res) => {
         res.render('register');
     }, 
     recuperarPass: (req,res)=> {
-      //  req.render('Hola Usuario');
-    }, 
+      //  req.body
+    },
     recuperarPassView: (req, res) => {
         res.render('recuperar-password');
     }
