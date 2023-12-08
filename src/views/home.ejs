@@ -17,7 +17,7 @@
                 <h2 class="titulo-seccion">Categorías</h2>
 
                 <section class="categorias">                    
-                     <article class="categ-producto">
+                    <article class="categ-producto">
                         <a href="#">
                             <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
                             <div class="descripcion">Trigo</div>
@@ -60,7 +60,7 @@
                 <section class="destacados"> 
                     <% for(let i = 0; i < productos.length ; i++) {%>
                         <article class="dest-producto">
-                            <a href="/detalle-producto/<%= productos[i].id %>">
+                            <a href="/producto/detalle-producto/<%= productos[i].id %>">
                                 <img class="img-categ" src="/img/productos/<%= productos[i].img %>" alt="imagen categoria">
                                 <div class="descripcion"><%= productos[i].nombre %></div>
                                 <div class="descripcion"><%= productos[i].variedad %></div>
