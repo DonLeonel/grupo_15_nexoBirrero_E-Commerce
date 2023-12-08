@@ -4,13 +4,13 @@
         "nombre": "Liefmans Fruitesse",
         "categoria": "afrutadas",
         "variedad": "Lambic",
-        "descrip_varied": "Entre los estilos cerveceros más antiguos del mundo se encuentran las lambic, que son a la cerveza como el Jerez al vino. Todo un reto para el paladar cervecero",
+        "descripcion": "Entre los estilos cerveceros más antiguos del mundo se encuentran las lambic, que son a la cerveza como el Jerez al vino. Todo un reto para el paladar cervecero",
         "precio": 900,
         "cervecera": "Brewery Liefmans",
         "nacionalidad": "Bélgica",
         "graduacion": 3.8,
         "cont_envase": "500ml",
-        "disponible": true,
+        "disponible": false,
         "img": "LiefmansFruitesse.jpg"
     },
     {
@@ -52,7 +52,7 @@
         "nacionalidad": "Bélgica",
         "graduacion": 3.5,
         "cont_envase": "750ml",
-        "disponible": true,
+        "disponible": false,
         "img": "LindemansApple.jpg"
     },
     {
@@ -94,7 +94,7 @@
         "nacionalidad": "Alemana",
         "graduacion": 5.4,
         "cont_envase": "1L",
-        "disponible": true,
+        "disponible": false,
         "img": "ZundertTrappist.jpg"
     }
 ]

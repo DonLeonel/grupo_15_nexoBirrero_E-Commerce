@@ -10,6 +10,15 @@ module.exports = {
     detalle : (req, res) => { 
 
         const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
-        res.render('detalle-producto', { productos });
+
+        let id = req.params.id;
+        let miProducto;
+        productos.forEach(producto => {
+            if(producto.id == id){
+                miProducto = producto;
+            }
+        });
+
+        res.render('detalle-producto', { miProducto });
     }
 }
