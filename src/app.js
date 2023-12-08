@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-//Requerimos las nuestras rutas.
+//Requerimos las rutas.
 const homeRouter = require('./routes/homeRouter');
 const loginRouter = require('./routes/loginRouter');
 const usuarioRouter = require('./routes/usuarioRouter')
