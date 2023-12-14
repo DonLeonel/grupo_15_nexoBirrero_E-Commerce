@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%-include('../partials/head', {title: 'Login' , fileCss: 'login' })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('../partials/header')%> 
+
+            <main>
+
+                <h3 class="titulo-page">Iniciar Sesión</h3>
+
+                <form class="form-login" action="/login">
+
+                    <div class="usuario">
+                        <label for="usuario">Nombre de Usuario</label>
+                        <input type="text" name="usuario" id="usuario" required>
+                    </div>
+
+                    <div class="password">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" required>
+                    </div>
+
+                    <br>
+                    <button type="submit">Entrar</button>
+                </form>
+
+                <h3><a href="/usuario/register">¿No tenes cuenta? Regístrate.</a></h3>
+
+                <h3><a href="/usuario/recuperar-password">¿Olvídate tu contraseña?</a></h3>
+            </main>
+
+            <!-- Incluimos el footer a nuestro body -->
+            <%- include('../partials/footer')%>
+    </body>
+
+</html>

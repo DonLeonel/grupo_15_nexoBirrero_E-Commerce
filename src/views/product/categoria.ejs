@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%-include('../partials/head', {title: 'Categoria' , fileCss: 'categoria' })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('../partials/header')%>
+
+            <main class="principal-detalle">
+                <section class="productos">
+                    <article class="item-producto">
+                        <a href="/productos/detalle/<%= %>">
+                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
+                            <span class="descripcion"><%= %></span>
+                            <span class="precio">$ <%= %></span>
+                            <p>PUNTUACIÓN <%= %></p>
+                        </a>
+                        <button class="add-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button type="button" class="add-like"><i class="fa-solid fa-heart"></i></button>
+                    </article>           
+            </main>
+            <!-- Incluimos el footer a nuestro body -->
+            <%-include('../partials/footer')%>
+    </body>
+
+</html>

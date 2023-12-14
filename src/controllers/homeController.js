@@ -9,6 +9,6 @@ module.exports = {
         const trigo = productos.filter((p) => p.category === 'trigo')
         const ale = productos.filter((p) => p.category === 'ale')
 
-        res.render('home', { productos });
+        res.render(path.resolve(__dirname, '../views/web/home.ejs'), { productos });              
     }
 }

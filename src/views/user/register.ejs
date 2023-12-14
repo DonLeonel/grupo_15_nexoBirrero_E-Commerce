@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head', {title: 'register' , fileCss: 'register' })%>
+<%- include('../partials/head', {title: 'register' , fileCss: 'register' })%>
 
     <body>
-        <%-include('./partials/header')%>
+        <%-include('../partials/header')%>
 
             <main>
 
@@ -41,10 +41,10 @@
                     <button type="submit">Confirmar</button>
                 </form>
 
-                <h3><a href="/login">¿Ya tienes cuenta? Inicia sesión.</a></h3>
+                <h3><a href="/usuario/login">¿Ya tienes cuenta? Inicia sesión.</a></h3>
             </main>
 
-            <%-include('./partials/footer')%>
+            <%-include('../partials/footer')%>
     </body>
 
 </html>
