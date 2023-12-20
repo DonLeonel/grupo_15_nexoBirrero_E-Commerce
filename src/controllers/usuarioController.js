@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 module.exports = {
     setting : (req, res) => {
@@ -8,7 +9,17 @@ module.exports = {
         res.render(path.resolve(__dirname, '../views/user/register.ejs'));
     }, 
     save: (req,res) => {
-        //req.body
+        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
+        
+        let ultUsuario = usuarios.pop();
+        usuarios.push(ultUsuario);
+
+        const user = {
+            id: ultUsuario.id + 1,
+            nombreCompleto: req.body.nombreCompleto,            
+            usuario: req.body.usuarios,
+            correo: req.body.correo           
+        }
     }, 
     recuperarPass: (req,res)=> {
       //  req.body

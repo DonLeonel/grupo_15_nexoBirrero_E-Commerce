@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: 'Editar Producto' , fileCss: 'registrar-producto' })%>
+
+    <body>
+        <%-include('../partials/header.ejs')%>
+
+            <main>
+                <h3 class="titulo-page">Editar producto.</h3>
+                <form class="form-registro" enctype="multipart/form-data" action="/productos/editar/<%= Producto.id%>?_method=PUT" method="post" >
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="nombre" value=<%=Producto.nombre%>>
+                    </div>
+                    <div>
+                        <label for="cervecera">Cervecera</label>
+                        <input type="text" name="cervecera" id="cervecera" value=<%=Producto.cervecera%>>
+                    </div>
+                    <div>
+                        <label for="categoria">Seleccione la categoría</label>
+                        <select name="categoria" id="categoria" >                            
+                            <option  value="1">Seleccione</option>
+                            <option <%= Producto.categoria == 'AFRUTADAS' ? 'selected' : null %> value="AFRUTADAS">Afrutadas</option>
+                            <option <%= Producto.categoria == 'ALE' ? 'selected' : null %> value="ALE">Ale</option>
+                            <option <%= Producto.categoria == 'STOUT' ? 'selected' : null %> value="STOUT">Stout</option>
+                            <option <%= Producto.categoria == 'TRIGO' ? 'selected' : null %> value="TRIGO">Trigo</option>
+                            <option <%= Producto.categoria == 'PORTER' ? 'selected' : null %> value="PORTER">Porter</option>
+                            <option <%= Producto.categoria == 'LAGER' ? 'selected' : null %> value="LAGER">Lager</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="categoria">Seleccione la variedad</label>
+                        <select name="variedad" id="variedad">
+                            <option  value ="1">Seleccione</option>
+                            <option <%= Producto.variedad == 'TRAPENSE' ? 'selected' : null %> value="TRAPENSE">Trapense</option>
+                            <option <%= Producto.variedad == "LAMBIC" ? 'selected' : null %> value="LAMBIC">Lambic</option>
+                            <option <%= Producto.variedad == "TRIGO" ? 'selected' : null %> value="TRIGO">Trigo</option>                            
+                        </select>
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción</label>
+                        <input type="text" name="descripcion" id="descripcion" value=<%=Producto.descripcion%>>
+                    </div>
+                    <div>
+                        <label for="precio">Precio</label>
+                        <input type="number" name="precio" id="precio" value=<%=Producto.precio%>>
+                    </div>
+                    <div>
+                        <label for="volumen-cont">Seleccione el volumen</label>
+                        <select name="volumen-cont" id="volumen-cont">
+                            <option value=0 >Seleccione</option>
+                            <option <%= Producto.cont_envase == 300 ? 'selected' : null %> value='300'>300ml</option>
+                            <option <%= Producto.cont_envase == 500 ? 'selected' : null %> value='500'>500ml</option>
+                            <option <%= Producto.cont_envase == 750 ? 'selected' : null %> value='500'>750ml</option>
+                            <option <%= Producto.cont_envase == 1000 ? 'selected' : null %> value='1'>1L</option>
+                            <option <%= Producto.cont_envase == 1500 ? 'selected' : null %> value='1.5'>1.5L</option>
+                            <option <%= Producto.cont_envase == 3000 ? 'selected' : null %> value='3'>3L</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="nacionalidad">Nacionalidad</label>
+                        <input type="text" name="nacionalidad" id="nacionalidad" value=<%=Producto.nacionalidad%>>
+                    </div>
+                    <div>
+                        <label for="graduacion">Graduación</label>
+                        <input type="number" name="graduacion" id="graduacion" value=<%=Producto.graduacion%>>
+                    </div>
+                    <div>
+                        <label for="imagen">Seleccione la imagen del producto</label>
+                        <input class="fileIMG" type="file" name="imagen" id="imagen" value=<%=Producto.img%>>
+                    </div>
+
+                    <button class="submit" type="submit">Actualizar</button>
+                </form>
+            </main>
+
+            <%-include('../partials/footer.ejs')%>
+    </body>
+
+</html>

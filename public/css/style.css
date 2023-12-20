@@ -15,6 +15,10 @@ body {
     min-height: 100vh;
 }
 
+.titulo-page{
+    text-align: center;    
+}
+
 /*Para abajo se encuentran los estilos del encabezado*/
 
 header.encabezado {

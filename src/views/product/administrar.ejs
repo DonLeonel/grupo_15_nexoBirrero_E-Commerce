@@ -4,14 +4,33 @@
 <body>
     <body>
         <%-include('../partials/header')%>
-            <main>
+            <main class="principa-administrar">
                 <h3 class="titulo-page">Administrar Productos</h3>
                 <div class="acciones">
-                    <a href="/productos/registrar">Nuevo Producto</a>
+                    <a class="btn-nuevo-producto" href="/productos/registrar">Nuevo Producto</a>
                 </div>
-                <table>
-                    
-                </table>
+                <table class="table">
+                    <thead>
+                      <tr>  
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Ver</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Borrar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% productos.forEach(producto => { %>
+                      <tr>
+                        <td><%= producto.id%> </td>
+                        <td><%= producto.nombre%></td>
+                        <td><a href="/productos/detalle/<%= producto.id%> "><i class="fa-regular fa-eye"></i></a></td>
+                        <td><a href="/productos/editar/<%= producto.id%> "><i class="fa-solid fa-pencil"></i></a></td>
+                        <td><a href="/productos/delete/<%= producto.id%>"><i class="fa-regular fa-trash-can"></i></a></td>
+                      </tr>
+                      <% }); %>
+                    </tbody>
+                  </table> 
             </main>
         <%-include('../partials/footer')%>
     </body>

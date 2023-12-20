@@ -3,11 +3,10 @@ const fs = require('fs');
 
 module.exports = {
     categoriaView: (req, res) => {
-        //const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));        
-        //res.render(path.resolve(__dirname, '../views/product/categoria.ejs')
-    },
-    detalleView: (req, res) => {
 
+    },
+    
+    detalleView: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
 
         let id = req.params.id;
@@ -20,17 +19,21 @@ module.exports = {
 
         res.render(path.resolve(__dirname, '../views/product/detalle.ejs'), { miProducto });
     },
+
     administrarView: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/product/administrar.ejs'));
+        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
+        res.render(path.resolve(__dirname, '../views/product/administrar.ejs'), {productos});
     },
+
     registrarView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/product/registrar.ejs'));
     },
+
     save: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
         
-        let ultProducto = producto.pop();
-        producto.push(ultProducto);        
+        let ultProducto = productos.pop();
+        productos.push(ultProducto);        
 
         const nvoProducto = {
             id: ultProducto.id + 1,
@@ -53,8 +56,41 @@ module.exports = {
         fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), nuevoProductoGuardar);
         res.redirect('/productos/administrar')
     },
-    carritoView : (req, res) => {   
-        res.send('gasdasdasdasdasd')     
-        //res.render(path.resolve(__dirname, '../views/product/carrito.ejs'));
+
+    carritoView: (req, res) => {                
+        res.render(path.resolve(__dirname, '../views/product/carrito.ejs'));
+    },
+
+    editarView: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
+        let id = req.params.id;        
+        let Producto = productos.find(producto => producto.id == id);        
+
+        res.render(path.resolve(__dirname, '../views/product/editar.ejs'), { Producto });
+    },
+
+    actualizar: (req, res) => {
+        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));  
+        let id = req.params.id;
+        req.body.id = id;
+
+        let productoActualizar = productos.map(p =>{
+            if(p.id == id){
+                return p = req.body;
+            }
+            return p;
+        })    
+        
+        let productoYaActualizado = JSON.stringify(productoActualizar,null,2);
+        fs.writeFileSync(path.resolve(__dirname,'../data/productos.json'),productoYaActualizado);
+        res.redirect('productos/administrar');
+    },
+
+    delete: (req, res) => {
+        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));        
+        let productosSinElBorrado = productos.filter(p => p.id != req.params.id);
+        let productosGuardar = JSON.stringify(productosSinElBorrado,null,2);
+        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosGuardar); 
+        res.redirect('/productos/administrar')
     }
 }

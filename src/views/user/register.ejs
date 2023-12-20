@@ -10,11 +10,11 @@
                 <h3 class="titulo-page">Registrarse.</h3>
                 <h3 class="titulo-page">¡Completá el formulario!</h3>
 
-                <form class="form-register" action="/login">
+                <form method="post" enctype="multipart/form-data" class="form-register" action="/usuario/register">
 
                     <div class="nombre-apellido">
-                        <label for="nombre-apellido">Nombre y Apellido</label>
-                        <input type="text" name="nombre-apellido" id="nombre-apellido" required>
+                        <label for="nombreCompleto">Nombre y Apellido</label>
+                        <input type="text" name="nombreCompleto" id="nombreCompleto" required>
                     </div>
 
                     <div class="usuario">

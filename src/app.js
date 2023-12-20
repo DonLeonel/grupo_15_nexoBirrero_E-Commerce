@@ -9,7 +9,7 @@ const productoRouter = require('./routes/productosRouter')
 
 //Seteamos que motor de plantilla usaremos y donde encontrar las Views
 app.set('view engine', 'ejs');
-app.set('views', path.resolve(__dirname,'../src/views'));
+app.set('views', path.resolve(__dirname,'/src/views'));
 
 //Middlewares - para poder trabajar con json, objetos y recursos estaticos.
 app.use(express.static(path.resolve(__dirname, '../public')));

@@ -1,0 +1,70 @@
+main {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+.form-registro div {
+    margin-top: 1.8rem;
+}
+
+div input {
+    padding: 5px 0 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightgray;
+    height: 1.5rem;
+    width: 85%;
+}
+
+.submit {    
+    margin: 4rem auto 0 auto;
+    width: 85%;
+    height: 1.8rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #0096d2;
+    color: white;
+    cursor: pointer;
+    display: block;
+}
+
+.submit:hover {
+    background-color: #34bbe9;
+}
+
+div select{
+    border: none;
+    border-radius: 10px;
+    background-color: lightgray;
+    height: 1.5rem;
+    width: 85%;
+    text-align: center;
+}
+
+.fileIMG{
+    text-align: center;
+    padding: 2px 5px 5px 20px;
+}
+
+@media (min-width: 600px) {  
+
+    .form-registro{        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: auto;
+        max-width: 900px;
+    }
+
+    .form-registro div{        
+        width: 45%;
+    }
+
+    .submit{
+        width: 45%;
+    }
+}

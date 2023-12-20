@@ -7,52 +7,65 @@
 
             <main>
                 <h3 class="titulo-page">Registrar producto.</h3>
-                <form action="/productos/registrar" method="post" enctype="multipart/form-data">
+                <form class="form-registro" action="/productos/registrar" method="post" enctype="multipart/form-data">
                     <div>
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" required>
+                        <input type="text" name="nombre" id="nombre">
                     </div>
                     <div>
                         <label for="cervecera">Cervecera</label>
-                        <input type="text" name="cervecera" id="cervecera" required>
+                        <input type="text" name="cervecera" id="cervecera">
                     </div>
-                    <select name="categoria" id="categoria" required>
-                        <option value="AFRUTADAS">Afrutadas</option>
-                        <option value="ALE">Ale</option>
-                        <option value="STOUT">Stout</option>
-                    </select>
-                    <select name="variedad" id="variedad" required>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
                     <div>
-                        <label for="descripcion">Descripción</label>
-                        <input type="text" name="descripcion" id="descripcion" required>
+                        <label for="categoria">Seleccione la categoría</label>
+                        <select name="categoria" id="categoria">                            
+                            <option value="1">Seleccione</option>
+                            <option value="AFRUTADAS">Afrutadas</option>
+                            <option value="ALE">Ale</option>
+                            <option value="STOUT">Stout</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="categoria">Seleccione la variedad</label>
+                        <select name="variedad" id="variedad">
+                            <option value="1">Seleccione</option>
+                            <option value="Trapense">Trapense</option>
+                            
+                        </select>
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción</label>                    
+                        <input type="te" name="descripcion" id="descripcion">
                     </div>
                     <div>
                         <label for="precio">Precio</label>
-                        <input type="number" name="precio" id="precio" required>
+                        <input type="number" name="precio" id="precio">
                     </div>
-                    <select name="volumen" id="volumen" required>
-                        <option value='300'>300ml</option>
-                        <option value='500'>500ml</option>
-                        <option value='1'>1L</option>
-                        <option value='1.5'>1.5L</option>
-                        <option value='3'>3L</option>
-                    </select>
+                    <div>
+                        <label for="volumen">Seleccione el volumen</label>
+                        <select name="volumen" id="volumen" required>
+                            <option value='1'>Seleccione</option>
+                            <option value='300'>300ml</option>
+                            <option value='500'>500ml</option>
+                            <option value='1'>1L</option>
+                            <option value='1.5'>1.5L</option>
+                            <option value='3'>3L</option>
+                        </select>
+                    </div>
                     <div>
                         <label for="nacionalidad">Nacionalidad</label>
-                        <input type="text" name="nacionalidad" id="nacionalidad" required>
+                        <input type="text" name="nacionalidad" id="nacionalidad">
                     </div>
                     <div>
-                        <label for="graduacion"></label>
-                        <input type="number" name="graduacion" id="graduacion" required>
+                        <label for="graduacion">Graduación</label>
+                        <input type="number" name="graduacion" id="graduacion">
                     </div>
                     <div>
-                        <label for="imagen"></label>
-                        <input type="file" name="imagen" id="imagen" required>
+                        <label for="imagen">Seleccione la imagen del producto</label>
+                        <input class="fileIMG" type="file" name="imagen" id="imagen">
                     </div>
+
+                    <button class="submit" type="submit">Registrar</button>
                 </form>
             </main>
 
