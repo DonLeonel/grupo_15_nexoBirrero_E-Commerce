@@ -18,7 +18,7 @@ realizar la compra de los mismos, pero no sin antes registrarte en la página.
 
 ## Tablero de trabajo.
 
-
+- https://trello.com/b/YAtq2TPo/proyecto-e-commerce-nexobirrero 
 
 ## Para el desarrollo de este sitio, nos inspiramos en 3 páginas:
 
