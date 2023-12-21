@@ -96,5 +96,18 @@
     "cont_envase": "1000",
     "disponible": false,
     "img": "ZundertTrappist.jpg"
-  }  
+  },
+  {
+    "id": 8,
+    "nombre": "LeonealBeer",
+    "categoria": "AFRUTADAS",
+    "variedad": "Trapense",
+    "descripcion": "Godines",
+    "precio": "1500",
+    "cervecera": "Patagonia",
+    "nacionalidad": "Argentina",
+    "graduacion": "10",
+    "disponible": true,
+    "img": "1703190982160_IMG.jpg"
+  }
 ]

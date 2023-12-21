@@ -28,7 +28,7 @@ router.post('/registrar', upload.single('imagen'), productosController.save);
 router.get('/editar/:id', productosController.editarView);
 router.put('/editar/:id', upload.single('imagen'), productosController.actualizar);
 
-router.delete('/delete/:id', productosController.delete);
+router.get('/delete/:id', productosController.delete);
 
 //router.get('/:categoria', productosController.categoriaView);
 

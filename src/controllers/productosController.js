@@ -87,10 +87,17 @@ module.exports = {
     },
 
     delete: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));        
-        let productosSinElBorrado = productos.filter(p => p.id != req.params.id);
-        let productosGuardar = JSON.stringify(productosSinElBorrado,null,2);
-        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosGuardar); 
-        res.redirect('/productos/administrar')
-    }
+        // const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));        
+        // let productosSinElBorrado = productos.filter(p => p.id != req.params.id);
+        // let productosGuardar = JSON.stringify(productosSinElBorrado,null,2);
+        // fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosGuardar); 
+        // res.redirect('/productos/administrar')
+            const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
+            let productosSinElBorrado = productos.filter(p => p.id != req.params.id);
+            console.log(productosSinElBorrado)
+            let productosGuardar = JSON.stringify(productosSinElBorrado,null,2);
+            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosGuardar); 
+            res.redirect('/productos/administrar')
+        }
+    
 }
