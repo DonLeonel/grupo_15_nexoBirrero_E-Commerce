@@ -82,5 +82,19 @@
     "cont_envase": "1000",
     "disponible": true,
     "img": "WeihenstephanerHefe.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Zundert Trappist",
+    "categoria": "ALE",
+    "variedad": "TRAPENSE",
+    "descripcion": "La diferencia con las cervezas de abadía está en la observancia de la estricta regla de San Benito recuperada por los monjes cistercienses de la abadía de La Trappe y que, aplicada a la producción cervecera marca que la cerveza trapense ha de ser fabricada en la abadía o instalaciones asociadas, elaborarse solo por monjes, y los beneficios de su venta se han de revertir en la orden o en obras de finalidad caritativa",
+    "precio": 1900,
+    "cervecera": "Brouwerij Abdij Maria Toevlucht",
+    "nacionalidad": "Alemana",
+    "graduacion": 5.4,
+    "cont_envase": "1000",
+    "disponible": false,
+    "img": "ZundertTrappist.jpg"
   }
 ]
