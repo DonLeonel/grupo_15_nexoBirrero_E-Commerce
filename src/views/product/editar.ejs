@@ -7,7 +7,7 @@
 
             <main>
                 <h3 class="titulo-page">Editar producto.</h3>
-                <form class="form-registro" enctype="multipart/form-data" action="/productos/editar/<%= Producto.id%>?_method=PUT" method="post" >
+                <form class="form-registro" action="/productos/editar/<%= Producto.id%>?_method=PUT" method="post" >
                     <div>
                         <label for="nombre">Nombre</label>
                         <input type="text" name="nombre" id="nombre" value=<%=Producto.nombre%>>

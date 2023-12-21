@@ -16,6 +16,10 @@ Tendrás acceso a lo que te interese a través de la barra de búsqueda o por me
 Además, contarás con la opción de adquirir los productos o simplemente añadirlos al carrito de compras para luego 
 realizar la compra de los mismos, pero no sin antes registrarte en la página.
 
+## Tablero de trabajo.
+
+
+
 ## Para el desarrollo de este sitio, nos inspiramos en 3 páginas:
 
 - https://www.mercadolibre.com.ar/ 
