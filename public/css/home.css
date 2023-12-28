@@ -35,7 +35,7 @@
 
 .categ-producto {
     margin: 20px 10px;
-    width: 50%;
+    width: 70%;
     padding: 10px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -45,7 +45,7 @@
 .dest-producto {
     text-align: center;
     margin: 20px 10px;
-    width: 50%;
+    width: 70%;
     padding: 10px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -57,7 +57,7 @@
 }
 
 .dest-producto img {
-    width: 200px;
+    width: 180px;
     height: 200px;
 }
 
@@ -75,13 +75,17 @@
 
 /* Para abajo se encuentra la primer Media Query*/
 
-@media (min-width: 600px){
+@media (min-width: 480px){
     .categ-producto {
         width: 40%;
     }
 
     .dest-producto {
         width: 40%;
+    }
+
+    .dest-producto img {
+        width: 170px;
     }
 }
 
