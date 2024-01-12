@@ -10,12 +10,12 @@ const validacioneRegistro = [
     body('nombre').notEmpty().withMessage('El campo nombre no debe estar vacío'),
     body('cervecera').notEmpty().withMessage('El campo cervecera no debe estar vacío'),
     body('categoria').custom((value, { req }) => {
-        if(value === 1){
+        if (value === 1) {
             return false;
-        }else{
+        } else {
             return true
         }
-    }).withMessage('Debe seleccionar alguna categoría'),    
+    }).withMessage('Debe seleccionar alguna categoría'),
 ]
 
 const storage = multer.diskStorage({
@@ -27,22 +27,21 @@ const storage = multer.diskStorage({
         cb(null, fileName);
     }
 })
+
 const upload = multer({ storage });
-
-
-
 
 
 router.get('/registrar', productosController.registrarView);
 router.post('/registrar', upload.single('imagen'), productosController.save);
 
 router.get('/editar/:id', productosController.editarView);
-router.put('/editar/:id', productosController.actualizar);
+router.put('/actualizar/:id', upload.single('imagen'), productosController.actualizar);
 
 router.get('/delete/:id', productosController.delete);
 router.get('/administrar', productosController.administrarView);
 
 router.get('/detalle/:id', productosController.detalleView);
+router.get('/administrar/detalle/:id', productosController.adminDetalleView);
 
 router.get('/carrito', productosController.carritoView);
 

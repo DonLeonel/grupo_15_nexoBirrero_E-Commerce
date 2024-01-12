@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const methodOverride = require('method-override');
 
 //Requerimos las rutas.
 const homeRouter = require('./routes/homeRouter');
@@ -15,6 +16,7 @@ app.set('views', path.resolve(__dirname,'/src/views'));
 app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 //Usamos las rutas
 app.use('/', homeRouter);

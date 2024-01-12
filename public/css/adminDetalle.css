@@ -1,0 +1,41 @@
+.adminDetalle-Principal{
+    margin: 2rem;    
+}
+
+article{
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+picture img{
+    display: inline;
+    width: 250px;
+}
+
+.informacion{
+    width: 50%;
+}
+
+.informacion p {
+    margin-bottom: 8px;
+}
+
+p span {
+    color: blue;
+}
+
+.btnVolver{
+    text-align: center;
+    margin: 1rem auto 0 auto;  
+    padding: 4px; 
+    width: 30%;  
+    border: none;
+    border-radius: 10px;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+}

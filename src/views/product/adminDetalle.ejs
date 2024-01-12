@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head', {title: 'Detalle Producto' , fileCss: 'adminDetalle' })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('../partials/header')%>
+
+            <main class="adminDetalle-Principal">
+                <h3 class="titulo-page">Detalle producto.</h3>
+                <article>
+                    <picture>
+                        <img src="/img/productos/<%= miProducto.img %>" alt="imagen del producto">
+                    </picture>
+
+                    <div class="informacion">
+                        <p><span>Nombre</span>
+                                <%= miProducto.nombre%>
+                        </p>
+                        <p><span>Categoria: </span>
+                            <%= miProducto.categoria%>
+                        </p>
+                        <p><span>Variedad:</span>
+                            <%= miProducto.variedad%>
+                        </p>
+                        <p><span>Descripción: </span>
+                            <%= miProducto.descripcion%>
+                        </p>
+                        <p><span>Precio: </span>$ <%= miProducto.precio%>
+                        </p>
+                        <p><span>Cervecera: </span>
+                            <%= miProducto.cervecera%>
+                        </p>
+                        <p><span>Nacionalidad:</span>
+                            <%= miProducto.nacionalidad%>
+                        </p>
+                        <p><span>Graduación: </span>
+                            <%= miProducto.graduacion%>
+                        </p>
+                        <p><span>Volumen Contenido:</span>
+                            <%= miProducto.cont_envase%> ml.
+                        </p>
+                    </div>
+
+                </article>
+                <div><a class="btnVolver" href="/productos/administrar">Volver</a></div>
+            </main>
+
+            <!-- Incluimos el footer en el body -->
+            <%-include('../partials/footer')%>
+    </body>
+
+</html>

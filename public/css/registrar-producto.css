@@ -21,19 +21,32 @@ div input {
 }
 
 .submit {    
-    margin: 4rem auto 0 auto;
-    width: 85%;
+    margin: 2rem auto 0 auto;    
     height: 1.8rem;
+    width: 45%; 
     border: none;
     border-radius: 10px;
     background-color: #0096d2;
     color: white;
-    cursor: pointer;
-    display: block;
+    cursor: pointer;    
 }
 
 .submit:hover {
     background-color: #34bbe9;
+}
+
+.btnVolver{
+    margin: 1rem auto 0 auto;  
+    padding: 4px; 
+    width: 45%;  
+    border: none;
+    border-radius: 10px;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 div select{
@@ -62,9 +75,5 @@ div select{
 
     .form-registro div{        
         width: 45%;
-    }
-
-    .submit{
-        width: 45%;
-    }
+    }    
 }
