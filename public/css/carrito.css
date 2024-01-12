@@ -115,6 +115,10 @@ main {
     border: none;
 }
 
+#comprar:hover {
+    background-color: #34bbe9;
+}
+
 
 @media (min-width: 480px) {
     .producto {

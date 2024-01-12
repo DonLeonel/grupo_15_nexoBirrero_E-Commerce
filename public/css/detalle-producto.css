@@ -42,17 +42,24 @@
     padding: 5px;
     margin-bottom: 5px;
     background-color: white;
+    border-radius: 10px;
 }
 
 #comprar {
     display: block;
     cursor: pointer;
     width: 100%;
-    background-color: cornflowerblue;
+    background-color: #0096d2;
     color: white;
     padding: 5px;
     margin: 10px auto;
     text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+#comprar:hover{
+    background-color: #34bbe9;
 }
 
 #agregar-carrito {
@@ -64,6 +71,8 @@
     margin: auto;
     text-align: center;
     color: white;
+    border-radius: 10px;
+    border: none;
 }
 
 @media (min-width: 783px) {
