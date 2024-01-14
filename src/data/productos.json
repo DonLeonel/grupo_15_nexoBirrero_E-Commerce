@@ -85,15 +85,30 @@
   },
   {
     "id": 7,
-    "nombre": "asdasd",
-    "categoria": "AFRUTADAS",
-    "variedad": "Trapense",
-    "descripcion": "asdasd",
-    "precio": "454545",
-    "cervecera": "asdasd",
-    "nacionalidad": "asdasdas",
-    "graduacion": "45",
+    "nombre": "Vera Ipa",
+    "categoria": "ALE",
+    "variedad": "LAMBIC",
+    "descripcion": "descrprcionLArgaaaa",
+    "precio": "1500",
+    "cervecera": "Patagonia",
+    "nacionalidad": "Argentina",
+    "graduacion": "9",
+    "cont_envase": "500",
     "disponible": true,
-    "img": "1705098009616_IMG.jpg"
+    "img": "1705268732444_IMG.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Zundertt",
+    "categoria": "LAGER",
+    "variedad": "LAMBIC",
+    "descripcion": "descrprciondelasad",
+    "precio": "2000",
+    "cervecera": "Alemanquiss",
+    "nacionalidad": "Argentina",
+    "graduacion": "10",
+    "cont_envase": "3000",
+    "disponible": true,
+    "img": "1705268832460_IMG.jpg"
   }
 ]

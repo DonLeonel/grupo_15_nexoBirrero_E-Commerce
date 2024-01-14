@@ -82,7 +82,7 @@
 
 @media (min-width: 480px){
     .categ-producto {
-        width: 40%;
+        width: 35%;
     }
 
     .dest-producto {
@@ -96,13 +96,8 @@
 }
 
 @media (min-width: 768px) {
-
-    /*.categorias {
-        width: 60%;
-    }*/
-
     .categ-producto {        
-        width: 30%;
+        width: 25%;
     }
 
     .dest-producto {
@@ -127,11 +122,11 @@
     }
 
     .categ-producto {
-        width: 15%;
+        width: 14%;
     }
 
     .dest-producto {
         padding: 5px;
-        width: 23%;
+        width: 22%;
     }
 }

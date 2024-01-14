@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "nombre": "Leo",
+    "apellido": "Don",
+    "correo": "leo@hotmail.com",
+    "password": "$2b$10$r2OmodsELr2HznSD3YU8Z.9cU253/SVbuBdVwJ9.DU9yBHVaIQgAe",
+    "rol": 1,
+    "avatar": "user.png"
+  }
+]

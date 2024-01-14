@@ -16,44 +16,19 @@
 
                 <h2 class="titulo-seccion">CATEGORÍAS</h2>
 
-                <section class="categorias">
-                    <article class="categ-producto">
-                        <a href="#">
-                            <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                            <div class="descripcion">Trigo</div>
+                <% let categorias = ['Ale', 'Stout', 'Afrutadas' , 'Trigo', 'Porter', 'Lager', 'Especiales'] %>  
+                
 
-                        </a>
-                    </article>
-                    <article class="categ-producto">
-                        <a href="#">
-                            <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                            <div class="descripcion">Ale</div>
-                        </a>
-                    </article>
-                    <article class="categ-producto">
-                        <a href="#">
-                            <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                            <div class="descripcion">Porter</div>
-                        </a>
-                    </article>
-                    <article class="categ-producto">
-                        <a href="#">
-                            <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                            <div class="descripcion">Lager</div>
-                        </a>
-                    </article>
-                    <article class="categ-producto">
-                        <a href="#">
-                            <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                            <div class="descripcion">Stout</div>
-                        </a>
-                    </article>
-                    <article class="categ-producto">
-                        <a href="#">
-                            <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                            <div class="descripcion">Especialidades..</div>
-                        </a>
-                    </article>
+                <section class="categorias">
+                <% for(let i = 0; i < categorias.length; i++){ %>                      
+                        <article class="categ-producto">
+                            <!-- /productos/categoria/ -->
+                            <a href="#">
+                                <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
+                                <div class="descripcion"><%= categorias[i] %></div>
+                            </a>
+                        </article>                  
+                    <% } %>                
                 </section>
 
                 <h2 class="titulo-seccion-destacados">PRODUCTOS DESTACADOS</h2>

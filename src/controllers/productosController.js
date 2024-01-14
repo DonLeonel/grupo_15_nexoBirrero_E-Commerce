@@ -1,12 +1,11 @@
 const path = require('path');
 const fs = require('fs');
-const Swal = require('sweetalert2');
+//const Swal = require('sweetalert2');
 
 const { validationResult } = require('express-validator');
 
 module.exports = {
     categoriaView: (req, res) => {
-
     },
 
     detalleView: (req, res) => {
@@ -70,16 +69,16 @@ module.exports = {
                 img: req.file.filename
             };
 
-            productos.push(nvoProducto);
-
-            let nuevoProductoGuardar = JSON.stringify(productos, null, 2);
-            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), nuevoProductoGuardar);
+            productos.push(nvoProducto);            
+            fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), JSON.stringify(productos, null, 2));
             res.redirect('/productos/administrar')
         }
-        else {
-            console.log(errors.array())
+        else {            
+            res.render(path.resolve(__dirname, '../views/product/registrar.ejs'),{
+                errors: errors.mapped(),
+                oldData: req.body                
+            });
         }
-
     },
 
     carritoView: (req, res) => {
@@ -112,11 +111,9 @@ module.exports = {
                 if (req.file) { p.img = req.file.filename }
             }
             return p;
-        })
+        })       
 
-        let productoYaActualizado = JSON.stringify(productoActualizado, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productoYaActualizado);
-
+        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), JSON.stringify(productoActualizado, null, 2));
         res.redirect('/productos/administrar');
     },
 
