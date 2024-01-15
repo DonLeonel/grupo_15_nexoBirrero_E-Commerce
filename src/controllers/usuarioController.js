@@ -15,7 +15,7 @@ module.exports = {
 
         const resultValidation = validationResult(req);
 
-        if (resultValidation.errors.length > 0) {            
+        if (resultValidation.errors.length > 0) {
             return res.render(path.resolve(__dirname, '../views/user/register.ejs'), {
                 errors: resultValidation.mapped(),
                 oldData: req.body
@@ -49,12 +49,26 @@ module.exports = {
         res.render(path.resolve(__dirname, '../views/user/recuperar-password.ejs'));
     },
     recuperarPass: (req, res) => {
-        
+
     },
     loginView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/login.ejs'));
     },
     login: (req, res) => {
-        //PARA HACER
+        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
+        let usuarioALoguear = usuarios.find(user => user.correo.toUpperCase() == req.body.correo.toUpperCase());
+
+        if(usuarioALoguear){
+            const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password)
+            if(coincide){                
+                res.redirect('/')
+            }
+        }
+
+        return res.render(path.resolve(__dirname, '../views/user/login.ejs'), {
+            errors: {
+                msg: 'El correo y/o contraseña son inválidos.'
+            }
+        });
     }
 }
