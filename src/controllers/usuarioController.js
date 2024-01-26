@@ -40,7 +40,7 @@ module.exports = {
                 apellido: req.body.apellido,
                 correo: req.body.correo,
                 password: bcrypt.hashSync(req.body.password, 10),
-                rol: 1, //Por defecto el rol va a ser 1 para cada usuario.
+                rol: req.body.rol, 
                 avatar: 'user.png'  //por defecto que tenga ese avatar (por el momento).
             }
 
@@ -70,7 +70,7 @@ module.exports = {
             const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password)
             if(coincide){  
                 delete usuarioALoguear.password;       
-                req.session.userLogged = usuarioALoguear;  
+                req.session.userLogged = usuarioALoguear; 
 
                 return res.redirect('/usuario/setting');
             }

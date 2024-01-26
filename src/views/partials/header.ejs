@@ -26,10 +26,12 @@
                         <li>
                             <a href="/usuario/setting">Configuración</a>
                         </li>
-                        <hr>
-                        <li>
-                            <a href="/productos/administrar">Administrar</a>
-                        </li>
+                        <% if(locals.userLogged.rol == "Administrador"){ %>
+                            <hr>
+                            <li>
+                                <a href="/productos/administrar">Administrar</a>
+                            </li>
+                        <% } %>
                     <% } else { %>
                         <li>
                             <a href="/usuario/login">Iniciar Sesión</a>

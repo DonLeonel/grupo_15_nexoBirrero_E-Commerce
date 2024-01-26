@@ -42,6 +42,31 @@ div input {
     width: 90%;
 }
 
+/*---------- Estilos del radio-button (Rol) ----------*/
+div.rol-cliente{
+    margin-top: 1.5rem;
+}
+
+div.rol-cliente,
+div.rol-admin {
+    display: flex;
+    justify-content: center;
+}
+
+label#rol{
+    margin-top: 0%;
+}
+
+input#Cliente,
+input#Administrador {
+    width: 10%;
+}
+
+label#rol {
+    width: 30%;
+}
+/*----------------------------------------------------*/
+
 main a {
     display: block;
     width: max-content;
