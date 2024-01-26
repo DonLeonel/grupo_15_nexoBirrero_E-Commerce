@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const validacionUsuario = require('../middlewares/validacionUsuario.js'); //Se encarga de verificar que los campos de un formulario sean correctos
-const validacionAuth = require('../middlewares/validacionAuth.js');
+const validacionUsuario = require('../middlewares/validacionUsuario.js'); 
+const validacionAuth = require('../middlewares/validacionAuth.js'); 
 const validacionGuest = require('../middlewares/validacionGuest.js'); 
 const usuarioController = require(path.resolve(__dirname, '../controllers/usuarioController'));
 

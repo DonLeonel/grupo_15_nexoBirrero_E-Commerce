@@ -1,5 +1,7 @@
 const { body } = require('express-validator');
 
+/* Verifica que los campos de los productos al momento de administrarlos, sean ingresados de manera correcta */
+
 module.exports = [
     body('nombre').notEmpty().withMessage('El campo nombre no debe estar vacío.'),
 

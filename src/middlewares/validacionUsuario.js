@@ -3,7 +3,7 @@ const fs = require('fs');
 const { body } = require('express-validator');
 const { log } = require('console');
 
-//Verifica que los campos de un formulario sean ingresados de manera correcta.
+//Verifica que los campos de un formulario sean ingresados de manera correcta
 
 module.exports = [
     body('nombre').notEmpty().withMessage('El campo nombre no debe estar vacío.'),

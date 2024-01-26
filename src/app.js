@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
-const userLogged = require('../src/middlewares/validacionUserLogged');
+const userLogged = require('../src/middlewares/validacionUserLogged'); //Middleware de aplicación
 
 //Requerimos las rutas.
 const homeRouter = require('./routes/homeRouter');

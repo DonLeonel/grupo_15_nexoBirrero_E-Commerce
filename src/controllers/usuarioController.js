@@ -63,16 +63,16 @@ module.exports = {
     },
 
     login: (req, res) => {
-        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
-        let usuarioALoguear = usuarios.find(user => user.correo.toUpperCase() == req.body.correo.toUpperCase());
+        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json'))); //Pasa el JSON de usuarios a un array
+        let usuarioALoguear = usuarios.find(user => user.correo.toUpperCase() == req.body.correo.toUpperCase()); //Si al momento de iniciar sesion, el correo es valido, guardamos al usuario en un objeto literal. Caso contrario, la variable "usuarioALoguear" tendrá valor undefined
 
-        if(usuarioALoguear){
-            const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password)
+        if(usuarioALoguear){ 
+            const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password) //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
             if(coincide){  
-                delete usuarioALoguear.password;       
-                req.session.userLogged = usuarioALoguear; 
+                delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
+                req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
 
-                return res.redirect('/usuario/setting');
+                return res.redirect('/usuario/setting'); 
             }
         }
 
