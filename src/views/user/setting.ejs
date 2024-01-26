@@ -12,7 +12,7 @@
                 <section class="menu-lateral">
                     <div class="user-avatar">
                         <img class="avatar" src="/img/usuarios/user.png" alt="avatar usuario">
-                        <span class="name-user">Usuario15</span>
+                        <span class="name-user"><%= user.nombre %> <%= user.apellido %></span>
                         <span class="editar-avatar"><a href="#">Cambiar</a></d>
                     </div>
                     <nav class="opciones">
@@ -21,6 +21,8 @@
                             <li class="item"><a href="#">Cambiar contraseña</a></li>
                             <li class="item"><a href="#">Cambiar email</a></li>
                             <li class="item"><a href="#">Cambiar ubicación</a></li>
+                            <hr>
+                            <li id="cerrar-sesion" class="item "><a href="/usuario/logout">Cerrar Sesión</a></li>
                             <hr>
                             <li id="borrar-cuenta" class="item "><a href="">Borrar Cuenta</a></li>
                         </ul>

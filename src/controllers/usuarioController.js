@@ -5,11 +5,15 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     setting: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/user/setting.ejs'));
+        res.render(path.resolve(__dirname, '../views/user/setting.ejs'), {
+            user: req.session.userLogged
+        });
     },
+
     registerView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/register.ejs'));
     },
+
     save: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
 
@@ -45,23 +49,30 @@ module.exports = {
             res.redirect('/usuario/login');
         }
     },
+
     recuperarPassView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/recuperar-password.ejs'));
     },
+
     recuperarPass: (req, res) => {
 
     },
+
     loginView: (req, res) => {
         res.render(path.resolve(__dirname, '../views/user/login.ejs'));
     },
+
     login: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
         let usuarioALoguear = usuarios.find(user => user.correo.toUpperCase() == req.body.correo.toUpperCase());
 
         if(usuarioALoguear){
             const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password)
-            if(coincide){                
-                res.redirect('/')
+            if(coincide){  
+                delete usuarioALoguear.password;       
+                req.session.userLogged = usuarioALoguear;  
+
+                return res.redirect('/usuario/setting');
             }
         }
 
@@ -70,5 +81,10 @@ module.exports = {
                 msg: 'El correo y/o contraseña son inválidos.'
             }
         });
+    },
+
+    logout: (req,res) => {
+        req.session.destroy();
+        return res.redirect('/');
     }
 }

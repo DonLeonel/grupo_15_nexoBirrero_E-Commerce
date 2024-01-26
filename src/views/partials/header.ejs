@@ -14,25 +14,31 @@
         <ul>
             <li class="dropdown">
                 <a class="dropdown-toggle" role="button">
-                    Cuenta
+                    <% if (locals.isLogged){ %>
+                        <%= locals.userLogged.nombre %>
+                    <% } else { %>
+                        Cuenta
+                    <% } %>
                     <i class="fa-solid fa-arrow-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li>
-                        <a href="/usuario/login">Iniciar Sesión</a>
-                    </li>
-                    <hr>
-                    <li>
-                        <a href="/usuario/register">Registrarse</a>
-                    </li>
-                    <hr>
-                    <li>
-                        <a href="/usuario/setting">Configuración</a>
-                    </li>
-                    <hr>
-                    <li>
-                        <a href="/productos/administrar">Administrar</a>
-                    </li>
+                    <% if(locals.isLogged){ %>
+                        <li>
+                            <a href="/usuario/setting">Configuración</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="/productos/administrar">Administrar</a>
+                        </li>
+                    <% } else { %>
+                        <li>
+                            <a href="/usuario/login">Iniciar Sesión</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="/usuario/register">Registrarse</a>
+                        </li>
+                    <% } %>
                 </ul>
             </li>
         </ul>

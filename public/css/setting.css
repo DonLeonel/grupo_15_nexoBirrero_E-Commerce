@@ -68,7 +68,11 @@ ul .item:hover{
     color: black;
 }
 
-#borrar-cuenta a {
+#borrar-cuenta a{
+    color: red;
+}
+
+#cerrar-sesion a{
     color: red;
 }
 

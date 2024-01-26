@@ -7,5 +7,23 @@
     "password": "$2b$10$r2OmodsELr2HznSD3YU8Z.9cU253/SVbuBdVwJ9.DU9yBHVaIQgAe",
     "rol": 1,
     "avatar": "user.png"
+  },
+  {
+    "id": 2,
+    "nombre": "Mauricio",
+    "apellido": "Chavarri",
+    "correo": "mauricio@gmail.com",
+    "password": "$2b$10$tY5jMluvB.y.ImWHdPKQvuu73lON7g.oEAqjypHZlONTLcky2ITJu",
+    "rol": 1,
+    "avatar": "user.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Federico",
+    "apellido": "Cortes",
+    "correo": "federico@gmail.com",
+    "password": "$2b$10$PpjvOTeaLC4R23C6igdm.uIabIABqfow3grttGMRTH2XVyTHNImIy",
+    "rol": 1,
+    "avatar": "user.png"
   }
 ]
