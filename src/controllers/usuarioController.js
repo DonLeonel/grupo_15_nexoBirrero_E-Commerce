@@ -5,9 +5,10 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     setting: (req, res) => {
+        console.log(req.session.userLogged);
         res.render(path.resolve(__dirname, '../views/user/setting.ejs'), {
             user: req.session.userLogged
-        });
+        });    
     },
 
     registerView: (req, res) => {
@@ -40,7 +41,7 @@ module.exports = {
                 apellido: req.body.apellido,
                 correo: req.body.correo,
                 password: bcrypt.hashSync(req.body.password, 10),
-                rol: req.body.rol, 
+                rol: 'CLIENTE', //por defecto el rol es cliente. (un administrador puede editar el rol de un cliente)
                 avatar: 'user.png'  //por defecto que tenga ese avatar (por el momento).
             }
 
@@ -71,6 +72,14 @@ module.exports = {
             if(coincide){  
                 delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
                 req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
+              
+                if(req.body.recordarme){  //Si el checkbox esta tildado, se creara una cookie con el nombre recordarme y se guardara el correo asociado a ese usuario.
+                    res.cookie(
+                        'recordarme', 
+                        usuarioALoguear.correo,
+                        { maxAge: 60000 }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
+                    )
+                }
 
                 return res.redirect('/usuario/setting'); 
             }

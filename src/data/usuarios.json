@@ -5,7 +5,7 @@
     "apellido": "Chavarri",
     "correo": "mauricio@gmail.com",
     "password": "$2b$10$hSLywrmn1zyA511R5q.VmeVAKgc6JwJpo1hDZtqhQfkBCJs/4tsGq",
-    "rol": "Cliente",
+    "rol": "CLIENTE",
     "avatar": "user.png"
   },
   {
@@ -14,7 +14,16 @@
     "apellido": "Cortes",
     "correo": "federico@gmail.com",
     "password": "$2b$10$QvoHEETMmB7NXzTHUUzOw.xcpDVyx37bB4V4h638DPTNHINgW4wrO",
-    "rol": "Administrador",
+    "rol": "ADMINISTRADOR",
+    "avatar": "user.png"
+  },
+  {
+    "id": 3,
+    "nombre": "Leonel",
+    "apellido": "Don",
+    "correo": "Leo@hotmail.com",
+    "password": "$2b$10$ba0YI50XrxmY243e4B65PeCYchcyhYvqt3SI075m1uNKBtMJkEHlm",
+    "rol": "ADMINISTRADOR",
     "avatar": "user.png"
   }
 ]

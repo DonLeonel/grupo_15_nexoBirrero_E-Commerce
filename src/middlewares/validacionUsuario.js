@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const { body } = require('express-validator');
-const { log } = require('console');
 
 //Verifica que los campos de un formulario sean ingresados de manera correcta
 

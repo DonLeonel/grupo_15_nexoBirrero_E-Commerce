@@ -3,7 +3,9 @@ const path = require('path');
 const app = express();
 const methodOverride = require('method-override');
 const session = require('express-session');
-const userLogged = require('../src/middlewares/validacionUserLogged'); //Middleware de aplicación
+const cookieParser = require('cookie-parser');
+const userLogged = require('./middlewares/validacionUserLogged'); //Middleware de aplicación
+const recordarme = require('./middlewares/recordarme'); //Middleware de aplicación
 
 //Requerimos las rutas.
 const homeRouter = require('./routes/homeRouter');
@@ -24,7 +26,9 @@ app.use(session({
 }))
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookieParser())
 app.use(userLogged);
+app.use(recordarme);
 
 //Usamos las rutas
 app.use('/', homeRouter);

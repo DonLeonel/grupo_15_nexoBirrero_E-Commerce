@@ -76,23 +76,7 @@
                                 <%= errors.confirmarPassword.msg %>
                             </div>
                         <% } %>
-                    </div>
-
-                    <div class="rol-cliente">
-                        <input type="radio" name="rol" id="Cliente" value= "<%= locals.oldData ? oldData.rol : "Cliente" %>" checked>
-                        <label for="Cliente" id="rol">Cliente</label>
-                    </div>
-                    <div class="rol-admin">
-                        <input type="radio" name="rol" id="Administrador" value= "<%= locals.oldData ? oldData.rol : "Administrador" %>">
-                        <label for="Administrador" id="rol">Administrador</label>
-                    </div>
-                    <!--
-                    <% if(locals.errors && errors.rol){ %>
-                        <div class="texto-errorValidacion maxWidth">
-                            <%= errors.rol.msg %>
-                        </div>
-                    <% } %>
-                    -->
+                    </div>             
                     
                     <br>
                     <button type="submit">Confirmar</button>
