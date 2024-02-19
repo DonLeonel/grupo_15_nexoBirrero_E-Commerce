@@ -77,7 +77,7 @@ module.exports = {
                     res.cookie(
                         'recordarme', 
                         usuarioALoguear.correo,
-                        { maxAge: 60000 }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
+                        { maxAge: 6000 }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
                     )
                 }
 

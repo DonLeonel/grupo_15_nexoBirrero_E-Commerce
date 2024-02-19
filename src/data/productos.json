@@ -13,6 +13,7 @@
     "disponible": false,
     "img": "LiefmansFruitesse.jpg"
   },
+  
   {
     "id": 2,
     "nombre": "Barbar",
@@ -102,7 +103,7 @@
     "nombre": "Zundertt",
     "categoria": "LAGER",
     "variedad": "LAMBIC",
-    "descripcion": "Descripcion",
+    "descripcion": "Descripcion nueva",
     "precio": "2000",
     "cervecera": "Alemanquiss",
     "nacionalidad": "Argentina",
@@ -110,5 +111,5 @@
     "cont_envase": "3000",
     "disponible": true,
     "img": "1705268832460_IMG.jpg"
-  }
+  }  
 ]

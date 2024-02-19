@@ -11,12 +11,11 @@ label {
     margin-top: 1.8rem;
 }
 
-div input {
+div input, .text-area {
     padding: 5px 0 5px 10px;
     border: none;
     border-radius: 10px;
-    background-color: lightgray;
-    height: 1.5rem;
+    background-color: lightgray;    
     width: 85%;
 }
 

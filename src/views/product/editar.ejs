@@ -10,13 +10,13 @@
                 <form class="form-registro" action="/productos/actualizar/<%= Producto.id%>?_method=PUT" method="post" enctype="multipart/form-data">
                     
                     <div>
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" value=<%=Producto.nombre%>>
+                        <label for="nombre">Nombre</label>                        
+                        <textarea class="text-area" name="nombre" id="nombre" cols="45" rows="1"><%=Producto.nombre%></textarea>
                     </div>
 
                     <div>
-                        <label for="cervecera">Cervecera</label>
-                        <input type="text" name="cervecera" id="cervecera" value=<%=Producto.cervecera%>>
+                        <label for="cervecera">Cervecera</label>                        
+                        <textarea class="text-area" name="cervecera" id="cervecera" cols="45" rows="1"><%=Producto.cervecera%></textarea>
                     </div>
                                   
                     <div>
@@ -44,8 +44,8 @@
                     </div>
 
                     <div>
-                        <label for="descripcion">Descripción</label>
-                        <input type="text" name="descripcion" id="descripcion" value=<%=Producto.descripcion%>>
+                        <label for="descripcion">Descripción</label>                        
+                        <textarea class="text-area" name="descripcion" id="descripcion" cols="45" rows="2"><%=Producto.descripcion%></textarea>
                     </div>
 
                     <div>
@@ -67,8 +67,8 @@
                     </div>
 
                     <div>
-                        <label for="nacionalidad">Nacionalidad</label>
-                        <input type="text" name="nacionalidad" id="nacionalidad" value=<%=Producto.nacionalidad%>>
+                        <label for="nacionalidad">Nacionalidad</label>                        
+                        <textarea class="text-area" name="nacionalidad" id="nacionalidad" cols="45" rows="1"><%=Producto.nacionalidad%></textarea>
                     </div>
 
                     <div>
@@ -76,7 +76,8 @@
                         <input type="number" name="graduacion" id="graduacion" value=<%=Producto.graduacion%>>
                     </div>
 
-                     <div>                <!-- type=""  -->
+                     <div>                
+                        <label for="imagen">Seleccione una imagen si desea cambiar la actual</label>
                         <input class="fileIMG" type="file" name="imagen" id="img" value=<%=Producto.img%>>
                     </div>
                     

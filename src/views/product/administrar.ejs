@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../partials/head', {title: 'Administrar Productos' , fileCss: 'administrar-productos' })%>
-<body>
     <body>
         <%-include('../partials/header')%>
             <main class="principa-administrar">
@@ -24,15 +23,15 @@
                       <tr>
                         <td><%= producto.id%> </td>
                         <td><%= producto.nombre%></td>
-                        <td class="td"><a href="/productos/administrar/detalle/<%= producto.id%> "><i class="fa-regular fa-eye"></i></a></td>
-                        <td class="td"><a href="/productos/editar/<%= producto.id%> "><i class="fa-solid fa-pencil"></i></a></td>
-                        <td class="td"><a href="/productos/delete/<%= producto.id%>"><i class="fa-regular fa-trash-can"></i></a></td>
+                        <td class="td"><a href="/productos/administrar/detalle/<%= producto.id%>"><i class="fa-regular fa-eye"></i></a></td>
+                        <td class="td"><a href="/productos/editar/<%= producto.id%>"><i class="fa-solid fa-pencil"></i></a></td>
+                        <td class="td"><a id="btnDelete" href="/productos/delete/<%= producto.id%>"><i class="fa-regular fa-trash-can"></i></a></td>
                       </tr>
                       <% }); %>
                     </tbody>
                   </table> 
             </main>
         <%-include('../partials/footer')%>
+        <script src="/js/confirmarDelete.js"></script>
     </body>
-</body>
 </html>

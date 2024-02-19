@@ -120,28 +120,10 @@ module.exports = {
     delete: (req, res) => {
         const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
 
-        // Swal.fire({
-        //     title: "¿Esta seguro que quiere eliminar el producto?",            
-        //     icon: "warning",
-        //     showCancelButton: true,
-        //     confirmButtonColor: "#3085d6",
-        //     cancelButtonColor: "#d33",
-        //     confirmButtonText: "Confirmar"
-        // }).then((result) => {
-        //     if (result.isConfirmed) {
-        //         Swal.fire({
-        //             title: "Eliminado!",
-        //             text: "El producto fue eliminado.",
-        //             icon: "success"
-        //         });
-        //     }
-        // });
-
         // let productosSinElBorrado = productos.filter(p => p.id != req.params.id);
         // let productosGuardar = JSON.stringify(productosSinElBorrado, null, 2);
         // fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), productosGuardar);
-        // res.redirect('/productos/administrar')
-
-        res.send('FUNCIONA CORRECTAMENTE - Pero esta deshabilitado hasta poner cartel de confirmación.')
+        // res.redirect('/productos/administrar')  
+        res.send('Funciona!!, pero está comentado.')     
     }
 }
