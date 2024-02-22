@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
-<%- include('../partials/head', {title: 'Home' , fileCss: 'home' })%>
+<%- include('../partials/head', {title: 'Home' , fileCss: 'home' , otherCss: false })%>
 
     <body>
         <!-- Incluimos el header en el body -->
@@ -14,17 +14,17 @@
 
             <main class="principal">
 
-                <h2 class="titulo-seccion">CATEGORÍAS</h2>
+                <h2 class="titulo-seccion">VARIEDADES</h2>
 
-                <% let categorias = ['Ale', 'Stout', 'Afrutadas' , 'Trigo', 'Porter', 'Lager', 'Especiales'] %>  
+                <% let variedades = ['Ale', 'Stout', 'Afrutadas' , 'Trigo', 'Porter', 'Lager', 'Especiales'] %>  
                 
                 <section class="categorias">
-                <% for(let i = 0; i < categorias.length; i++){ %>                      
+                <% for(let i = 0; i < variedades.length; i++){ %>                      
                         <article class="categ-producto">
-                            <!-- /productos/categoria/ -->
+                            <!-- /productos/variedades/ -->
                             <a href="#">
-                                <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoria">
-                                <div class="descripcion"><%= categorias[i] %></div>
+                                <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen variedades">
+                                <div class="descripcion"><%= variedades[i] %></div>
                             </a>
                         </article>                  
                     <% } %>                

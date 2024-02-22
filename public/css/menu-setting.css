@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.principal-config {
+    padding: 5px; 
+    text-align: center;
+    border-bottom: gray 2px solid;                   
+}
+
+.menu-lateral, .card-user {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;         
+}
+
+.user-avatar {         
+    position: relative;    
+}
+
+.avatar {
+    width: 65px;
+    cursor: pointer;  
+     
+}
+
+.name-user {    
+    font-size: 18px;
+    padding-top: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+.editar-avatar a{
+    font-size: 12px;
+    color: black;
+}
+
+.editar-avatar {
+    width: 65px;
+    position: absolute; 
+    top: 0;   
+    border-radius: 50%;
+    padding: 23px 0px 23px 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+
+.user-avatar:hover > .editar-avatar{    
+    display: block;
+}
+
+.opciones{
+    text-align: center;
+    font-size: 15px;
+}
+
+.opciones ul{
+    list-style: none;
+}
+
+ul .item {
+    padding: 8px 8px 8px 5px;  
+}
+
+ul .item:hover{
+    background-color: #bebebe;
+}
+
+.item a{
+    text-decoration: none;
+    color: black;    
+}
+
+#borrar-cuenta a{
+    color: red;
+}
+
+#cerrar-sesion a{
+    color: red;
+}

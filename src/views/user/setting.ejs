@@ -2,36 +2,11 @@
 <html lang="en">
 
 <!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
-<%- include('../partials/head', {title: 'Configuración' , fileCss: 'setting' }) %>
+<%- include('../partials/head', {title: 'Configuración' , fileCss: 'menu-setting' , otherCss: false}) %>
 
-    <body>
-        <!-- Incluimos el header en el body -->
-        <%- include('../partials/header') %>         
-
-            <main class="principal-config">
-                <section class="menu-lateral">
-                    <div class="user-avatar">
-                        <img class="avatar" src="/img/usuarios/user.png" alt="avatar usuario">
-                        <span class="name-user"><%= user.nombre %> <%= user.apellido %></span>
-                        <span class="editar-avatar"><a href="#">Cambiar</a></d>
-                    </div>
-                    <nav class="opciones">
-                        <ul>                            
-                            <li class="item"><a href="#">Cambiar contraseña</a></li>
-                            <li class="item"><a href="#">Cambiar email</a></li>
-                            <li class="item"><a href="#">Cambiar ubicación</a></li>
-                            <hr>
-                            <li id="cerrar-sesion" class="item "><a href="/usuario/logout">Cerrar Sesión</a></li>
-                            <hr>
-                            <li id="borrar-cuenta" class="item "><a href="">Borrar Cuenta</a></li>
-                        </ul>
-
-                    </nav>
-                </section>
-            </main>
-
-            <!-- Incluimos el footer a nuestro body -->
-            <%- include('../partials/footer')%>
+    <body>        
+        <%- include('../partials/header') %>        
+        <%- include('../partials/menuSetting') %>              
+        <%- include('../partials/footer') %>
     </body>
-
 </html>

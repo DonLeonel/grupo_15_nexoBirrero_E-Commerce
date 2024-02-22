@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%- include('../partials/head', {title: 'Cambiar Avatar' , fileCss: 'menu-setting' , otherCss: 'cambiarCorreo-Password-Ubicacion-Avatar' }) %>
+
+    <body>        
+        <%- include('../partials/header') %>
+
+        <%- include('../partials/menuSetting') %>
+            <section class="view">                
+                
+                <div class="contenedor-input">
+
+                    <label class="label" for="avatarNuevo">Ingrese su nuevo avatar</label>
+                    
+                    <input class="inputAvatar" name="avatarNuevo" id="avatarNuevo" type="file">
+
+                    <div>
+                        <button class="btn" type="submit">Actualizar</button> 
+                    </div>
+                </div>
+
+            </section>
+
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

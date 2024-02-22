@@ -10,7 +10,7 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.2"
   },
-  "name": "grupo_6_nexobirrero_e-commerce",
+  "name": "grupo_15_nexoBirrero_e-commerce",
   "description": "- Chavarri Mauricio.\r - Cruz Ximena.\r - Gonzalez Ramiro.\r - Don Leonel.",
   "version": "1.0.0",
   "main": "src/app.js",

@@ -5,10 +5,19 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     setting: (req, res) => {
-        console.log(req.session.userLogged);
-        res.render(path.resolve(__dirname, '../views/user/setting.ejs'), {
-            user: req.session.userLogged
-        });    
+        res.render(path.resolve(__dirname, '../views/user/setting.ejs'))
+    },
+
+    cambiarCorreoView: (req, res) => {
+        res.render(path.resolve(__dirname, '../views/user/cambiarCorreo.ejs'))
+    },
+
+    cambiarContraseniaView: (req, res) => {
+        res.render(path.resolve(__dirname, '../views/user/cambiarContrasenia.ejs'))
+    },
+
+    cambiarAvatarView: (req, res) => {
+        res.render(path.resolve(__dirname, '../views/user/cambiarAvatar.ejs'))
     },
 
     registerView: (req, res) => {
@@ -67,21 +76,21 @@ module.exports = {
         const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json'))); //Pasa el JSON de usuarios a un array
         let usuarioALoguear = usuarios.find(user => user.correo.toUpperCase() == req.body.correo.toUpperCase()); //Si al momento de iniciar sesion, el correo es valido, guardamos al usuario en un objeto literal. Caso contrario, la variable "usuarioALoguear" tendrá valor undefined
 
-        if(usuarioALoguear){ 
+        if (usuarioALoguear) {
             const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password) //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
-            if(coincide){  
+            if (coincide) {
                 delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
                 req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
-              
-                if(req.body.recordarme){  //Si el checkbox esta tildado, se creara una cookie con el nombre recordarme y se guardara el correo asociado a ese usuario.
+
+                if (req.body.recordarme) {  //Si el checkbox esta tildado, se creara una cookie con el nombre recordarme y se guardara el correo asociado a ese usuario.
                     res.cookie(
-                        'recordarme', 
+                        'recordarme',
                         usuarioALoguear.correo,
-                        { maxAge: 6000 }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
+                        { maxAge: (6000) }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
                     )
                 }
 
-                return res.redirect('/usuario/setting'); 
+                return res.redirect('/');
             }
         }
 
@@ -92,7 +101,7 @@ module.exports = {
         });
     },
 
-    logout: (req,res) => {
+    logout: (req, res) => {
         req.session.destroy();
         return res.redirect('/');
     }
