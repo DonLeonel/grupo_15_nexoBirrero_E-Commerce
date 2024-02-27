@@ -17,7 +17,23 @@ module.exports = {
     },
 
     cambiarAvatarView: (req, res) => {
-        res.render(path.resolve(__dirname, '../views/user/cambiarAvatar.ejs'))
+        res.render(path.resolve(__dirname, '../views/user/cambiarAvatar.ejs'), {
+            usuario: req.session.userLogged
+        })
+    },
+
+    actualizarAvatar: (req, res) => {
+        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));        
+        
+        let userActualizado = usuarios.map(user => {
+            if(user.id == req.params.id){
+                user.avatar = req.file.filename;
+            }
+            return user
+        }) 
+        
+        fs.writeFileSync(path.resolve(__dirname, '../data/usuarios.json'), JSON.stringify(userActualizado, null, 2));
+        res.redirect('/usuario/setting');        
     },
 
     registerView: (req, res) => {

@@ -18,8 +18,8 @@
 
 .avatar {
     width: 65px;
-    cursor: pointer;  
-     
+    cursor: pointer;     
+    border-radius: 100%;
 }
 
 .name-user {    

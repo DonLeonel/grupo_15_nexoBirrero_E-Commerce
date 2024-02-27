@@ -4,7 +4,7 @@ const path = require('path');
 const validacionUsuario = require('../middlewares/validacionUsuario.js'); 
 const validacionAuth = require('../middlewares/validacionAuth.js'); 
 const validacionGuest = require('../middlewares/validacionGuest.js'); 
-const uploadFile = require('../middlewares/multer.js'); 
+const uploadFile = require('../middlewares/multerUsuarios.js'); 
 const usuarioController = require(path.resolve(__dirname, '../controllers/usuarioController'));
 
 router.get('/setting', validacionAuth, usuarioController.setting);
@@ -13,7 +13,8 @@ router.get('/setting/cambiar-correo', validacionAuth, usuarioController.cambiarC
 
 router.get('/setting/cambiar-contrasenia', validacionAuth, usuarioController.cambiarContraseniaView);
 
-router.get('/setting/cambiar-avatar', validacionAuth, uploadFile.single('avatarNuevo'), usuarioController.cambiarAvatarView);
+router.get('/setting/cambiar-avatar', validacionAuth, usuarioController.cambiarAvatarView);
+router.put('/setting/cambiar-avatar/:id', uploadFile.single('avatarNuevo'), usuarioController.actualizarAvatar);
 
 router.get("/register", validacionGuest, usuarioController.registerView)
 router.post('/register', validacionUsuario, usuarioController.save);

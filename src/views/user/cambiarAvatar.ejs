@@ -8,7 +8,7 @@
         <%- include('../partials/header') %>
 
         <%- include('../partials/menuSetting') %>
-            <section class="view">                
+            <form class="view" action="/usuario/setting/cambiar-avatar/<%= usuario.id%>?_method=PUT" method="post" enctype="multipart/form-data">                
                 
                 <div class="contenedor-input">
 
@@ -21,7 +21,7 @@
                     </div>
                 </div>
 
-            </section>
+            </form>
 
             <%- include('../partials/footer') %>
     </body>

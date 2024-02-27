@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const validacionProducto = require('../middlewares/validacionProducto.js');
 const validacionAuth = require('../middlewares/validacionAuth.js');
-const uploadFile = require('../middlewares/multer.js');
+const uploadFile = require('../middlewares/multerProductos.js');
 const productosController = require(path.resolve(__dirname, '../controllers/productosController'));
 
 router.get('/registrar', productosController.registrarView);
