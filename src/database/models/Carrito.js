@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         Carrito.belongsTo(modelos.Usuario, {
             as: "usuario",
             foreignKey: "usuarioId"
-        });
+        });        
     };
     
     return Carrito;
