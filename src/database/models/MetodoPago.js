@@ -23,5 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     const MetodoPago = sequelize.define("MetodoPago", cols, config);
+
+    MetodoPago.associate = function(modelos){
+        MetodoPago.hasMany(modelos.Factura, {
+            as: "factura",
+            foreignKey: "metodoPagoId"
+        });
+    }
+
+
     return MetodoPago;
 }

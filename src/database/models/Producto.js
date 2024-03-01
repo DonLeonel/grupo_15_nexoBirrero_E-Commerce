@@ -56,6 +56,18 @@ module.exports = (sequelize, DataTypes) => {
             as: "categoria",
             foreignKey: "categoriaId"
         });
+        Producto.hasMany(modelos.DetalleFactura, {
+            // por las dudas si no anda cambiar el as 1/3/2024
+            as : "detalles_facturas",
+            foreignKey:"productoId"
+        })
+        Producto.belongsToMany(modelos.Carrito, {
+            as: "carritos",
+            through:"carritos_productos",
+            foreignKey: "productoId",
+            otherKey: "carritoId",
+            timestamps: true
+        });
     };
 
     return Producto;
