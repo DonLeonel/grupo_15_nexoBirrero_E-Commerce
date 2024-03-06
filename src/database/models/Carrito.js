@@ -2,7 +2,10 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
         },
         usuarioId: {
             type: DataTypes.INTEGER
@@ -29,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
             as: "usuario",
             foreignKey: "usuarioId"
         }); 
+        
         Carrito.belongsToMany(modelos.Producto, {
             as: "productos",
             through:"carritos_productos",

@@ -2,19 +2,26 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
         },
         metodoPagoId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         usuarioId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         createdAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         },
         updatedAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         }
     }
 
@@ -25,8 +32,8 @@ module.exports = (sequelize, DataTypes) => {
     const Factura = sequelize.define("Factura", cols, config);
 
     Factura.associate = function(modelos){
-        Factura.belongsTo(modelos.metodoPago, {
-            as: "metodo_pago",
+        Factura.belongsTo(modelos.MetodoPago, {
+            as: "metodoPago",
             foreignKey: "metodoPagoId"
         });
 
@@ -36,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
         });
 
         Factura.hasMany(modelos.DetalleFactura, {
-            as: "detalles_facturas",
+            as: "detallesFactura",
             foreignKey: "facturaId"
         });
     };

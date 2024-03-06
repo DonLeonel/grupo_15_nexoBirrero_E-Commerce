@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt')
+const { Usuario } = require('../database/models')
 
 module.exports = {
     setting: (req, res) => {
@@ -23,17 +24,17 @@ module.exports = {
     },
 
     actualizarAvatar: (req, res) => {
-        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));        
-        
+        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
+
         let userActualizado = usuarios.map(user => {
-            if(user.id == req.params.id){
+            if (user.id == req.params.id) {
                 user.avatar = req.file.filename;
             }
             return user
-        }) 
-        
+        })
+
         fs.writeFileSync(path.resolve(__dirname, '../data/usuarios.json'), JSON.stringify(userActualizado, null, 2));
-        res.redirect('/usuario/setting');        
+        res.redirect('/usuario/setting');
     },
 
     registerView: (req, res) => {
@@ -42,7 +43,6 @@ module.exports = {
 
     save: (req, res) => {
         const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json')));
-
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0) {
@@ -52,27 +52,23 @@ module.exports = {
             });
         }
         else {
-            let ultUsuario = usuarios.pop();
-            let ID;
-            if (ultUsuario) {
-                ID = ultUsuario.id + 1;
-                usuarios.push(ultUsuario);
-            }
-            else { ID = 1; }
-
-            const user = {
-                id: ID,
+            Usuario.create({
+                //id: Como es auto incremental, no hay que pasarle id. (la db lo coloca solo)
+                correo: req.body.correo.toUpperCase(),
+                contrasenia: bcrypt.hashSync(req.body.password, 10),
+                avatar: 'user.png',  //por defecto tiene un avatar, el usuario puede cambiarla.
+                rolId: 1, //por defecto el rol es 1 para los cliente. (luego un administrador puede cambiar el rol de un cliente)
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
-                correo: req.body.correo,
-                password: bcrypt.hashSync(req.body.password, 10),
-                rol: 'CLIENTE', //por defecto el rol es cliente. (un administrador puede editar el rol de un cliente)
-                avatar: 'user.png'  //por defecto que tenga ese avatar (por el momento).
-            }
-
-            usuarios.push(user);
-            fs.writeFileSync(path.resolve(__dirname, '../data/usuarios.json'), JSON.stringify(usuarios, null, 2));
-            res.redirect('/usuario/login');
+                //telefono, ciudadId y fechaNac --> seran Null cuando el usuario se registre, cuando quiera hacer una compra tendra que actualizar esos datos.
+                activo: 1,
+                createAt: new Date(),
+                updateAt: null           
+            })         
+            .then(() => {
+                res.redirect('/usuario/login');
+            })
+            .catch(error => console.log(error.message));            
         }
     },
 
@@ -88,12 +84,17 @@ module.exports = {
         res.render(path.resolve(__dirname, '../views/user/login.ejs'));
     },
 
-    login: (req, res) => {
-        const usuarios = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/usuarios.json'))); //Pasa el JSON de usuarios a un array
-        let usuarioALoguear = usuarios.find(user => user.correo.toUpperCase() == req.body.correo.toUpperCase()); //Si al momento de iniciar sesion, el correo es valido, guardamos al usuario en un objeto literal. Caso contrario, la variable "usuarioALoguear" tendrá valor undefined
+    login: async (req, res) => {
+        const correoEnLogin = req.body.correo.toUpperCase(); //Correo con el que se esta logueando convertido en Mayúscula.
 
+        let usuarioALoguear = await Usuario.findOne({
+            where: {
+                correo: correoEnLogin
+            }
+        });
+        
         if (usuarioALoguear) {
-            const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.password) //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
+            const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.contrasenia); //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
             if (coincide) {
                 delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
                 req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
@@ -102,9 +103,9 @@ module.exports = {
                     res.cookie(
                         'recordarme',
                         usuarioALoguear.correo,
-                        { maxAge: (6000) }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
-                    )
-                }
+                        { maxAge: (1000 * 20) }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
+                    );
+                };
 
                 return res.redirect('/');
             }

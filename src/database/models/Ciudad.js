@@ -2,16 +2,22 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
         },
         nombre: {
-            type: DataTypes.STRING(50)
+            type: DataTypes.STRING(50),
+            allowNull: false
         },
         createdAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         },
         updatedAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         }
     }
 
@@ -23,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
 
     Ciudad.associate = function(modelo){
         Ciudad.hasMany(modelo.Usuario, {
-            as: 'usuario',
+            as: 'usuarios',
             foreignKey: 'ciudadId'
-        })
-    }
+        });
+    };
 
     return Ciudad;
 }

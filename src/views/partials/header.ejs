@@ -26,7 +26,7 @@
                         <li>
                             <a href="/usuario/setting">Configuración</a>
                         </li>
-                        <% if(locals.userLogged.rol == "ADMINISTRADOR"){ %>
+                        <% if(locals.userLogged.rolId == 2){ %>
                             <hr>
                             <li>
                                 <a href="/productos/administrar">Administrar</a>

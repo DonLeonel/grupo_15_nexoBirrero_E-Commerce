@@ -2,19 +2,26 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
         },
         nombre: {
-            type: DataTypes.STRING(30)
+            type: DataTypes.STRING(30),
+            allowNull: false
         },
         descripcion: {
-            type: DataTypes.STRING(30)
+            type: DataTypes.STRING(30),
+            allowNull: false
         },
         createdAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         },
         updatedAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         }
     }
 
@@ -26,11 +33,10 @@ module.exports = (sequelize, DataTypes) => {
 
     MetodoPago.associate = function(modelos){
         MetodoPago.hasMany(modelos.Factura, {
-            as: "factura",
+            as: "facturas",
             foreignKey: "metodoPagoId"
         });
-    }
-
+    };
 
     return MetodoPago;
 }

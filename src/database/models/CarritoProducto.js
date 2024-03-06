@@ -2,25 +2,34 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
         },
         productoId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         carritoId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         cantidad: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         precio: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL,
+            allowNull: false
         },
         createdAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         },
         updatedAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         }
     }
 
@@ -33,15 +42,14 @@ module.exports = (sequelize, DataTypes) => {
         CarritoProducto.belongsTo(modelos.Carrito, {
             // por las dudas ponemos el as :P 
             as : "carrito",
-            foreignKey: "carritoId"
-            
-        })
+            foreignKey: "carritoId"            
+        });
+
         CarritoProducto.belongsTo(modelos.Producto, {
             // por las dudas ponemos el as :P 
             as : "producto",
-            foreignKey: "productoId"
-            
-        })
+            foreignKey: "productoId"            
+        });
     }
 
     return CarritoProducto;

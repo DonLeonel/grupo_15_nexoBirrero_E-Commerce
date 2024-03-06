@@ -2,46 +2,62 @@ module.exports = (sequelize, DataTypes) => {
 
     const cols = {
         id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false,
+            autoIncrement: true
         },
         nombre: {
-            type: DataTypes.STRING(50)
+            type: DataTypes.STRING(50),
+            allowNull: false
         },
         descripcion: {
-            type: DataTypes.STRING(100)
+            type: DataTypes.STRING(100),
+            allowNull: false
         },
         categoriaId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         precio: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL,
+            allowNull: false
         },
         nacionalidad: {
-            type: DataTypes.STRING(30)
+            type: DataTypes.STRING(30),
+            allowNull: false
         },
         variedad: {
-            type: DataTypes.STRING(20)
+            type: DataTypes.STRING(20),
+            allowNull: false
         },
         cervecera: {
-            type: DataTypes.SRING(20)
+            type: DataTypes.STRING(20),
+            allowNull: false
         },
         graduacion: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.DECIMAL,
+            allowNull: false
         },
         volContenido: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            allowNull: false
         },
         img: {
-            type: DataTypes.STRING(60)
+            type: DataTypes.STRING(60),
+            allowNull: false
         },
         activo: {
-            type: DataTypes.INTEGER(1)
+            type: DataTypes.INTEGER(1),
+            allowNull: false
         },
         createdAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         },
         updatedAt: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
+            allowNull: true
         }
     }
 
@@ -56,11 +72,13 @@ module.exports = (sequelize, DataTypes) => {
             as: "categoria",
             foreignKey: "categoriaId"
         });
+
         Producto.hasMany(modelos.DetalleFactura, {
-            // por las dudas si no anda cambiar el as 1/3/2024
-            as : "detalles_facturas",
+            // por las dudas si no anda cambiar el as 1/3/2024 (corrigió Leo 06/03)
+            as : "detallesFacturas", //Un producto puede estar en muchos detalles, pero eso detallesFacturas
             foreignKey:"productoId"
-        })
+        });
+
         Producto.belongsToMany(modelos.Carrito, {
             as: "carritos",
             through:"carritos_productos",
