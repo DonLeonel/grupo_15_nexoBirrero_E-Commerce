@@ -27,8 +27,8 @@ app.use(session({
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(cookieParser())
-app.use(userLogged);
 app.use(recordarme);
+app.use(userLogged);
 
 //Usamos las rutas
 app.use('/', homeRouter);

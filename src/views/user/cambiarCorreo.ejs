@@ -10,17 +10,29 @@
         <%- include('../partials/menuSetting') %>
             <section class="view">
                 
+                <p class="boxInfo">Ten en cuenta que con este nuevo correo electrónico deberás iniciar sesión.</p>
                 
-                <div class="contenedor-input">
+                <form action="/usuario/setting/cambiar-correo/<%=locals.userLogged.id%>?_method=PUT" method="post" class="contenedor-input">
 
                     <label class="label" for="correoNuevo">Ingrese su nuevo correo</label>
                     
-                    <input class="inputEmail" id="correoNuevo" type="email">
+                    <input 
+                        name="correo" 
+                        class="inputEmail" 
+                        id="correoNuevo" 
+                        type="text"
+                    >
+
+                    <% if(locals.errors){ %>
+                        <div class="texto-errorValidacion maxWidth">
+                            <%= errors.msg %>
+                        </div>
+                    <% } %>
 
                     <div>
                         <button class="btn" type="submit">Actualizar</button> 
                     </div>
-                </div>
+                </form>
 
             </section>
 

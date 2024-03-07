@@ -8,7 +8,7 @@
         <%- include('../partials/header') %>
 
         <%- include('../partials/menuSetting') %>
-            <form class="view" action="/usuario/setting/cambiar-avatar/<%= usuario.id%>?_method=PUT" method="post" enctype="multipart/form-data">                
+            <form class="view" action="/usuario/setting/cambiar-avatar/<%=locals.userLogged.id %>?_method=PUT" method="post" enctype="multipart/form-data">                
                 
                 <div class="contenedor-input">
 
@@ -16,11 +16,16 @@
                     
                     <input class="inputAvatar" name="avatarNuevo" id="avatarNuevo" type="file">
 
+                    <% if(locals.errors){ %>
+                        <div class="texto-errorValidacion maxWidth">
+                            <%= errors.msg %>
+                        </div>
+                    <% } %>
+
                     <div>
                         <button class="btn" type="submit">Actualizar</button> 
                     </div>
                 </div>
-
             </form>
 
             <%- include('../partials/footer') %>

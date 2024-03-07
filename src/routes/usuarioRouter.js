@@ -10,11 +10,13 @@ const usuarioController = require(path.resolve(__dirname, '../controllers/usuari
 router.get('/setting', validacionAuth, usuarioController.setting);
 
 router.get('/setting/cambiar-correo', validacionAuth, usuarioController.cambiarCorreoView);
+router.put('/setting/cambiar-correo/:id', validacionUsuario, usuarioController.updateCorreo);
 
 router.get('/setting/cambiar-contrasenia', validacionAuth, usuarioController.cambiarContraseniaView);
+router.put('/setting/cambiar-contrasenia/:id', validacionUsuario, usuarioController.updateContrasenia);
 
 router.get('/setting/cambiar-avatar', validacionAuth, usuarioController.cambiarAvatarView);
-router.put('/setting/cambiar-avatar/:id', uploadFile.single('avatarNuevo'), usuarioController.actualizarAvatar);
+router.put('/setting/cambiar-avatar/:id', uploadFile.single('avatarNuevo'), usuarioController.updateAvatar);
 
 router.get("/register", validacionGuest, usuarioController.registerView)
 router.post('/register', validacionUsuario, usuarioController.save);
