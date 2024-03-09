@@ -19,7 +19,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <% productos.forEach(producto => { %>
+                      <% productos && productos.forEach(producto => { %>
                       <tr>
                         <td><%= producto.id%> </td>
                         <td><%= producto.nombre%></td>
@@ -27,7 +27,7 @@
                         <td class="td"><a href="/productos/editar/<%= producto.id%>"><i class="fa-solid fa-pencil"></i></a></td>
                         <td class="td"><a id="btnDelete" href="/productos/delete/<%= producto.id%>"><i class="fa-regular fa-trash-can"></i></a></td>
                       </tr>
-                      <% }); %>
+                      <% }) %> 
                     </tbody>
                   </table> 
             </main>

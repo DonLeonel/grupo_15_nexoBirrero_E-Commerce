@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head', {title: 'Alta Producto' , fileCss: 'registrar-producto' , otherCss: false })%>
+<%- include('../partials/head', {title: 'Alta Producto' , fileCss: 'registrar-producto' , otherCss: false })%>
 
     <body>
         <%-include('../partials/header.ejs')%>
@@ -10,164 +10,146 @@
                 <form class="form-registro" action="/productos/registrar" method="post" enctype="multipart/form-data">
                     <div>
                         <label for="nombre">Nombre</label>
-                        <input 
-                            type="text" 
-                            name="nombre" 
-                            id="nombre"
-                            value= "<%= locals.oldData ? oldData.nombre : null %>"
-                        >
+                        <input type="text" name="nombre" id="nombre"
+                            value="<%= locals.oldData ? oldData.nombre : null %>">
                         <% if(locals.errors && errors.nombre){ %>
                             <p class="texto-errorValidacion maxWidth">
                                 <%= errors.nombre.msg %>
                             </p>
-                        <% } %>
+                            <% } %>
                     </div>
 
                     <div>
                         <label for="cervecera">Cervecera</label>
-                        <input 
-                            type="text" 
-                            name="cervecera" 
-                            id="cervecera"
-                            value= "<%= locals.oldData ? oldData.cervecera : null %>"
-                        >
+                        <input type="text" name="cervecera" id="cervecera"
+                            value="<%= locals.oldData ? oldData.cervecera : null %>">
                         <% if(locals.errors && errors.cervecera){ %>
                             <p class="texto-errorValidacion maxWidth">
                                 <%= errors.cervecera.msg %>
                             </p>
-                        <% } %>
+                            <% } %>
                     </div>
 
-                    <% let categorias = ['ALE', 'STOUT', 'AFRUTADAS' , 'TRIGO', 'PORTER', 'LAGER', 'ESPECIAL'] %>  
                     <div>
                         <label for="categoria">Seleccione la categoría</label>
-                        <select name="categoria" id="categoria">                            
-                            <option value= "">Elegí una categoría</option>
-                            <% for(let i = 0; i < categorias.length; i++){ %>
-                                
-                                <option 
-                                    value="<%= categorias[i] %>"
-                                    <%= locals.oldData && categorias[i] == oldData.categoria ? "selected" : null %>
-                                > 
-                                <%= categorias[i] %> </option>                                                       
-                            <% } %>  
-                                                      
-                        </select>
-                        <% if(locals.errors && errors.categoria){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.categoria.msg %>
-                            </p>
-                        <% } %>
-                    </div>
+                        <select name="categoriaId" id="categoria">
+                            <option value="">Elegí una categoría</option>
+                            <% categorias.forEach((categoria) => { %>
 
-                    <% let variedades = ['TRAPENSE', 'LAMBIC', 'TRIGO'] %>  
-                    <div>
-                        <label for="variedad">Seleccione la variedad</label>
-                        <select name="variedad" id="variedad">                            
-                            <option value= "" >Elegí una variedad</option>
-
-                            <% for(let i = 0; i < variedades.length; i++){ %>
-                                <option 
-                                    value="<%= variedades[i] %>"
-                                    <%= locals.oldData && variedades[i] == oldData.variedad ? "selected" : null %>
-                                > 
-                                <%= variedades[i] %> </option>                                                       
-                            <% } %>  
+                                <option value=<%= categoria.id %> <%=locals.oldData && categoria.id == oldData.categoriaId ? "selected" : null %> 
+                                >                                
+                                    <%= categoria.nombre %>
+                                </option>
+                                <% }) %>
 
                         </select>
-                        <% if(locals.errors && errors.variedad){ %>
+                        <% if(locals.errors && errors.categoriaId){ %>
                             <p class="texto-errorValidacion maxWidth">
-                                <%= errors.variedad.msg %>
+                                <%= errors.categoriaId.msg %>
                             </p>
-                        <% } %>
-                    </div>                        
-
-                    <div>
-                        <label for="descripcion">Descripción</label>                    
-                        <input type="text" name="descripcion" id="descripcion">
-                        <% if(locals.errors && errors.descripcion){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.descripcion.msg %>
-                            </p>
-                        <% } %>
+                            <% } %>
                     </div>
 
-                    <div>
-                        <label for="precio">Precio</label>
-                        <input type="number" name="precio" id="precio">
-                        <% if(locals.errors && errors.precio){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.precio.msg %>
-                            </p>
-                        <% } %>
-                    </div>
-                    
-                    <div>
-                        <label for="cont_envase">Seleccione el volumen</label>
-                        <select name="cont_envase" id="cont_envase" >
-                            <option value= "" >Elegí el volumen</option>
-                            <option <%= locals.oldData && '350' == oldData.cont_envase ? "selected" : null %> value= '350' >350ml</option>
-                            <option <%= locals.oldData && '500' == oldData.cont_envase ? "selected" : null %> value= '500' >500ml</option>
-                            <option <%= locals.oldData && '1000' == oldData.cont_envase ? "selected" : null %> value= '1000' >1L</option>
-                            <option <%= locals.oldData && '1500' == oldData.cont_envase ? "selected" : null %> value= '1500' >1.5L</option>
-                            <option <%= locals.oldData && '3000' == oldData.cont_envase ? "selected" : null %> value= '3000' >3L</option>
-                        </select>
-                        <% if(locals.errors && errors.cont_envase){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.cont_envase.msg %>
-                            </p>
-                        <% } %>
-                    </div>
+                    <% let variedades=['TRAPENSE', 'LAMBIC' , 'TRIGO' ] %>
+                        <div>
+                            <label for="variedad">Seleccione la variedad</label>
+                            <select name="variedad" id="variedad">
+                                <option value="">Elegí una variedad</option>
 
-                    <div>
-                        <label for="nacionalidad">Nacionalidad</label>
-                        <input 
-                            type="text" 
-                            name="nacionalidad" 
-                            id="nacionalidad"
-                            value="<%= locals.oldData ? oldData.nacionalidad : null %>"
-                        >
-                        <% if(locals.errors && errors.nacionalidad){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.nacionalidad.msg %>
-                            </p>
-                        <% } %>
-                    </div>
+                                <% for(let i=0; i < variedades.length; i++){ %>
+                                    <option value="<%= variedades[i] %>" <%=locals.oldData &&
+                                        variedades[i]==oldData.variedad ? "selected" : null %>
+                                        >
+                                        <%= variedades[i] %>
+                                    </option>
+                                    <% } %>
 
-                    <div>
-                        <label for="graduacion">Graduación</label>
-                        <input 
-                            type="number" 
-                            name="graduacion" 
-                            id="graduacion"
-                            value="<%= locals.oldData ? oldData.graduacion : null %>"
-                        >
-                        <% if(locals.errors && errors.graduacion){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.graduacion.msg %>
-                            </p>
-                        <% } %>
-                    </div>
+                            </select>
+                            <% if(locals.errors && errors.variedad){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.variedad.msg %>
+                                </p>
+                                <% } %>
+                        </div>
 
-                    <div>
-                        <label for="imagen">Seleccione la imagen del producto</label>
-                        <input 
-                            class="fileIMG" 
-                            type="file" 
-                            name="imagen" 
-                            id="imagen"                            
-                        >
-                        <% if(locals.errors && errors.imagen){ %>
-                            <p class="texto-errorValidacion maxWidth">
-                                <%= errors.imagen.msg %>
-                            </p>
-                        <% } %>
-                    </div>
+                        <div>
+                            <label for="descripcion">Descripción</label>
+                            <input type="text" name="descripcion" id="descripcion">
+                            <% if(locals.errors && errors.descripcion){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.descripcion.msg %>
+                                </p>
+                                <% } %>
+                        </div>
 
-                    <div >
-                        <button class="submit" type="submit">Registrar</button>                        
-                        <a class="btnVolver" href="/productos/administrar">Volver</a>
-                    </div>
+                        <div>
+                            <label for="precio">Precio</label>
+                            <input type="number" name="precio" id="precio">
+                            <% if(locals.errors && errors.precio){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.precio.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="cont_envase">Seleccione el volumen</label>
+                            <select name="cont_envase" id="cont_envase">
+                                <option value="">Elegí el volumen</option>
+                                <option <%=locals.oldData && '350'==oldData.cont_envase ? "selected" : null %> value=
+                                    '350' >350ml</option>
+                                <option <%=locals.oldData && '500'==oldData.cont_envase ? "selected" : null %> value=
+                                    '500' >500ml</option>
+                                <option <%=locals.oldData && '1000'==oldData.cont_envase ? "selected" : null %> value=
+                                    '1000' >1L</option>
+                                <option <%=locals.oldData && '1500'==oldData.cont_envase ? "selected" : null %> value=
+                                    '1500' >1.5L</option>
+                                <option <%=locals.oldData && '3000'==oldData.cont_envase ? "selected" : null %> value=
+                                    '3000' >3L</option>
+                            </select>
+                            <% if(locals.errors && errors.cont_envase){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.cont_envase.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="nacionalidad">Nacionalidad</label>
+                            <input type="text" name="nacionalidad" id="nacionalidad"
+                                value="<%= locals.oldData ? oldData.nacionalidad : null %>">
+                            <% if(locals.errors && errors.nacionalidad){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.nacionalidad.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="graduacion">Graduación</label>
+                            <input type="number" name="graduacion" id="graduacion"
+                                value="<%= locals.oldData ? oldData.graduacion : null %>">
+                            <% if(locals.errors && errors.graduacion){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.graduacion.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <label for="imagen">Seleccione la imagen del producto</label>
+                            <input class="fileIMG" type="file" name="imagen" id="imagen">
+                            <% if(locals.errors && errors.imagen){ %>
+                                <p class="texto-errorValidacion maxWidth">
+                                    <%= errors.imagen.msg %>
+                                </p>
+                                <% } %>
+                        </div>
+
+                        <div>
+                            <button class="submit" type="submit">Registrar</button>
+                            <a class="btnVolver" href="/productos/administrar">Volver</a>
+                        </div>
                 </form>
             </main>
 
