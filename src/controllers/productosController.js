@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
 const { Producto, Categoria } = require('../database/models');
+const { where } = require('sequelize');
 
 module.exports = {
     categoriaView: (req, res) => {
@@ -35,17 +36,17 @@ module.exports = {
         }
     },
 
-    adminDetalleView: async (req, res) => {    
+    adminDetalleView: async (req, res) => {
         try {
-            const miProducto = await Producto.findByPk(req.params.id ,{
-                include: 
-                    ['categoria']           
+            const miProducto = await Producto.findByPk(req.params.id, {
+                include:
+                    ['categoria']
             });
 
             res.render(path.resolve(__dirname, '../views/product/adminDetalle.ejs'), { miProducto });
         } catch (error) {
             console.error('No se pudo encontrar al productos seleccionado', error);
-        }      
+        }
     },
 
     registrarView: async (req, res) => {
@@ -58,9 +59,9 @@ module.exports = {
     },
 
     save: async (req, res) => {
-        const errors = validationResult(req);
+        const errors = validationResult(req);         
         
-        if (errors.isEmpty()) {            
+        if (errors.isEmpty()) {
             Producto.create({
                 nombre: req.body.nombre,
                 descripcion: req.body.descripcion,
@@ -93,36 +94,40 @@ module.exports = {
         res.render(path.resolve(__dirname, '../views/product/carrito.ejs'));
     },
 
-    editarView: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
-        let Producto = productos.find(producto => producto.id == req.params.id);
-
-        res.render(path.resolve(__dirname, '../views/product/editar.ejs'), { Producto });
+    editarView: async (req, res) => {              
+        try {            
+            const producto = await Producto.findByPk(req.params.id);
+            const categorias = await Categoria.findAll();
+            res.render(path.resolve(__dirname, '../views/product/editar.ejs'), { producto, categorias });
+        } catch (error) {
+            console.error('No se pudo recuperar el producto indicado!', error);
+        }
     },
 
-    actualizar: (req, res) => {
-        let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/productos.json')));
-        let id = req.params.id;
-        req.body.id = id;
+    actualizar: async (req, res) => {       
+        try {
+            await Producto.update({
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                categoriaId: req.body.categoriaId,
+                precio: req.body.precio,
+                nacionalidad: req.body.nacionalidad,
+                variedad: req.body.variedad,
+                cervecera: req.body.cervecera,
+                graduacion: req.body.graduacion,
+                volContenido: req.body.cont_envase,
+                img: req.file && req.file.filename 
+            },
+            {
+                where: {
+                    id: req.params.id
+                }
+            })
 
-        let productoActualizado = productos.map(p => {
-            if (p.id == id) {
-                p.nombre = req.body.nombre;
-                p.categoria = req.body.categoria;
-                p.variedad = req.body.variedad;
-                p.descripcion = req.body.descripcion;
-                p.precio = req.body.precio;
-                p.cont_envase = req.body.cont_envase;
-                p.cervecera = req.body.cervecera;
-                p.nacionalidad = req.body.nacionalidad;
-                p.graduacion = req.body.graduacion;
-                if (req.file) { p.img = req.file.filename }
-            }
-            return p;
-        })
-
-        fs.writeFileSync(path.resolve(__dirname, '../data/productos.json'), JSON.stringify(productoActualizado, null, 2));
-        res.redirect('/productos/administrar');
+            res.redirect('/productos/administrar');
+        } catch (error) {
+            console.error('No se pudo actualizar el producto', error);
+        }        
     },
 
     delete: (req, res) => {
