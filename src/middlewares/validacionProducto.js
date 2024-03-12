@@ -7,13 +7,13 @@ module.exports = [
 
     body('cervecera').notEmpty().withMessage('El campo cervecera no debe estar vacío.'),
 
-    body('categoria').notEmpty().withMessage('Debe seleccionar alguna categoría.'),
+    body('categoriaId').notEmpty().withMessage('Debe seleccionar alguna categoría.'),
 
     body('variedad').notEmpty().withMessage('Debe seleccionar alguna variedad.'),
 
     body('descripcion')
         .notEmpty().withMessage('El campo descripción no debe estar vacío.').bail()
-        .isLength({ min: 10, max: 50 }).withMessage('El campo descripción debe contener entre 10 y 50 caracteres.'),
+        .isLength({ min: 10, max: 250 }).withMessage('El campo descripción debe contener entre 10 y 250 caracteres.'),
 
     body('precio').notEmpty().withMessage('El campo precio no debe estar vacío.'),
 

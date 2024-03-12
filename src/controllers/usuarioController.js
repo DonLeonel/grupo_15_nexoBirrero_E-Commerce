@@ -39,19 +39,19 @@ module.exports = {
 
     updateContrasenia: async (req, res) => {
         const resultValidation = validationResult(req);
-        const errores = resultValidation.mapped();        
-        
+        const errores = resultValidation.mapped();
+
         try {
-            const user = await Usuario.findByPk(req.params.id);            
+            const user = await Usuario.findByPk(req.params.id);
             const coincide = bcrypt.compareSync(req.body.passwordActual, user.contrasenia);
-            if(coincide){    
+            if (coincide) {
                 if (errores?.password || errores?.confirmarPassword) {
                     return res.render(path.resolve(__dirname, '../views/user/cambiarContrasenia.ejs'), {
                         errors: errores
                     });
                 }
-            }   
-            else{
+            }
+            else {
                 return res.render(path.resolve(__dirname, '../views/user/cambiarContrasenia.ejs'), {
                     error: {
                         msg: 'La contraseña actual no coincide.'
@@ -94,32 +94,30 @@ module.exports = {
         res.render(path.resolve(__dirname, '../views/user/register.ejs'));
     },
 
-    save: (req, res) => {        
+    save: (req, res) => {
         const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
-            return res.render(path.resolve(__dirname, '../views/user/register.ejs'), {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            });
-        }
-        else {
-            Usuario.create({
-                //id: Como es auto incremental, no hay que pasarle id. (la db lo coloca solo)
+        if (resultValidation.isEmpty()) {
+
+            Usuario.create({                
                 correo: req.body.correo.toUpperCase(),
                 contrasenia: bcrypt.hashSync(req.body.password, 10),
-                avatar: 'user.png',  //por defecto tiene un avatar, el usuario puede cambiarla.
-                rolId: 1, //por defecto el rol es 1 para los cliente. (luego un administrador puede cambiar el rol de un cliente)
+                avatar: 'user.png',
+                rolId: 1, 
                 nombre: req.body.nombre,
                 apellido: req.body.apellido,
                 //telefono, ciudadId y fechaNac --> seran Null cuando el usuario se registre, cuando quiera hacer una compra tendra que actualizar esos datos.
-                activo: 1,
-                createAt: new Date(),
-                updateAt: null
+                activo: 1                
             })
                 .then(() => {
                     res.redirect('/usuario/login');
                 })
-                .catch(error => console.log(error.message));
+                .catch(error => console.error('No se pudo registrar al usuario.',error));
+        }
+        else {
+            return res.render(path.resolve(__dirname, '../views/user/register.ejs'), {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
         }
     },
 
@@ -128,7 +126,7 @@ module.exports = {
     },
 
     recuperarPass: (req, res) => {
-        
+
     },
 
     loginView: (req, res) => {
@@ -137,36 +135,38 @@ module.exports = {
 
     login: async (req, res) => {
         const correoEnLogin = req.body.correo.toUpperCase(); //Correo con el que se esta logueando convertido en Mayúscula.
+        try {
+            let usuarioALoguear = await Usuario.findOne({
+                where: {
+                    correo: correoEnLogin
+                }
+            });
 
-        let usuarioALoguear = await Usuario.findOne({
-            where: {
-                correo: correoEnLogin
+            if (usuarioALoguear) {
+                const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.contrasenia); //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
+                if (coincide) {
+                    delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
+                    req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
+
+                    if (req.body.recordarme) {  //Si el checkbox esta tildado, se creara una cookie con el nombre recordarme y se guardara el correo asociado a ese usuario.
+                        res.cookie(
+                            'recordarme',
+                            usuarioALoguear.correo,
+                            { maxAge: (1000 * 60 * 60) }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
+                        );
+                    };
+                    return res.redirect('/');
+                }
             }
-        });
 
-        if (usuarioALoguear) {
-            const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.contrasenia); //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
-            if (coincide) {
-                delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
-                req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
-
-                if (req.body.recordarme) {  //Si el checkbox esta tildado, se creara una cookie con el nombre recordarme y se guardara el correo asociado a ese usuario.
-                    res.cookie(
-                        'recordarme',
-                        usuarioALoguear.correo,
-                        { maxAge: (1000 * 60 * 60) }  // en este objeto literal se define la propiedad de duración en mili segundos de la cookie.
-                    );
-                };
-
-                return res.redirect('/');
-            }
+            return res.render(path.resolve(__dirname, '../views/user/login.ejs'), {
+                errors: {
+                    msg: 'El correo y/o contraseña son inválidos.'
+                }
+            });
+        } catch (error) {
+            console.error('Ups, no se pudo realizar la solicitud..', error);
         }
-
-        return res.render(path.resolve(__dirname, '../views/user/login.ejs'), {
-            errors: {
-                msg: 'El correo y/o contraseña son inválidos.'
-            }
-        });
     },
 
     logout: (req, res) => {
