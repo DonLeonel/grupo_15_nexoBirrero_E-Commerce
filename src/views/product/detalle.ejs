@@ -19,15 +19,26 @@
                         <section class="section-detalles">
 
                             <div id="nombre-producto">Nombre: <%= miProducto.nombre %></div>
-                            <div id="precio">Precio: $<%= miProducto.precio %></div>
+                            <div id="precio">Precio: $<%= miProducto.precio %></div>                                             
+                            <div id="descripcion">
+                                Categoría: <%= miProducto.categoria.nombre %>
+                            </div>                           
+                            <div id="descripcion">
+                                Variedad: <%= miProducto.variedad %>
+                            </div>                           
+                            <div id="descripcion">
+                                Cervecera: <%= miProducto.cervecera %>
+                            </div>      
+                            <div id="descripcion">
+                                Volumen Contenido: <%= miProducto.volContenido%> Ml.
+                            </div>    
+                            <div id="descripcion">
+                                Graduación Alcohólica: <%= miProducto.graduacion%>
+                            </div>                            
+
                             <div id="descripcion">
                                 <%= miProducto.descripcion %>
-                            </div>
-                            <% if(miProducto.disponible){ %>
-                                <div id="stock">Stock: Disponible</div>
-                                <% }else{ %>
-                                    <div id="stock">Stock: No Disponible</div>
-                                    <% } %>
+                            </div>         
 
                         </section>
 

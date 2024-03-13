@@ -32,11 +32,14 @@ main .productos {
     display: inline-block;
     width: max-content;
     padding: 10px;
+    margin-left: 15px;
     width: 65%;
     text-decoration: underline;
 }
 
 .item-producto a .precio {
+    padding: 10px;
+    margin-left: 5px;
     width: max-content;
     color: rgb(65, 70, 239);
 }
@@ -86,12 +89,16 @@ main .productos {
     visibility: visible;
 }
 
+.msjSinProducto{
+    padding: 20px;
+    margin: auto;
+}
 
 @media(min-width: 668px) {
 
     main .productos {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap;        
     }
 
     .item-producto {

@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 const validacionProducto = require('../middlewares/validacionProducto.js');
 const validacionAuth = require('../middlewares/validacionAuth.js');
 const uploadFile = require('../middlewares/multerProductos.js');
-const productosController = require(path.resolve(__dirname, '../controllers/productosController'));
+const productosController = require('../controllers/productosController');
 
 router.get('/registrar', productosController.registrarView);
 router.post('/registrar', uploadFile.single('imagen'), validacionProducto, productosController.save);
@@ -20,6 +19,6 @@ router.get('/administrar/detalle/:id', productosController.adminDetalleView);
 
 router.get('/carrito', validacionAuth, productosController.carritoView);
 
-//router.get('/:categoria', productosController.categoriaView);
+router.get('/categoria/:id', productosController.categoriaView);
 
 module.exports = router;

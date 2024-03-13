@@ -1,14 +1,15 @@
 const path = require('path');
-const fs = require('fs');
+const { Producto, Categoria } = require('../database/models')
 
 module.exports = {
-    index: (req, res) => {        
-        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
-        
-        const afrutados = productos.filter((p) => p.category === 'afrutadas')
-        const trigo = productos.filter((p) => p.category === 'trigo')
-        const ale = productos.filter((p) => p.category === 'ale')
+    index: async (req, res) => {
+        try {
+            const categorias = await Categoria.findAll();
+            const productos = await Producto.findAll({ where: { activo: 1 } });
 
-        res.render(path.resolve(__dirname, '../views/web/home.ejs'), { productos });              
+            res.render(path.resolve(__dirname, '../views/web/home.ejs'), { productos, categorias });
+        } catch (error) {
+            console.error('No se pudo recuperar datos de la db', error)
+        }
     }
 }

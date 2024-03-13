@@ -2,24 +2,34 @@ const path = require('path');
 const fs = require('fs');
 const { validationResult } = require('express-validator');
 const { Producto, Categoria } = require('../database/models');
-const { where } = require('sequelize');
 
 module.exports = {
-    categoriaView: (req, res) => {
+    categoriaView: async (req, res) => {        
+        try {            
+            const productos = await Producto.findAll({                           
+                where: { 
+                    activo: 1,
+                    categoriaId: req.params.id
+                } 
+            });
+            
+            res.render(path.resolve(__dirname, '../views/product/categoria.ejs'), { productos });
+        } catch (error) {
+            console.error('No se pudo recuperar los productos de la db', error)
+        }
     },
 
-    detalleView: (req, res) => {
-        const productos = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/productos.json'), 'utf-8'));
+    detalleView: async (req, res) => {
+        try {
+            const miProducto = await Producto.findByPk(req.params.id, {
+                include:
+                    ['categoria']
+            });
 
-        let id = req.params.id;
-        let miProducto;
-        productos.forEach(producto => {
-            if (producto.id == id) {
-                miProducto = producto;
-            }
-        });
-
-        res.render(path.resolve(__dirname, '../views/product/detalle.ejs'), { miProducto });
+            res.render(path.resolve(__dirname, '../views/product/detalle.ejs'), { miProducto });
+        } catch (error) {
+            console.error('No se pudo encontrar al productos seleccionado', error);
+        }        
     },
 
     administrarView: async (req, res) => {

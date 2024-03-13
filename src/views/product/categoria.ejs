@@ -8,17 +8,25 @@
         <%-include('../partials/header')%>
 
             <main class="principal-detalle">
+                
                 <section class="productos">
+                    <% if(productos.length > 0){  %>
+                        <% productos.forEach((prod) => { %>
                     <article class="item-producto">
-                        <a href="/productos/detalle/<%= %>">
-                            <img class="img-categ" src="/img/Categoria.jpg" alt="imagen categoria">
-                            <span class="descripcion"><%= %></span>
-                            <span class="precio">$ <%= %></span>
-                            <p>PUNTUACIÓN <%= %></p>
+                        <a href="/productos/detalle/<%= prod.id %>">
+                            <img class="img-categ" src="/img/productos/<%=prod.img%>" alt="imagen categoria">                        
+                            <span class="precio">$ <%= prod.precio %></span>
+                            <span class="descripcion"><%= prod.variedad%></span>
+                            <p>PUNTUACIÓN <%= %></p> 
                         </a>
                         <button class="add-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
                         <button type="button" class="add-like"><i class="fa-solid fa-heart"></i></button>
-                    </article>           
+                    </article>    
+                <% }) %>
+                <% } else { %>
+                    <p class="msjSinProducto">Por el momento no contamos con productos en esta Categoría.</p> 
+                <% } %>                      
+                </section>  
             </main>
             <!-- Incluimos el footer a nuestro body -->
             <%-include('../partials/footer')%>

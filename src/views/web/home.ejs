@@ -14,20 +14,17 @@
 
             <main class="principal">
 
-                <h2 class="titulo-seccion">VARIEDADES</h2>
-
-                <% let variedades = ['Ale', 'Stout', 'Afrutadas' , 'Trigo', 'Porter', 'Lager', 'Especiales'] %>  
+                <h2 class="titulo-seccion">CATEGORÍAS</h2>            
                 
                 <section class="categorias">
-                <% for(let i = 0; i < variedades.length; i++){ %>                      
-                        <article class="categ-producto">
-                            <!-- /productos/variedades/ -->
-                            <a href="#">
-                                <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen variedades">
-                                <div class="descripcion"><%= variedades[i] %></div>
+                <% categorias && categorias.forEach((categ) => { %>                      
+                        <article class="categ-producto">                            
+                            <a href="/productos/categoria/<%=categ.id%>">
+                                <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoría">
+                                <div class="descripcion"><%= categ.nombre %></div>
                             </a>
                         </article>                  
-                    <% } %>                
+                    <% }) %>                
                 </section>
 
                 <h2 class="titulo-seccion-destacados">PRODUCTOS DESTACADOS</h2>
