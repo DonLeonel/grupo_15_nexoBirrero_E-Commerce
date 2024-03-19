@@ -1,0 +1,149 @@
+/* Para abajo se encuentran los estilos del Banner*/
+
+.cont-banner {
+    margin-bottom: -4px;
+}
+
+.banner {
+    width: 100%;
+    padding: 10px;
+    background-color: #170B04;
+}
+
+/* Para abajo se encuentran los estilos de la sección categorías y destacados*/
+
+.principal {
+    width: 100%;
+    /*background-color:#d9d9d9;*/
+}
+
+.categorias,
+.destacados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;    
+}
+
+.titulo-seccion {
+    margin-top: 1rem;
+}
+
+.titulo-seccion,
+.titulo-seccion-destacados {
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.categ-producto,
+.dest-producto {
+    text-align: center;
+    margin: 20px 10px;
+    width: 40%;
+    padding: 10px;
+    border: solid 1px grey;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.categ-producto img {
+    width: 100%;    
+}
+
+.dest-producto img {
+    width: 120px;
+    height: 120px;
+}
+
+.categ-producto img,
+.dest-producto img {
+    transition: 0.5s;
+    object-fit: cover;
+}
+
+.categ-producto img:hover,
+.dest-producto img:hover {
+    transform: scale(0.95);
+}
+
+.caja-descripcion {
+    border-top: solid 1px #E2E0E0;
+    padding: 10px;
+}
+
+.categ-producto a,
+.dest-producto a {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.categ-producto:hover,
+.dest-producto:hover {
+    border: solid 1px white;
+    box-shadow: 0px 0px 10px grey;
+}
+
+/* Para abajo se encuentra la primer Media Query*/
+
+@media (min-width: 480px){
+    .categ-producto {
+        width: 40%;
+    }
+
+    .dest-producto {
+        width: 40%;
+    }
+
+    .dest-producto img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (min-width: 768px) {
+    .categ-producto {        
+        width: 30%;
+    }
+
+    .dest-producto {
+        width: 30%;
+    }
+
+    .dest-producto img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media(min-width: 992px) {
+    .categ-producto {        
+        width: 26%;
+    }
+
+    .dest-producto {
+        width: 26%;
+    }
+
+    .principal {
+        margin: auto;
+    }
+}
+
+@media(min-width: 1200px) {
+    .categorias {
+        width: 100%;
+    }
+
+    .categ-producto {
+        width: 16%;
+    }
+
+    .dest-producto {
+        padding: 5px;
+        width: 22%;
+    }
+}

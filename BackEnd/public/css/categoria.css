@@ -1,0 +1,119 @@
+main .productos {    
+    margin: auto;
+    padding: 20px;
+}
+
+.item-producto {
+    width: 90%;
+    border: black solid 1px;
+    box-shadow: 0px 0px 4px black;
+    border-radius: 10px;
+    margin: 1rem auto;
+
+    position: relative;
+}
+
+.item-producto a {
+    text-decoration: none;
+    color: black;
+}
+
+.item-producto:hover {
+    scale: 1.1;
+}
+
+.item-producto a img {
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.item-producto a .descripcion {
+    display: inline-block;
+    width: max-content;
+    padding: 10px;
+    margin-left: 15px;
+    width: 65%;
+    text-decoration: underline;
+}
+
+.item-producto a .precio {
+    padding: 10px;
+    margin-left: 5px;
+    width: max-content;
+    color: rgb(65, 70, 239);
+}
+
+.item-producto a p {
+    font-size: 15px;
+    padding: 10px;
+    width: 65%;
+    display: inline-block;
+}
+
+.add-carrito {
+    cursor: pointer;
+    border: none;
+    background-color: white;
+
+    position: absolute;
+    right: 10px;
+
+    visibility: hidden;
+}
+
+.add-carrito:hover,
+.add-like:hover {
+    color: blue;
+    scale: 1.1;
+}
+
+.add-carrito i,
+.add-like i {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.add-like {    
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    position: absolute;
+    right: 50px;
+
+    visibility: hidden;
+}
+
+.item-producto:hover > .add-like,
+.item-producto:hover > .add-carrito{
+    visibility: visible;
+}
+
+.msjSinProducto{
+    padding: 20px;
+    margin: auto;
+}
+
+@media(min-width: 668px) {
+
+    main .productos {
+        display: flex;
+        flex-wrap: wrap;        
+    }
+
+    .item-producto {
+        width: 45%;
+    }
+}
+
+@media(min-width: 992px) {
+    .item-producto {
+        width: 32%;
+    }
+}
+
+@media(min-width: 1200px) {
+    .item-producto {
+        width: 23%;
+    }
+}

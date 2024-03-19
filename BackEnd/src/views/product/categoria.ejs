@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%-include('../partials/head', {title: 'Categoria' , fileCss: 'categoria' , otherCss: false })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('../partials/header')%>
+
+            <main class="principal-detalle">
+                
+                <section class="productos">
+                    <% if(productos.length > 0){  %>
+                        <% productos.forEach((prod) => { %>
+                    <article class="item-producto">
+                        <a href="/productos/detalle/<%= prod.id %>">
+                            <img class="img-categ" src="/img/productos/<%=prod.img%>" alt="imagen categoria">                        
+                            <span class="precio">$ <%= prod.precio %></span>
+                            <span class="descripcion"><%= prod.variedad%></span>
+                            <p>PUNTUACIÓN <%= %></p> 
+                        </a>
+                        <button class="add-carrito"><i class="fa-solid fa-cart-shopping"></i></button>
+                        <button type="button" class="add-like"><i class="fa-solid fa-heart"></i></button>
+                    </article>    
+                <% }) %>
+                <% } else { %>
+                    <p class="msjSinProducto">Por el momento no contamos con productos en esta Categoría.</p> 
+                <% } %>                      
+                </section>  
+            </main>
+            <!-- Incluimos el footer a nuestro body -->
+            <%-include('../partials/footer')%>
+    </body>
+
+</html>

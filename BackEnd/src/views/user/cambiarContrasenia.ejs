@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%- include('../partials/head', {title: 'Cambiar contraseña' , fileCss: 'menu-setting' , otherCss: 'cambiarCorreo-Password-Ubicacion-Avatar' }) %>
+
+    <body>        
+        <%- include('../partials/header') %>
+
+        <%- include('../partials/menuSetting') %>
+            <section class="view">                           
+                <form action="/usuario/setting/cambiar-contrasenia/<%=locals.userLogged.id%>?_method=PUT" method="post" class="contenedor-input">
+
+                    <label class="label" for="passwordActual">Ingrese su contraseña actual</label>                    
+                    <input class="inputPassword" name="passwordActual" id="passwordActual" type="password" required>
+                    <% if(locals.error){ %>
+                        <div class="texto-errorValidacion maxWidth">
+                            <%= error.msg %>
+                        </div>
+                    <% } %>
+
+                    <label class="label" for="password">Ingrese su nueva contraseña</label>                    
+                    <input class="inputPassword" name="password" id="password" type="password">
+                    <% if(locals.errors?.password){ %>
+                        <div class="texto-errorValidacion maxWidth">
+                            <%= errors.password.msg %>
+                        </div>
+                    <% } %>
+
+                    <label class="label" for="confirmarPassword">Confirme su nueva contraseña</label>                    
+                    <input class="inputPassword" name="confirmarPassword" id="confirmarPassword" type="password">
+                    <% if(locals.errors?.confirmarPassword){ %>
+                        <div class="texto-errorValidacion maxWidth">
+                            <%= errors.confirmarPassword.msg %>
+                        </div>
+                    <% } %>
+
+                    <div>
+                        <button class="btn" type="submit">Actualizar</button> 
+                    </div>
+
+                </form>
+            </section>
+
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

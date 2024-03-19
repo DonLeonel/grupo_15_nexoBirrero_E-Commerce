@@ -1,0 +1,89 @@
+main {    
+    margin: 4rem 0;
+    text-align: center;
+}
+
+label {
+    display: block;
+}
+
+.form-register button {
+    display: block;
+    margin: 1rem auto;
+    width: 90%;
+    height: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #0096d2;
+    color: white;
+    cursor: pointer;
+}
+
+.form-register button:hover {
+    background-color: #34bbe9;
+}
+
+.form-register {
+    width: 70%;
+    margin: 3rem auto 0 auto;
+}
+
+div label {
+    margin-top: 1.5rem;
+    padding: 5px;
+}
+
+div input {
+    padding: 5px 0 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: lightgray;
+    height: 1.5rem;
+    width: 90%;
+}
+
+/*---------- Estilos del radio-button (Rol) ----------*/
+div.rol-cliente{
+    margin-top: 1.5rem;
+}
+
+div.rol-cliente,
+div.rol-admin {
+    display: flex;
+    justify-content: center;
+}
+
+label#rol{
+    margin-top: 0%;
+}
+
+input#Cliente,
+input#Administrador {
+    width: 10%;
+}
+
+label#rol {
+    width: 30%;
+}
+/*----------------------------------------------------*/
+
+main a {
+    display: block;
+    width: max-content;
+    margin: 10px auto 0 auto;
+    color: black;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+@media (min-width: 600px) {
+    .form-register {
+        width: 45%;
+    }
+}
+
+@media (min-width: 992px) {
+    .form-register {
+        width: 30%;
+    }
+}

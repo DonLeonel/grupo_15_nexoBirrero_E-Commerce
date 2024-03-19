@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%- include('../partials/head', {title: 'Cambiar Avatar' , fileCss: 'menu-setting' , otherCss: 'cambiarCorreo-Password-Ubicacion-Avatar' }) %>
+
+    <body>        
+        <%- include('../partials/header') %>
+
+        <%- include('../partials/menuSetting') %>
+            <form class="view" action="/usuario/setting/cambiar-avatar/<%=locals.userLogged.id %>?_method=PUT" method="post" enctype="multipart/form-data">                
+                
+                <div class="contenedor-input">
+
+                    <label class="label" for="avatarNuevo">Ingrese su nuevo avatar</label>
+                    
+                    <input class="inputAvatar" name="avatarNuevo" id="avatarNuevo" type="file">
+
+                    <% if(locals.errors){ %>
+                        <div class="texto-errorValidacion maxWidth">
+                            <%= errors.msg %>
+                        </div>
+                    <% } %>
+
+                    <div>
+                        <button class="btn" type="submit">Actualizar</button> 
+                    </div>
+                </div>
+            </form>
+
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

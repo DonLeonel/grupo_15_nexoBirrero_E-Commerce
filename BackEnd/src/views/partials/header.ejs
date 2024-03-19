@@ -1,0 +1,48 @@
+<header class="encabezado">
+    <a class="enc-logo" href="/">
+        <img class="logo" src="/img/logo-nexo-birrero.png" alt="Logo-nexoBirrero">
+    </a>
+    <form action="/search" method="GET" class="enc-busqueda">
+        <input class="search" title="search" type="text" id="search" name="search"
+            placeholder="Busque su producto aquí">
+        <button id="searchBtn" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+    <nav class="enc-navbar">
+        <a class="enc-carrito" href="/productos/carrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <ul>
+            <li class="dropdown">
+                <a class="dropdown-toggle" role="button">
+                    <% if (locals.isLogged){ %>
+                        <%= locals.userLogged.nombre %>
+                    <% } else { %>
+                        Cuenta
+                    <% } %>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <% if(locals.isLogged){ %>
+                        <li>
+                            <a href="/usuario/setting">Configuración</a>
+                        </li>
+                        <% if(locals.userLogged.rolId == 2){ %>
+                            <hr>
+                            <li>
+                                <a href="/productos/administrar">Administrar</a>
+                            </li>
+                        <% } %>
+                    <% } else { %>
+                        <li>
+                            <a href="/usuario/login">Iniciar Sesión</a>
+                        </li>
+                        <hr>
+                        <li>
+                            <a href="/usuario/register">Registrarse</a>
+                        </li>
+                    <% } %>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>

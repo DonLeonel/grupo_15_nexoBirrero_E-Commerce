@@ -1,0 +1,31 @@
+.principa-administrar{
+    width: 100%;
+    margin: 4rem 0;       
+}
+
+.table{
+    width: 100%;
+    text-align: center;
+    padding-left: 10px;
+}
+
+.acciones{
+    padding: 30px 15px;
+}
+
+.btn-nuevo-producto{
+    text-decoration: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+}
+
+.btn-nuevo-producto:hover{
+    border-color: blue;
+    color: blue;
+}
+
+.td a{
+    color: black;
+}

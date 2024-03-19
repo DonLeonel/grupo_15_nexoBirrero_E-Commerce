@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Incluimos el head y le pasamos un obj literal con el titulo y el nombre del archivo css -->
+<%- include('../partials/head', {title: 'Home' , fileCss: 'home' , otherCss: false })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('../partials/header')%>
+
+            <section class="cont-banner">
+                <img class="banner" src="/img/banner1.png" alt="banner">
+            </section>
+
+            <main class="principal">
+
+                <h2 class="titulo-seccion">CATEGORÍAS</h2>            
+                
+                <section class="categorias">
+                <% categorias && categorias.forEach((categ) => { %>                      
+                        <article class="categ-producto">                            
+                            <a href="/productos/categoria/<%=categ.id%>">
+                                <img class="img-categ" src="/img/productos/categorias/Categoria.jpg" alt="imagen categoría">
+                                <div class="descripcion"><%= categ.nombre %></div>
+                            </a>
+                        </article>                  
+                    <% }) %>                
+                </section>
+
+                <h2 class="titulo-seccion-destacados">PRODUCTOS DESTACADOS</h2>
+
+                <section class="destacados">
+                    <% for(let i=0; i < productos.length ; i++) {%>
+                        <article class="dest-producto">
+                            <a href="/productos/detalle/<%= productos[i].id %>">
+                                <img class="img-categ" src="/img/productos/<%= productos[i].img %>"
+                                    alt="imagen categoria">
+                                <div class="caja-descripcion">
+                                    <div class="descripcion">
+                                        <%= productos[i].nombre %>
+                                    </div>
+                                    <div class="descripcion">
+                                        <%= productos[i].variedad %>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                        <% } %>
+                </section>
+            </main>
+
+            <!-- Incluimos el footer a nuestro body -->
+            <%-include('../partials/footer')%>
+    </body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head', {title: 'Detalle Producto' , fileCss: 'detalle-producto' , otherCss: false })%>
+
+    <body>
+        <!-- Incluimos el header en el body -->
+        <%-include('../partials/header')%>
+
+            <main class="principal-detalle">
+
+                <div class="section-padre">
+
+                    <section class="section-imagen-main">
+                        <img class="img-main" src="/img/productos/<%= miProducto.img %>" alt="imagen producto">
+                    </section>
+
+                    <section class="section-padre-detalles">
+
+                        <section class="section-detalles">
+
+                            <div id="nombre-producto">Nombre: <%= miProducto.nombre %></div>
+                            <div id="precio">Precio: $<%= miProducto.precio %></div>                                             
+                            <div id="descripcion">
+                                Categoría: <%= miProducto.categoria.nombre %>
+                            </div>                           
+                            <div id="descripcion">
+                                Variedad: <%= miProducto.variedad %>
+                            </div>                           
+                            <div id="descripcion">
+                                Cervecera: <%= miProducto.cervecera %>
+                            </div>      
+                            <div id="descripcion">
+                                Volumen Contenido: <%= miProducto.volContenido%> Ml.
+                            </div>    
+                            <div id="descripcion">
+                                Graduación Alcohólica: <%= miProducto.graduacion%>
+                            </div>                            
+
+                            <div id="descripcion">
+                                <%= miProducto.descripcion %>
+                            </div>         
+
+                        </section>
+
+                        <section class="section-comprar">
+                            <button id="comprar">Comprar</button>
+                            <button id="agregar-carrito">Agregar al carrito</button>
+                        </section>
+
+                    </section>
+                
+                </div>    
+
+            </main>
+
+            <!-- Incluimos el footer en el body -->
+            <%-include('../partials/footer')%>
+    </body>
+
+</html>

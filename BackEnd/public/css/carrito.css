@@ -1,0 +1,178 @@
+main {    
+    padding: 20px;
+}
+
+.section-producto {}
+
+.producto {
+    background-color: white;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px black;
+
+    min-width: 250px;
+}
+
+.section-comprar {
+    background-color: white;
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.section-imagen {
+    text-align: center;
+}
+
+.img-categ {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.section-informacion {
+    position: relative;
+}
+
+.section-precios {
+    width: 80%;
+    padding: 20px;
+}
+
+
+/* css botones agregar +1 y quitar -1 cantidad */
+.opc-add-remov {
+    position: absolute;
+    right: 13px;
+    bottom: 40px;
+    padding: 5px;
+    border: 2px #E2E0E0 solid;
+    border-radius: 10px;
+    width: 80px;
+    text-align: center;
+}
+
+.btn-add,
+.btn-remove{
+    border: none;
+    padding: 7px;
+    cursor: pointer;
+    font-size: 8px;
+}
+
+/* css boton delete */
+.btn-delete {
+    position: absolute;
+    right: 38px;
+    bottom: 15px;
+
+    cursor: pointer;
+    border: none;
+}
+
+.btn-delete i {
+    font-size: 1.1rem;
+}
+
+.btn-delete:hover{
+    color: red;
+}
+
+/* ----------------------------------  */
+
+#resumen-de-compra {
+    text-align: center;
+    padding: 10px;
+}
+
+.resumen-producto {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: solid 2px #E2E0E0;
+}
+
+#total-comprar {
+    border-top: solid 2px #E2E0E0;
+}
+
+#total {
+    text-align: center;
+    padding: 10px;
+}
+
+#comprar {
+    background-color: #0096d2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+#comprar:hover {
+    background-color: #34bbe9;
+}
+
+
+@media (min-width: 480px) {
+    .producto {
+        display: flex;        
+        align-items: center;
+    }
+
+    .section-informacion {
+        border-top: none;
+        border-left: solid 2px #E2E0E0;
+        width: 50%;
+    }
+
+    .section-imagen {
+        width: 40%;
+    }
+
+    /* css botones agregar +1 y quitar -1 cantidad */
+    .opc-add-remov {        
+        right: -33px;
+        bottom: 40px;        
+        width: 70px;
+    }
+    
+    .btn-add,
+    .btn-remove{
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        font-size: 8px;
+    }
+    
+    .btn-delete {        
+        right: -5px;
+        bottom: 7px;   
+    }
+}
+
+@media (min-width: 768px) {
+
+    .section-productos {
+        width: 60%;
+    }
+
+    .producto {
+        width: 80%;
+    }
+
+    .section-comprar {
+        width: 30%;
+    }
+
+    main {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
