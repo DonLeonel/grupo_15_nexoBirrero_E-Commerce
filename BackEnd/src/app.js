@@ -13,6 +13,7 @@ const usuarioRouter = require('./routes/usuarioRouter')
 const productoRouter = require('./routes/productosRouter')
 //Requerimos las rutas para las APIS.
 const apiUsuariosRouter = require('./routes/api/usuariosAPIRouter');
+const apiProductosRouter = require('./routes/api/productosAPIRouter');
 
 //Seteamos que motor de plantilla usaremos y donde encontrar las Views
 app.set('view engine', 'ejs');
@@ -38,6 +39,7 @@ app.use('/usuario',usuarioRouter);
 app.use('/productos',productoRouter);
 //Usamos las rutas para las APIS
 app.use('/api', apiUsuariosRouter);
+app.use('/api', apiProductosRouter);
 
 //Seteamos la pagina 404
 app.get('*', (req, res) => {
