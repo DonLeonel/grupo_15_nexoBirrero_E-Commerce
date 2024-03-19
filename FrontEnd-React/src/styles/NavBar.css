@@ -1,0 +1,9 @@
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.navbar ul li{
+    list-style: none;
+}
