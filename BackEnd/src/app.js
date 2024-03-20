@@ -6,6 +6,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const userLogged = require('./middlewares/validacionUserLogged'); //Middleware de aplicación
 const recordarme = require('./middlewares/recordarme'); //Middleware de aplicación
+const cors = require('cors')
 
 //Requerimos las rutas.
 const homeRouter = require('./routes/homeRouter');
@@ -32,6 +33,7 @@ app.use(methodOverride('_method'));
 app.use(cookieParser())
 app.use(recordarme);
 app.use(userLogged);
+app.use(cors())
 
 //Usamos las rutas
 app.use('/', homeRouter);
