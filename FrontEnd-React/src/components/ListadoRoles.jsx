@@ -8,7 +8,7 @@ export const ListadoRoles = () => {
 
   return (
     <>
-      {loading ? <h4 className="loading"> Cargando... </h4>
+      {loading ?  <h4 className='loading'> Cargando... </h4>
        :  <table className="table">
           <thead>
             <tr>

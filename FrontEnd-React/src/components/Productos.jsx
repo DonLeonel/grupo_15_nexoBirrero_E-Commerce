@@ -3,6 +3,8 @@ import { ListadoProductos } from './ListadoProductos'
 import { Routes, Route } from 'react-router-dom'
 import { MenuLateral } from './MenuLateral'
 import { ListadoCategorias } from './ListadoCategorias'
+import { DetallesProductos } from './DetallesProductos'
+
 
 export const Productos = () => {
     return (
@@ -16,6 +18,7 @@ export const Productos = () => {
             <Routes>
                 <Route path='/listado' element={<ListadoProductos />} />
                 <Route path='/categorias' element={<ListadoCategorias />} />
+                <Route path='/listado/detalle/:id' element={<DetallesProductos />}/>
             </Routes>
         </>
     )
