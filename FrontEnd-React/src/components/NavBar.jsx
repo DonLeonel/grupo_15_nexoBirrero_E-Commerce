@@ -9,14 +9,14 @@ export const NavBar = () => {
             <div className='caja-logo-react'> 
                 <Link to='/'><img src={logo}/></Link>
             </div>
-            <ul>
-                <li>
-                    <Link to="/usuarios">Usuarios</Link>
-                </li>
-                <li>
-                    <Link to="/productos">Productos</Link>
-                </li>
-            </ul>
+            <section>
+                <div>
+                    <Link to="/usuarios" className="react-link">Usuarios</Link>
+                </div>
+                <div>
+                    <Link to="/productos" className="react-link">Productos</Link>
+                </div>
+            </section>
         </nav>
     )
 }

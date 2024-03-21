@@ -1,10 +1,13 @@
 import React from 'react'
+import banner from "../assets/beer-wallpaper.jpg"
 
 export const Inicio = () => {
     return (
-        <div className="inicio">
-            <div>Bienvenidos al Dashboard</div>
-            <div>nexoBirrero</div>
+        <div>
+            <div className="container">
+                <img src={banner} alt="" />
+                <h1>Bienvenido al Dashboard de Nexo Birrero</h1>
+            </div>
         </div>
     )
 }

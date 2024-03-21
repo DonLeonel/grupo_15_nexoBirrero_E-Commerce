@@ -4,13 +4,12 @@
     padding: 0;
 }
 
-.inicio {
-    text-align: center;
-}
+
 
 /* De aqui, para abajo, se encuentran los estilos del NavBar */
 
 .navbar {
+    padding: 1rem;
     background-color: #353535;
 }
 
@@ -21,33 +20,124 @@
 
 .caja-logo-react img {
     width: 40%;
-    margin-bottom: 1rem;
     filter: invert(1);
 }
 
-.navbar ul {
-    justify-content: center;
-    gap: 2rem;
+.navbar section {
+    display: flex;
+    gap: 0.5rem;
     margin: auto;
 }
 
-.navbar ul li{
-    list-style: none;
+.navbar section div{
+    background-color: #0096d2;
+    padding: 5px;
+    margin: 10px auto;
+    border-radius: 10px;
 }
+
+.navbar section div:hover {
+    background-color: #34bbe9;
+}
+
+.react-link {
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/* De aqui, para abajo, se encuentran los estilos del contenido del body, en el home */
+
+.container {
+    max-width: 100%;
+    padding: 0;
+}
+
+.container img {
+    display: none;
+    max-width: 100%;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 2rem;
+    padding: 3rem;
+    padding-top: 10rem;
+}
+
+
 
 /* De aqui, para abajo, se encuentran los estilos de la Tabla */
 
 
 
-@media(min-width: 768px) {
+
+@media(min-width: 800px) {
+
+
+    
+    /* NavBar */
+
+    .navbar {
+        justify-content: space-around;
+    }
     
     .caja-logo-react {
         width: 10%;
-        margin-left: 3rem;
+        padding: 0;
+        /*margin-left: 3rem;*/
     }
 
     .caja-logo-react img {
-            margin-bottom: 0%;
-            width: 100%;
+        margin-bottom: 0;
+        width: 100%;
+    }
+
+    .navbar section {
+        margin: 0;
+    }
+
+
+
+    /* Body */
+
+    .container {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .container img {
+        
+        display: block;
+    }
+
+    .container h1 {
+        font-size: 2rem;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-103%, -65%);
+        text-shadow: 0 0 8px black;
+    }
+}
+
+
+
+@media(min-width: 1024px) {
+
+    .container h1 {
+        font-size: 3rem;
+    }
+}
+
+
+
+@media(min-width: 1024px) {
+
+    .container h1 {
+        top: 50%;
+        left: 55%;
     }
 }
