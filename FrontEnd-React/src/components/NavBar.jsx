@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import "../styles/NavBar.css"
+import "../styles/EstiloGlobal.css"
+import logo from "../assets/logo-nexo-birrero.png"
 
 export const NavBar = () => {
     return (
         <nav className="navbar">
-            <div className='logo'>
-                <Link to='/'>LOGO</Link>
+            <div className='caja-logo-react'> 
+                <Link to='/'><img src={logo}/></Link>
             </div>
             <ul>
                 <li>
@@ -19,4 +20,3 @@ export const NavBar = () => {
         </nav>
     )
 }
-
