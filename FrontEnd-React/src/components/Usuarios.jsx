@@ -14,11 +14,6 @@ export const Usuarios = () => {
         to2={'/usuarios/roles'}
         nombre1={'Listados'}
         nombre2={'Roles'}
-      <MenuLateral
-        to1={'/usuarios/listado'}
-        to2={'/usuarios/roles'}
-        nombre1={'Listados'}
-        nombre2={'Roles'}
       />
       <Routes>
         <Route path='/listado' element={<ListadoUsuarios />} />
