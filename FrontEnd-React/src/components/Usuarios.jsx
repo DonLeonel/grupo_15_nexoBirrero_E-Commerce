@@ -16,7 +16,7 @@ export const Usuarios = () => {
     <Routes>
     <Route path='/listado' element={<ListadoUsuarios />} />
     <Route path='/roles' element={<ListadoRoles />} />
-</Routes>
+  </Routes>
       </>
   )
 }
