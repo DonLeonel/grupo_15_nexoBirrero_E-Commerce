@@ -8,6 +8,7 @@ export const ListadoProductos = () => {
 
     return (
         <>
+            <h3>Listado de Usuarios</h3>
             {loading ? <h4 className='loading'> Cargando... </h4>
                 : <table className="table">
                     <thead>
@@ -30,9 +31,10 @@ export const ListadoProductos = () => {
                                         <td>{p.cervecera}</td>
                                         <td>{p.volContenido} ml.</td>
                                         <td>{p.graduacion}</td>
-                                        <td><Link to={`/productos/listado/detalle/${p.id}`}><i className="fa-regular fa-eye"></i></Link></td>
+                                        <td><Link to={`/productos/detalle/${p.id}`}><i className="fa-regular fa-eye"></i></Link></td>
                                     </tr>
-                                )})
+                                )
+                            })
                         }
                     </tbody>
                 </table>

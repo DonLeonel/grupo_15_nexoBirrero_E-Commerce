@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { MenuLateral } from './MenuLateral'
 import { ListadoCategorias } from './ListadoCategorias'
 import { DetallesProductos } from './DetallesProductos'
-
+import { ProductosXCategorias } from './ProductosXCategorias'
 
 export const Productos = () => {
     return (
@@ -18,7 +18,8 @@ export const Productos = () => {
             <Routes>
                 <Route path='/listado' element={<ListadoProductos />} />
                 <Route path='/categorias' element={<ListadoCategorias />} />
-                <Route path='/listado/detalle/:id' element={<DetallesProductos />}/>
+                <Route path='/categorias/detalle/:id' element={<ProductosXCategorias />} />
+                <Route path='/detalle/:id' element={<DetallesProductos />} />
             </Routes>
         </>
     )

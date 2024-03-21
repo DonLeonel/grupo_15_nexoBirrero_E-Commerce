@@ -8,8 +8,9 @@ export const ListadoRoles = () => {
 
   return (
     <>
-      {loading ?  <h4 className='loading'> Cargando... </h4>
-       :  <table className="table">
+      <h3>Listado de Roles</h3>
+      {loading ? <h4 className='loading'> Cargando... </h4>
+        : <table className="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -22,19 +23,19 @@ export const ListadoRoles = () => {
             {error
               ? console.error("algo salio mal al mostrar los usuarios", error)
               : data.data.map((r) => {
-                  return (
-                    <tr key={r.id}>
-                      <th scope="row">{r.id}</th>
-                      <td>{r.nombre}</td>
-                      <td>{r.descripcion}</td>
-                      <td>
-                        <Link to={`/rol/listado/detalle/${r.id}`}>
-                          <i className="fa-regular fa-eye"></i>
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
+                return (
+                  <tr key={r.id}>
+                    <th scope="row">{r.id}</th>
+                    <td>{r.nombre}</td>
+                    <td>{r.descripcion}</td>
+                    <td>
+                      <Link to={`/usuarios/roles/detalle/${r.id}`}>
+                        <i className="fa-regular fa-eye"></i>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       }

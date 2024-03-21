@@ -3,22 +3,23 @@ import { useFetch } from "../hooks/useFetch"
 
 export const DetallesProductos = () => {
 
-  const { id } = useParams();  
-  const _DTLLE_PRODUCTO = `http://localhost:3000/api/producto/${id}`
-  const { data, loading, error } = useFetch(_DTLLE_PRODUCTO);
+  const { id } = useParams();
+  const _URL_DETALLE_PRODUCTO = `http://localhost:3000/api/producto/${id}`
+  const { data, loading, error } = useFetch(_URL_DETALLE_PRODUCTO);
 
   return (
     <>
+      <h3>Listado de Productos</h3>
       {loading ? <h4 className="loading"> Cargando... </h4>
-        : error ? console.error('No se pudo mostrar el detalle del producto',error)
+        : error ? console.error('No se pudo mostrar el detalle del producto', error)
           : <div className="contenedorDetalles">
-            <div className="nombre-producto">
+            <div className="descripcion">
               Nombre: {data.data.nombre}
             </div>
             <div className="descripcion">
-              Categoría: {data.data.descripcion}
+              Descripción: {data.data.descripcion}
             </div>
-            <div className="precio">
+            <div className="descripcion">
               Precio: ${data.data.precio}
             </div>
             <div className="descripcion">

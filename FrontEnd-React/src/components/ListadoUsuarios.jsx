@@ -7,6 +7,7 @@ export const ListadoUsuarios = () => {
 
   return (
     <>
+      <h3>Listado de Usuarios</h3>
       {loading ? (
         <h4 className="loading"> Cargando... </h4>
       ) : (
@@ -17,7 +18,7 @@ export const ListadoUsuarios = () => {
               <th scope="col">Nombre</th>
               <th scope="col">Apellido</th>
               <th scope="col">Correo</th>
-              {/* <th scope="col">Telefono</th> */}
+
               <th scope="col">Ver Detalle</th>
             </tr>
           </thead>
@@ -25,21 +26,20 @@ export const ListadoUsuarios = () => {
             {error
               ? console.error("algo salio mal al mostrar los usuarios", error)
               : data.data.map((u) => {
-                  return (
-                    <tr key={u.id}>
-                      <th scope="row">{u.id}</th>
-                      <td>{u.nombre}</td>
-                      <td>{u.apellido}</td>
-                      <td>{u.correo}</td>
-                      {/* <td>{u.telefono}</td> */}
-                      <td>
-                        <Link to={`/usuario/listado/detalle/${u.id}`}>
-                          <i className="fa-regular fa-eye"></i>
-                        </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
+                return (
+                  <tr key={u.id}>
+                    <th scope="row">{u.id}</th>
+                    <td>{u.nombre}</td>
+                    <td>{u.apellido}</td>
+                    <td>{u.correo}</td>
+                    <td>
+                      <Link to={`/usuarios/detalle/${u.id}`}>
+                        <i className="fa-regular fa-eye"></i>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       )}
