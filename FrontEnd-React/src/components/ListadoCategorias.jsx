@@ -1,5 +1,6 @@
 import React from 'react'
 import { useFetch } from '../hooks/useFetch'
+import { Link } from 'react-router-dom'
 
 export const ListadoCategorias = () => {
 
@@ -28,7 +29,7 @@ export const ListadoCategorias = () => {
                       <td>{c.nombre}</td>
                       <td>{c.descripcion}</td>
                       <td>
-                        <Link to={`/categoria/listado/detalle/${c.id}`}>
+                        <Link to={`/categorias/listado/detalle/${c.id}`}>
                           <i className="fa-regular fa-eye"></i>
                         </Link>
                       </td>
