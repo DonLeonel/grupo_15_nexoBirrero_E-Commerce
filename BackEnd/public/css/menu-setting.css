@@ -3,7 +3,8 @@
 .principal-config {
     padding: 5px; 
     text-align: center;
-    border-bottom: gray 2px solid;                   
+    /* border-bottom: gray 2px solid; */  
+    margin-top: auto;                
 }
 
 .menu-lateral, .card-user {

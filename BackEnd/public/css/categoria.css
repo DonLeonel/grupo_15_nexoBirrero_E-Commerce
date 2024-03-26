@@ -5,12 +5,16 @@ main .productos {
 
 .item-producto {
     width: 90%;
-    border: black solid 1px;
-    box-shadow: 0px 0px 4px black;
+    border: solid 1px grey;
     border-radius: 10px;
-    margin: 1rem auto;
-
+    margin: 20px 10px;
     position: relative;
+
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    transition: 0.5s;
+    overflow: hidden;
 }
 
 .item-producto a {
@@ -19,13 +23,19 @@ main .productos {
 }
 
 .item-producto:hover {
-    scale: 1.1;
+    border: solid 1px white;
+    box-shadow: 0px 0px 10px grey;
 }
 
 .item-producto a img {
     padding: 5px;
     border-radius: 10px;
     width: 100%;
+    transition: 0.5s;
+    object-fit: cover;
+}
+.item-producto a img:hover {
+    transform: scale(0.95);
 }
 
 .item-producto a .descripcion {
@@ -115,5 +125,9 @@ main .productos {
 @media(min-width: 1200px) {
     .item-producto {
         width: 23%;
+    }
+
+    .principal-detalle {
+        margin-top: auto;
     }
 }

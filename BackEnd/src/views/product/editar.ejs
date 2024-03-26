@@ -6,7 +6,7 @@
         <%-include('../partials/header.ejs')%>
                                                                     <!-- ?_method=PUT   enctype="multipart/form-data"-->
             <main>
-                <h3 class="titulo-page">Editar producto.</h3>
+                <h3 class="titulo-page">Editar Producto</h3>
                 <form class="form-registro" action="/productos/actualizar/<%= producto.id%>?_method=PUT" method="post" enctype="multipart/form-data">
                     
                     <div>
@@ -18,7 +18,7 @@
                         <label for="cervecera">Cervecera</label>                        
                         <textarea class="text-area" name="cervecera" id="cervecera" cols="45" rows="1"><%=producto.cervecera%></textarea>
                     </div>
-                                  
+                    
                     <div>
                         <label for="categoriaId">Seleccione la categoría</label>
                         <select name="categoriaId" id="categoriaId" >                            

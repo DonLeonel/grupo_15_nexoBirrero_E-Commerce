@@ -7,7 +7,7 @@
         <%-include('../partials/header')%>
 
             <main class="adminDetalle-Principal">
-                <h3 class="titulo-page">Detalle producto.</h3>
+                <h3 class="titulo-page">Detalle de Producto</h3>
                 <article>
                     <picture>
                         <img src="/img/productos/<%= miProducto.img %>" alt="imagen del producto">
@@ -19,7 +19,7 @@
                         </p>
                         <p><span>Categoria: </span>
                             <!-- Aca accedemos a el modelo Categoria llamando por el As. -->
-                             <%= miProducto.categoria.nombre %>  
+                            <%= miProducto.categoria.nombre %>  
                         </p>
                         <p><span>Variedad:</span>
                             <%= miProducto.variedad%>

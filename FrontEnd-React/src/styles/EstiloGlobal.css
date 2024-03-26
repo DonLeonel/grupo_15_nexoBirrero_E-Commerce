@@ -5,8 +5,7 @@
 }
 
 
-
-/* De aqui, para abajo, se encuentran los estilos del NavBar */
+/* De aqui para abajo, se encuentran los estilos del NavBar */
 
 .navbar {
     padding: 1rem;
@@ -29,14 +28,20 @@
     margin: auto;
 }
 
-.navbar section div{
+
+
+/* De aqui para abajo, se encuentran los estilos de los botones azules */
+
+.navbar section div,
+.menuLateral section div {
     background-color: #0096d2;
     padding: 5px;
     margin: 10px auto;
     border-radius: 10px;
 }
 
-.navbar section div:hover {
+.navbar section div:hover,
+.menuLateral section div:hover {
     background-color: #34bbe9;
 }
 
@@ -47,7 +52,7 @@
 
 
 
-/* De aqui, para abajo, se encuentran los estilos del contenido del body, en el home */
+/* De aqui, para abajo, se encuentran los estilos del inicio */
 
 .container {
     max-width: 100%;
@@ -68,9 +73,20 @@
 
 
 
+/* De aqui para abajo, se encuentran los estilos del menu lateral (usuarios y productos) */
+
+.menuLateral {
+    text-align: center;
+    padding: 2rem;
+}
+
+
+
 /* De aqui, para abajo, se encuentran los estilos de la Tabla */
 
-
+.table thead {
+    max-width: 100%;
+}
 
 
 @media(min-width: 800px) {

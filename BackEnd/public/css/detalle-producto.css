@@ -75,6 +75,10 @@
 
 @media (min-width: 783px) {
 
+    .principal-detalle {
+        margin-top: auto;
+    }
+
     .section-padre {
         display: flex;
         width: 80%;

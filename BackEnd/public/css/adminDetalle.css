@@ -1,5 +1,6 @@
 .adminDetalle-Principal{
     margin: 2rem;    
+    margin-top: auto;
 }
 
 article{
@@ -39,3 +40,4 @@ p span {
     text-decoration: none;
     font-size: 14px;
 }
+
