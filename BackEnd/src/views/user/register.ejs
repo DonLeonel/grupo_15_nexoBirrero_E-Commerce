@@ -10,6 +10,9 @@
                 <h3 class="titulo-page">Registrarse.</h3>
                 <h3 class="titulo-page">¡Completá el formulario!</h3>
 
+                <div class="errores">
+                    <ul></ul>
+                </div>
                 <form method="post" class="form-register" action="/usuario/register">
 
                     <div class="nombre">
@@ -20,6 +23,10 @@
                             id="nombre"
                             value= "<%= locals.oldData ? oldData.nombre : null %>"
                         >
+                        <div class="caja-marks">
+                            <img src="/img/red-x-mark.png" alt="" id="red-mark" class="mark">
+                            <img src="/img/blue-check-mark.png" alt="" id="blue-mark" class="mark">
+                        </div>
                         <% if(locals.errors && errors.nombre){ %>
                             <div class="texto-errorValidacion maxWidth">
                                 <%= errors.nombre.msg %>
@@ -35,6 +42,10 @@
                             id="apellido"
                             value= "<%= locals.oldData ? oldData.apellido : null %>"
                         >
+                        <div class="caja-marks">
+                            <img src="/img/red-x-mark.png" alt="" id="red-mark-2" class="mark">
+                            <img src="/img/blue-check-mark.png" alt="" id="blue-mark-2" class="mark">
+                        </div>
                         <% if(locals.errors && errors.apellido){ %>
                             <div class="texto-errorValidacion maxWidth">
                                 <%= errors.apellido.msg %>
@@ -46,10 +57,14 @@
                         <label for="correo">Correo Electrónico</label>
                         <input 
                             type="email" 
-                                name="correo" 
-                                id="correo"
-                                value= "<%= locals.oldData ? oldData.correo : null %>"
-                            >
+                            name="correo" 
+                            id="correo"
+                            value= "<%= locals.oldData ? oldData.correo : null %>"
+                        >
+                        <div class="caja-marks">
+                            <img src="/img/red-x-mark.png" alt="" id="red-mark-3" class="mark">
+                            <img src="/img/blue-check-mark.png" alt="" id="blue-mark-3" class="mark">
+                        </div>
                         <% if(locals.errors && errors.correo){ %>
                             <div class="texto-errorValidacion maxWidth">
                                 <%= errors.correo.msg %>
@@ -60,7 +75,10 @@
                     <div class="password">
                         <label for="password">Contraseña</label>
                         <input 
-                        type="password" name="password" id="password">
+                            type="password"
+                            name="password" 
+                            id="password"
+                        >
                         <% if(locals.errors && errors.password){ %>
                             <div class="texto-errorValidacion maxWidth">
                                 <%= errors.password.msg %>
@@ -70,7 +88,11 @@
                                         
                     <div class="confirmarPassword">
                         <label for="confirmarPassword">Confirmar Contraseña</label>
-                        <input type="password" name="confirmarPassword" id="confirmarPassword">
+                        <input 
+                            type="password" 
+                            name="confirmarPassword" 
+                            id="confirmarPassword"
+                        >
                         <% if(locals.errors && errors.confirmarPassword){ %>
                             <div class="texto-errorValidacion maxWidth">
                                 <%= errors.confirmarPassword.msg %>
@@ -86,6 +108,7 @@
             </main>
 
             <%-include('../partials/footer')%>
+        <script src="/js/formulario.js"></script>    
     </body>
 
 </html>

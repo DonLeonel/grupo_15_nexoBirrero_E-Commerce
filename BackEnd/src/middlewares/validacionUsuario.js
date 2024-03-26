@@ -3,9 +3,13 @@ const { Usuario } = require('../database/models');
 
 //Verifica que los campos de un formulario sean ingresados de manera correcta
 module.exports = [
-    body('nombre').notEmpty().withMessage('El campo nombre no debe estar vacío.'),
+    body('nombre')
+        .notEmpty().withMessage('El campo nombre no debe estar vacío.')
+        .isAlpha().withMessage('Solo debe tener letras.'),
 
-    body('apellido').notEmpty().withMessage('El campo apellido no debe estar vacío.'),
+    body('apellido')
+        .notEmpty().withMessage('El campo apellido no debe estar vacío.')
+        .isAlpha().withMessage('Solo debe tener letras.'),
 
     body('correo')
     .notEmpty().withMessage('El campo correo no debe estar vacío.')
@@ -35,7 +39,7 @@ module.exports = [
     }).withMessage('El correo ya se encuentra en uso.'),
 
     body('password')
-        .notEmpty().withMessage('EL campo contraseña no debe estar vacío.').bail()
+        .notEmpty().withMessage('El campo contraseña no debe estar vacío.').bail()
         .isLength({ min: 6 }).withMessage('Debe contener como mínimo 6 caracteres.'),
 
     body('confirmarPassword')

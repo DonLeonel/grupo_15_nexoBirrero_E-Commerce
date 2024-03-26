@@ -18,7 +18,7 @@ router.put('/setting/cambiar-contrasenia/:id', validacionUsuario, usuarioControl
 router.get('/setting/cambiar-avatar', validacionAuth, usuarioController.cambiarAvatarView);
 router.put('/setting/cambiar-avatar/:id', uploadFile.single('avatarNuevo'), usuarioController.updateAvatar);
 
-router.get("/register", validacionGuest, usuarioController.registerView)
+router.get("/register", usuarioController.registerView)
 router.post('/register', validacionUsuario, usuarioController.save);
 
 router.get('/login', validacionGuest, usuarioController.loginView);
