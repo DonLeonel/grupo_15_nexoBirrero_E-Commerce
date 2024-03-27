@@ -174,7 +174,7 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy();
         if(req.cookies.recordarme){
-            res.clearCookie('recordarme', { maxAge: (1000 * 60) });
+            res.clearCookie('recordarme', { maxAge: (1000 * 60 * 60) });
         }
         return res.redirect('/');
     }
