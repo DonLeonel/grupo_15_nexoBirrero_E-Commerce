@@ -143,7 +143,9 @@ module.exports = {
             });
 
             if (usuarioALoguear) {
+
                 const coincide = bcrypt.compareSync(req.body.password, usuarioALoguear.contrasenia); //Comparamos la contraseña ingresada, con la contraseña (hasheada) del usuario
+                
                 if (coincide) {
                     delete usuarioALoguear.password; //Borramos la contraseña del objeto literal, ya que no nos interesa     
                     req.session.userLogged = usuarioALoguear; //Guardamos en req.session.userLogged, el objeto literal del usuario logueado
@@ -171,6 +173,9 @@ module.exports = {
 
     logout: (req, res) => {
         req.session.destroy();
+        if(req.cookies.recordarme){
+            res.clearCookie('recordarme', { maxAge: (1000 * 60) });
+        }
         return res.redirect('/');
     }
 }
