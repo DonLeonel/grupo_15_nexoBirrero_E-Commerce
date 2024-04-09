@@ -8,7 +8,7 @@ export const ProductosXCategorias = () => {
 
     return (
         <>
-            <h3>Productos con categoría {data && data.data.nombre}</h3>
+            <h3 className='tituloPage'>Productos con categoría {data && data.data.nombre}</h3>
             {loading ? <h4 className='loading'> Cargando... </h4>
                 : <table className="table">
                     <thead>

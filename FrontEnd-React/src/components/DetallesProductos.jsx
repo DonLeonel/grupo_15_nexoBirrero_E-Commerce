@@ -9,33 +9,33 @@ export const DetallesProductos = () => {
 
   return (
     <>
-      <h3>Listado de Productos</h3>
+      <h3 className="tituloPage">Listado de Productos</h3>
       {loading ? <h4 className="loading"> Cargando... </h4>
         : error ? console.error('No se pudo mostrar el detalle del producto', error)
           : <div className="contenedorDetalles">
             <div className="descripcion">
-              Nombre: {data.data.nombre}
+            <span className="campo">Nombre:</span> {data.data.nombre}
             </div>
             <div className="descripcion">
-              Descripción: {data.data.descripcion}
+            <span className="campo">Descripción:</span> {data.data.descripcion}
             </div>
             <div className="descripcion">
-              Precio: ${data.data.precio}
+            <span className="campo">Precio:</span> ${data.data.precio}
             </div>
             <div className="descripcion">
-              Categoria: {data.data.categoria.nombre}
+            <span className="campo">Categoria:</span> {data.data.categoria.nombre}
             </div>
             <div id="descripcion">
-              Variedad: {data.data.variedad}
+            <span className="campo">Variedad:</span> {data.data.variedad}
             </div>
             <div className="descripcion">
-              Cervecera: {data.data.cervecera}
+            <span className="campo">Cervecera:</span> {data.data.cervecera}
             </div>
             <div className="descripcion">
-              Graduación Alcohólica: {data.data.graduacion}
+            <span className="campo">Graduación Alcohólica:</span> {data.data.graduacion}
             </div>
             <div className="descripcion">
-              Volumen Contenido: {data.data.volContenido} Ml.
+            <span className="campo">Volumen Contenido:</span> {data.data.volContenido} Ml.
             </div>
           </div>
       }

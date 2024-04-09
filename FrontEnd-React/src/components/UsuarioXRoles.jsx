@@ -10,7 +10,7 @@ export const UsuarioXRoles = () => {
 
   return (
     <>
-      <h3>Usuarios con rol {data && data.data.nombre}</h3>
+      <h3 className='tituloPage'>Usuarios con rol {data && data.data.nombre}</h3>
       {loading ? <h4 className='loading'> Cargando... </h4>
         : <table className="table">
           <thead>

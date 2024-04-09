@@ -1,0 +1,13 @@
+.contenedorDetalles {
+    padding: 20px;
+    border: 1px black solid;
+    border-radius: 10px;
+    width: 40%;
+    margin: auto;
+}
+
+.campo{
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 5px;
+}

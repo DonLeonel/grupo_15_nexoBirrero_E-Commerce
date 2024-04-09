@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch"
+import '../styles/detalleUserYProduct.css'
 
 export const DetallesUsuarios = () => {
 
@@ -8,31 +9,31 @@ export const DetallesUsuarios = () => {
     const { data, loading, error } = useFetch(_URL_DETALLE_USUARIO);
 
     return (
-        <>  
-            <h3>Detalle de Usuario</h3>
+        <>
+            <h3 className="tituloPage">Detalle de Usuario</h3>
             {loading ? <h4 className="loading"> Cargando... </h4>
                 : error ? console.error('No se pudo mostrar el detalle del usuario', error)
                     : <div className="contenedorDetalles">
                         <div className="descripcion">
-                            Nombre: {data.data.nombre}
+                            <span className="campo">Nombre:</span> {data.data.nombre}
                         </div>
                         <div className="descripcion">
-                            Apellido: {data.data.apellido}
+                            <span className="campo">Apellido:</span> {data.data.apellido}
                         </div>
                         <div className="descripcion">
-                            Correo: {data.data.correo}
+                            <span className="campo">Correo: </span>{data.data.correo}
                         </div>
                         <div className="descripcion">
-                            Rol: {data.data.rol.nombre}
+                            <span className="campo">Rol:</span> {data.data.rol.nombre}
                         </div>
                         <div id="descripcion">
-                            Ciudad: {data.data.ciudad || 'Sin Ciudad'}
+                            <span className="campo">Ciudad:</span> {data.data.ciudad || 'Sin Ciudad'}
                         </div>
                         <div className="descripcion">
-                            Telefono: {data.data.telefono || 'Sin teléfono'}
+                            <span className="campo">Telefono:</span> {data.data.telefono || 'Sin teléfono'}
                         </div>
                         <div className="descripcion">
-                            Fecha Nacimiento: {data.data.fechaNac || 'Sin fecha'}
+                            <span className="campo">Fecha Nacimiento:</span> {data.data.fechaNac || 'Sin fecha'}
                         </div>
                     </div>
             }

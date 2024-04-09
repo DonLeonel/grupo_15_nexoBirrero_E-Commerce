@@ -9,7 +9,7 @@ export const ListadoCategorias = () => {
 
   return (
     <>
-      <h3>Listado de Categorías</h3>
+      <h3 className='tituloPage'>Listado de Categorías</h3>
       {loading ? <h4 className="loading"> Cargando... </h4>
         : <table className="table">
           <thead>

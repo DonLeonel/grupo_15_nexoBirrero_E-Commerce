@@ -1,0 +1,20 @@
+.boxContainer{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.boxCount{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-bottom: 25px;    
+    box-shadow: 0px 0px 10px -1px black;
+}
+
+.boxCount p i {
+    font-size: 25px;
+}
